@@ -9,25 +9,25 @@ var TVTSkyScraperBeauties = IgeEntity.extend({
             gameTexture = [];
 
             this.obj = [];
-	    // The closed lobby
+	    // a small banana plant
             gameTexture[0] = new IgeTexture('assets/textures/sprites/accessoires/floor/banana.png');
-	    // The signboard
+	    // a bin
             gameTexture[1] = new IgeTexture('assets/textures/sprites/accessoires/floor/bin.png');
-	    // Bureau door 1 closed
+	    // a dracaena
 	    gameTexture[2] = new IgeTexture('assets/textures/sprites/accessoires/floor/dracaena1.png');
-	    // Bureau door 2 closed
+	    // a lamp on the wall
 	    gameTexture[3] = new IgeTexture('assets/textures/sprites/accessoires/floor/lamp1.png');
-	    // Bureau door 3 closed
+	    // a lamp on the ceiling
 	    gameTexture[4] = new IgeTexture('assets/textures/sprites/accessoires/floor/lamp2.png');
-	    // The closed lobby
+	    // a painting
             gameTexture[5] = new IgeTexture('assets/textures/sprites/accessoires/floor/painting1.jpg');
-	    // The signboard
+	    // another painting
             gameTexture[6] = new IgeTexture('assets/textures/sprites/accessoires/floor/painting2.jpg');
-	    // Bureau dor 1 closed
+	    // a third painting
 	    gameTexture[7] = new IgeTexture('assets/textures/sprites/accessoires/floor/painting3.jpg');
-	    // Bureau door 2 closed
+	    // another plant
 	    gameTexture[8] = new IgeTexture('assets/textures/sprites/accessoires/floor/plant.png');
-	    // Bureau door 3 closed
+	    // a water bar
 	    gameTexture[9] = new IgeTexture('assets/textures/sprites/accessoires/floor/water.png');
 	    
             // Wait for our textures to load before continuing
