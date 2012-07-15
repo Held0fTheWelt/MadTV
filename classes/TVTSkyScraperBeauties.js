@@ -5,7 +5,7 @@ var TVTSkyScraperBeauties = IgeEntity.extend({
             
             this._super();
             // Load our textures
-            var skyscraperbeauties = this,
+            var skyscraperbeauties = this;
             var gameTexture = [];
 
             this.obj = [];
