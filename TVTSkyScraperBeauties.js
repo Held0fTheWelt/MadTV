@@ -6,7 +6,7 @@ var TVTSkyScraperBeauties = IgeEntity.extend({
             this._super();
             // Load our textures
             var skyscraperbeauties = this,
-            gameTexture = [];
+            var gameTexture = [];
 
             this.obj = [];
 	    // a small banana plant

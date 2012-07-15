@@ -6,7 +6,7 @@ var TVTSkyScraperRooms = IgeEntity.extend({
             this._super();
             // Load our textures
             var skyscraperrooms = this,
-            gameTexture = [];
+            var gameTexture = [];
 
             this.obj = [];
 	    // The closed lobby
