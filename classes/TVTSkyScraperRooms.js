@@ -10,15 +10,15 @@ var TVTSkyScraperRooms = IgeEntity.extend({
 
             this.obj = [];
 	    // The closed lobby
-            gameTexture[0] = new IgeTexture('assets/textures/sprites/accessoires/lobby/lobbyClosed.jpg');
+            gameTexture[0] = new IgeTexture('assets/textures/accessoires/lobby/lobbyClosed.jpg');
 	    // The signboard
-            gameTexture[1] = new IgeTexture('assets/textures/sprites/accessoires/lobby/signboard.jpg');
+            gameTexture[1] = new IgeTexture('assets/textures/accessoires/lobby/signboard.jpg');
 	    // Bureau door 1 closed
-	    gameTexture[2] = new IgeTexture('assets/textures/sprites/accessoires/bureau/buro11.jpg');
+	    gameTexture[2] = new IgeTexture('assets/textures/accessoires/bureau/buro11.jpg');
 	    // Bureau door 2 closed
-	    gameTexture[3] = new IgeTexture('assets/textures/sprites/accessoires/bureau/buro21.jpg');
+	    gameTexture[3] = new IgeTexture('assets/textures/accessoires/bureau/buro21.jpg');
 	    // Bureau door 3 closed
-	    gameTexture[4] = new IgeTexture('assets/textures/sprites/accessoires/bureau/buro31.jpg');
+	    gameTexture[4] = new IgeTexture('assets/textures/accessoires/bureau/buro31.jpg');
 	    // Bureau door 1 closed
             //gameTexture[3] = new IgeTexture('assets/textures/sprites/walls.jpg');
 

@@ -9,7 +9,8 @@ var TVTElevator = IgeEntity.extend({
             var gameTexture = [];
 
             this.obj = [];
-	    gameTexture[0] = new IgeTexture('assets/textures/sprites/elevators/elevatorcart.png');
+	    gameTexture[0] = new IgeTexture('assets/textures/elevators/elevatorcart.png');
+	    gameTexture[0] = new IgeTexture('assets/textures/elevators/elevatorcart.png');
             
             
             // Wait for our textures to load before continuing
@@ -17,7 +18,7 @@ var TVTElevator = IgeEntity.extend({
                 
 
 		// Create walls - floor 2
-		nodeSSElevator.obj[0] = new GameElement()
+		nodeSSElevator.obj[0] = new VerticalMovement()
 		    .id('elevatorcart')
 		    .depth(2)
 		    .width(77)

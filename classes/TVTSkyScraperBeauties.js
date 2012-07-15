@@ -10,25 +10,25 @@ var TVTSkyScraperBeauties = IgeEntity.extend({
 
             this.obj = [];
 	    // a small banana plant
-            gameTexture[0] = new IgeTexture('assets/textures/sprites/accessoires/floor/banana.png');
+            gameTexture[0] = new IgeTexture('assets/textures/accessoires/floor/banana.png');
 	    // a bin
-            gameTexture[1] = new IgeTexture('assets/textures/sprites/accessoires/floor/bin.png');
+            gameTexture[1] = new IgeTexture('assets/textures/accessoires/floor/bin.png');
 	    // a dracaena
-	    gameTexture[2] = new IgeTexture('assets/textures/sprites/accessoires/floor/dracaena1.png');
+	    gameTexture[2] = new IgeTexture('assets/textures/accessoires/floor/dracaena1.png');
 	    // a lamp on the wall
-	    gameTexture[3] = new IgeTexture('assets/textures/sprites/accessoires/floor/lamp1.png');
+	    gameTexture[3] = new IgeTexture('assets/textures/accessoires/floor/lamp1.png');
 	    // a lamp on the ceiling
-	    gameTexture[4] = new IgeTexture('assets/textures/sprites/accessoires/floor/lamp2.png');
+	    gameTexture[4] = new IgeTexture('assets/textures/accessoires/floor/lamp2.png');
 	    // a painting
-            gameTexture[5] = new IgeTexture('assets/textures/sprites/accessoires/floor/painting1.jpg');
+            gameTexture[5] = new IgeTexture('assets/textures/accessoires/floor/painting1.jpg');
 	    // another painting
-            gameTexture[6] = new IgeTexture('assets/textures/sprites/accessoires/floor/painting2.jpg');
+            gameTexture[6] = new IgeTexture('assets/textures/accessoires/floor/painting2.jpg');
 	    // a third painting
-	    gameTexture[7] = new IgeTexture('assets/textures/sprites/accessoires/floor/painting3.jpg');
+	    gameTexture[7] = new IgeTexture('assets/textures/accessoires/floor/painting3.jpg');
 	    // another plant
-	    gameTexture[8] = new IgeTexture('assets/textures/sprites/accessoires/floor/plant.png');
+	    gameTexture[8] = new IgeTexture('assets/textures/accessoires/floor/plant.png');
 	    // a water bar
-	    gameTexture[9] = new IgeTexture('assets/textures/sprites/accessoires/floor/water.png');
+	    gameTexture[9] = new IgeTexture('assets/textures/accessoires/floor/water.png');
 	    
             // Wait for our textures to load before continuing
             ige.on('texturesLoaded', function () {               

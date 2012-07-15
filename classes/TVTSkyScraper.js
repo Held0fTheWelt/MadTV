@@ -9,9 +9,9 @@ var TVTSkyScraper = IgeEntity.extend({
             var gameTexture = [];
 
             this.obj = [];
-            gameTexture[1] = new IgeTexture('assets/textures/sprites/ground.jpg');
-            gameTexture[2] = new IgeTexture('assets/textures/sprites/floor.jpg');
-            gameTexture[3] = new IgeTexture('assets/textures/sprites/walls.jpg');
+            gameTexture[0] = new IgeTexture('assets/textures/building/ground.jpg');
+            gameTexture[1] = new IgeTexture('assets/textures/building/floor.jpg');
+            gameTexture[2] = new IgeTexture('assets/textures/building/walls.jpg');
 
             // Wait for our textures to load before continuing
             ige.on('texturesLoaded', function () {               
@@ -22,7 +22,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(1000)
 			.height(4)
-			.texture(gameTexture[1])
+			.texture(gameTexture[0])
 			.translateTo(0, 310, 0)
 			.mount(nodeSS);
                                                 
@@ -32,7 +32,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, 260, 0)
 			.mount(nodeSS);
                                                 
@@ -42,7 +42,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, 210, 0)
 			.mount(nodeSS);
 						
@@ -52,7 +52,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, 160, 0)
 			.mount(nodeSS);
 						
@@ -62,7 +62,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, 110, 0)
 			.mount(nodeSS);
 						
@@ -72,7 +72,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, 60, 0)
 			.mount(nodeSS);
 
@@ -82,7 +82,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, 10, 0)
         		.mount(nodeSS);
 						
@@ -92,7 +92,7 @@ var TVTSkyScraper = IgeEntity.extend({
         		.depth(2)
         		.width(800)
         		.height(96)
-        		.texture(gameTexture[3])
+        		.texture(gameTexture[2])
         		.translateTo(0, -40, 0)
         		.mount(nodeSS);
                                                                         
@@ -102,7 +102,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -90, 0)
 			.mount(nodeSS);
 						
@@ -112,7 +112,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, -140, 0)
 			.mount(nodeSS);
 						
@@ -122,7 +122,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -190, 0)
 			.mount(nodeSS);
 						
@@ -132,7 +132,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, -240, 0)
 			.mount(nodeSS);
 
@@ -142,7 +142,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -290, 0)
         		.mount(nodeSS);
 						
@@ -152,7 +152,7 @@ var TVTSkyScraper = IgeEntity.extend({
         		.depth(2)
         		.width(800)
         		.height(96)
-        		.texture(gameTexture[3])
+        		.texture(gameTexture[2])
         		.translateTo(0, -340, 0)
         		.mount(nodeSS);
                         
@@ -162,7 +162,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -390, 0)
         		.mount(nodeSS);
 						
@@ -172,7 +172,7 @@ var TVTSkyScraper = IgeEntity.extend({
         		.depth(2)
         		.width(800)
         		.height(96)
-        		.texture(gameTexture[3])
+        		.texture(gameTexture[2])
         		.translateTo(0, -440, 0)
         		.mount(nodeSS);
                                                                         
@@ -182,7 +182,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -490, 0)
 			.mount(nodeSS);
 						
@@ -192,7 +192,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, -540, 0)
 			.mount(nodeSS);
 						
@@ -202,7 +202,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -590, 0)
 			.mount(nodeSS);
 						
@@ -212,7 +212,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, -640, 0)
 			.mount(nodeSS);
 
@@ -222,7 +222,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -690, 0)
         		.mount(nodeSS);
 						
@@ -232,7 +232,7 @@ var TVTSkyScraper = IgeEntity.extend({
         		.depth(2)
         		.width(800)
         		.height(96)
-        		.texture(gameTexture[3])
+        		.texture(gameTexture[2])
         		.translateTo(0, -740, 0)
         		.mount(nodeSS);
 			
@@ -242,7 +242,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -790, 0)
 			.mount(nodeSS);
 						
@@ -252,7 +252,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, -840, 0)
 			.mount(nodeSS);
 						
@@ -262,7 +262,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -890, 0)
 			.mount(nodeSS);
 						
@@ -272,7 +272,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(96)
-			.texture(gameTexture[3])
+			.texture(gameTexture[2])
 			.translateTo(0, -940, 0)
 			.mount(nodeSS);  			
 
@@ -282,7 +282,7 @@ var TVTSkyScraper = IgeEntity.extend({
 			.depth(2)
 			.width(800)
 			.height(4)
-			.texture(gameTexture[2])
+			.texture(gameTexture[1])
 			.translateTo(0, -990, 0)
         		.mount(nodeSS);                        
             });
