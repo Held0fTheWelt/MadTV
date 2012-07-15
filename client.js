@@ -22,7 +22,6 @@ var Client = IgeClass.extend({
 
 					var VerticalMovement = IgeEntity.extend({
 						tick: function (ctx) {
-
 							this._super(ctx);
 						}
 					});
@@ -56,8 +55,8 @@ var Client = IgeClass.extend({
 						.translateTo(0, -110, 0)
 						.mount(self.game);
 						
-					//tempObj2.addComponent(IgeVelocityComponent);
-					//tempObj2.velocity.y(0.01);						
+					tempObj2.addComponent(IgeVelocityComponent);
+					tempObj2.velocity.y(0.01);						
 
 					// Create the UI scene
 					self.ui = new IgeScene2d().depth(2)
@@ -82,8 +81,8 @@ var Client = IgeClass.extend({
 						
 					// Create our Skyscraper
 					self.obj[2] = tempObj = new TVTSkyScraper();
-					//tempObj.addComponent(IgeVelocityComponent);
-					//tempObj.velocity.y(0.1);
+				//	tempObj.addComponent(IgeVelocityComponent);
+				//	tempObj.velocity.y(0.1);
 					tempObj.depth(1);
 					tempObj.mount(self.game);
 					
@@ -91,6 +90,11 @@ var Client = IgeClass.extend({
 					self.obj[3] = tempObj3 = new TVTSkyScraperRooms();
 					tempObj3.depth(3);
 					tempObj3.mount(self.obj[2]);
+					
+					// Add our beauties
+					self.obj[4] = new TVTSkyScraperBeauties().depth(4)
+							.mount(self.obj[2]);					
+					
 						
 					// Create the elevator scene
 					self.elevator = new IgeScene2d().depth(2);

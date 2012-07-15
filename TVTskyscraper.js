@@ -234,8 +234,57 @@ var TVTSkyScraper = IgeEntity.extend({
         		.height(96)
         		.texture(gameTexture[3])
         		.translateTo(0, -740, 0)
+        		.mount(skyscraper);
+			
+                // Create ground - floor 11
+		skyscraper.obj[16] = new GameElement()
+			.id('gfloor11')
+			.depth(2)
+			.width(800)
+			.height(4)
+			.texture(gameTexture[2])
+			.translateTo(0, -790, 0)
+			.mount(skyscraper);
+						
+		// Create walls - floor 11
+		skyscraper.obj[17] = new GameElement()
+			.id('floor11')
+			.depth(2)
+			.width(800)
+			.height(96)
+			.texture(gameTexture[3])
+			.translateTo(0, -840, 0)
+			.mount(skyscraper);
+						
+		// Create ground - floor 12
+		skyscraper.obj[18] = new GameElement()
+			.id('gfloor12')
+			.depth(2)
+			.width(800)
+			.height(4)
+			.texture(gameTexture[2])
+			.translateTo(0, -890, 0)
+			.mount(skyscraper);
+						
+		// Create walls - floor 12
+		skyscraper.obj[19] = new GameElement()
+			.id('floor12')
+			.depth(2)
+			.width(800)
+			.height(96)
+			.texture(gameTexture[3])
+			.translateTo(0, -940, 0)
+			.mount(skyscraper);  			
+
+		// Create ground - roof
+		skyscraper.obj[20] = new GameElement()
+			.id('gfloor13')
+			.depth(2)
+			.width(800)
+			.height(4)
+			.texture(gameTexture[2])
+			.translateTo(0, -990, 0)
         		.mount(skyscraper);                        
-                        
             });
         }
 });

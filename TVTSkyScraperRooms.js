@@ -1,5 +1,5 @@
 var TVTSkyScraperRooms = IgeEntity.extend({
-    classId: 'TVTSkyscraper',
+    classId: 'TVTSkyScraperRooms',
         
         init: function () {
             
@@ -42,7 +42,7 @@ var TVTSkyScraperRooms = IgeEntity.extend({
 			.width(64)
 			.height(50)
 			.texture(gameTexture[1])
-			.translateTo(300, 250, 0)
+			.translateTo(300, 255, 0)
 			.mount(skyscraperrooms);
                                         
                 // Create Bureau on Slot 1.1
@@ -204,47 +204,166 @@ var TVTSkyScraperRooms = IgeEntity.extend({
 			.texture(gameTexture[2])
 			.translateTo(325, -332, 0)
 			.mount(skyscraperrooms);
-					/*	
-		// Create Bureau on Slot 1.4
+			
+		// Create Bureau on Slot 7.1
 		skyscraperrooms.obj[18] = new GameElement()
-			.id('gfloor9')
+			.id('bureau71')
 			.depth(2)
-			.width(800)
-			.height(4)
-			.texture(gameTexture[2])
-			.translateTo(0, -590, 0)
+			.width(70)
+			.height(84)
+			.texture(gameTexture[4])
+			.translateTo(-325, -432, 0)
 			.mount(skyscraperrooms);
 						
-		// Create Bureau on Slot 1.4
+		// Create Bureau on Slot 7.2
 		skyscraperrooms.obj[19] = new GameElement()
-			.id('floor9')
+			.id('bureau72')
 			.depth(2)
-			.width(800)
-			.height(96)
-			.texture(gameTexture[3])
-			.translateTo(0, -640, 0)
+			.width(70)
+			.height(84)
+			.texture(gameTexture[4])
+			.translateTo(-225, -432, 0)
 			.mount(skyscraperrooms);
 
-		// Create Bureau on Slot 1.4
+		// Create Bureau on Slot 7.3
 		skyscraperrooms.obj[20] = new GameElement()
-			.id('gfloor10')
+			.id('bureau73')
 			.depth(2)
-			.width(800)
-			.height(4)
-			.texture(gameTexture[2])
-			.translateTo(0, -690, 0)
+			.width(70)
+			.height(84)
+			.texture(gameTexture[4])
+			.translateTo(225, -432, 0)
         		.mount(skyscraperrooms);
 						
-           	// Create Bureau on Slot 1.4
+           	// Create Bureau on Slot 7.4
            	skyscraperrooms.obj[21] = new GameElement()
-            		.id('floor10')
+            		.id('bureau74')
         		.depth(2)
-        		.width(800)
-        		.height(96)
+        		.width(70)
+        		.height(84)
+        		.texture(gameTexture[4])
+        		.translateTo(325, -432, 0)
+        		.mount(skyscraperrooms);
+			
+		// Create Bureau on Slot 8.2
+		skyscraperrooms.obj[22] = new GameElement()
+			.id('bureau82')
+			.depth(2)
+			.width(43)
+			.height(80)
+			.texture(gameTexture[2])
+			.translateTo(-225, -532, 0)
+        		.mount(skyscraperrooms);
+						
+           	// Create Bureau on Slot 8.3
+           	skyscraperrooms.obj[23] = new GameElement()
+            		.id('bureau83')
+        		.depth(2)
+        		.width(43)
+        		.height(80)
+        		.texture(gameTexture[2])
+        		.translateTo(225, -532, 0)
+        		.mount(skyscraperrooms);			
+	
+		// Create Bureau on Slot 9.1
+		skyscraperrooms.obj[14] = new GameElement()
+			.id('bureau91')
+			.depth(2)
+			.width(43)
+			.height(80)
+			.texture(gameTexture[3])
+			.translateTo(-325, -632, 0)
+        		.mount(skyscraperrooms);
+						
+           	// Create Bureau on Slot 9.3
+           	skyscraperrooms.obj[15] = new GameElement()
+            		.id('bureau93')
+        		.depth(2)
+        		.width(43)
+        		.height(80)
         		.texture(gameTexture[3])
-        		.translateTo(0, -740, 0)
-        		.mount(skyscraperrooms);   */                     
-                        
+        		.translateTo(225, -632, 0)
+        		.mount(skyscraperrooms);
+                                              
+		// Create Bureau on Slot 9.4
+		skyscraperrooms.obj[14] = new GameElement()
+			.id('bureau94')
+			.depth(2)
+			.width(43)
+			.height(80)
+			.texture(gameTexture[3])
+			.translateTo(325, -632, 0)
+        		.mount(skyscraperrooms);
+
+		// Create Bureau on Slot 10.1
+		skyscraperrooms.obj[18] = new GameElement()
+			.id('bureau101')
+			.depth(2)
+			.width(70)
+			.height(84)
+			.texture(gameTexture[4])
+			.translateTo(-325, -732, 0)
+			.mount(skyscraperrooms);
+						
+		// Create Bureau on Slot 10.2
+		skyscraperrooms.obj[19] = new GameElement()
+			.id('bureau102')
+			.depth(2)
+			.width(70)
+			.height(84)
+			.texture(gameTexture[4])
+			.translateTo(-225, -732, 0)
+			.mount(skyscraperrooms);
+
+		// Create Bureau on Slot 10.3
+		skyscraperrooms.obj[20] = new GameElement()
+			.id('bureau103')
+			.depth(2)
+			.width(70)
+			.height(84)
+			.texture(gameTexture[4])
+			.translateTo(225, -732, 0)
+        		.mount(skyscraperrooms);
+						
+           	// Create Bureau on Slot 10.4
+           	skyscraperrooms.obj[21] = new GameElement()
+            		.id('bureau104')
+        		.depth(2)
+        		.width(70)
+        		.height(84)
+        		.texture(gameTexture[4])
+        		.translateTo(325, -732, 0)
+        		.mount(skyscraperrooms);			
+
+		// Create Bureau on Slot 11.2
+		skyscraperrooms.obj[22] = new GameElement()
+			.id('bureau112')
+			.depth(2)
+			.width(43)
+			.height(80)
+			.texture(gameTexture[2])
+			.translateTo(-225, -832, 0)
+        		.mount(skyscraperrooms);
+						
+           	// Create Bureau on Slot 11.3
+           	skyscraperrooms.obj[23] = new GameElement()
+            		.id('bureau113')
+        		.depth(2)
+        		.width(43)
+        		.height(80)
+        		.texture(gameTexture[2])
+        		.translateTo(225, -832, 0)
+        		.mount(skyscraperrooms);			
+
+		// Create Bureau on Slot 12.1
+		skyscraperrooms.obj[18] = new GameElement()
+			.id('bureau101')
+			.depth(2)
+			.width(70)
+			.height(84)
+			.texture(gameTexture[4])
+			.translateTo(-325, -932, 0)
+			.mount(skyscraperrooms);                        
             });
         }
 });
