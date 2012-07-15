@@ -9,7 +9,7 @@ var Client = IgeClass.extend({
 
 		gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
 
-		gameTexture[4] = new IgeTexture('assets/textures/sprites/elevators/elevatorcart.png');
+
 
 		// Wait for our textures to load before continuing
 		ige.on('texturesLoaded', function () {
@@ -20,11 +20,7 @@ var Client = IgeClass.extend({
 				if (success) {
 
 
-					var VerticalMovement = IgeEntity.extend({
-						tick: function (ctx) {
-							this._super(ctx);
-						}
-					});
+
 					
 					
 					// Create the parent scene
@@ -93,18 +89,8 @@ var Client = IgeClass.extend({
 					
 						
 					// Create the elevator scene
-					self.elevator = new IgeScene2d().depth(2);
-					self.elevator.mount(self.game);
-					
-					// Create walls - floor 2
-					self.obj[10] = new VerticalMovement()
-						.id('elevatorcart')
-						.depth(2)
-						.width(77)
-						.height(89)
-						.texture(gameTexture[4])
-						.translateTo(0, 260, 0)
-						.mount(self.game);					
+					self.elevator = new TVTElevator().depth(3)
+							.mount(self.game);
 				}
 			});
 		});

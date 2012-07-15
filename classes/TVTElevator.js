@@ -1,12 +1,3 @@
-/* IgeTemplate is a nodeSSElevator class for adding nodes functionality easily
- * You can do more if you want to, but it has all what it takes to
- * easily make something like a scene which than can be added completely to the client.
- * Be sure to load the source script in the header file.
- * Changes to be made are the names classname and classId to what you want it to be.
- * Be sure to give it some matching instance variable name in here nodeSSElevator and change the values
- * to what's needed on your Node.
- * Commented sourcecode is for showcase and easy modifying.
- */
 var TVTElevator = IgeEntity.extend({
     classId: 'TVTElevator',
         
@@ -18,11 +9,22 @@ var TVTElevator = IgeEntity.extend({
             var gameTexture = [];
 
             this.obj = [];
-            // gameTexture[0] = new IgeTexture('assets/textures/sprites/ground.jpg');
+	    gameTexture[0] = new IgeTexture('assets/textures/sprites/elevators/elevatorcart.png');
+            
             
             // Wait for our textures to load before continuing
             ige.on('texturesLoaded', function () {               
                 
+
+		// Create walls - floor 2
+		nodeSSElevator.obj[0] = new GameElement()
+		    .id('elevatorcart')
+		    .depth(2)
+		    .width(77)
+		    .height(89)
+		    .texture(gameTexture[0])
+		    .translateTo(0, 260, 0)
+		    .mount(nodeSSElevator);
 		
 		/*
 		
