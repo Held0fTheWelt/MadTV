@@ -90,7 +90,7 @@ var Client = IgeClass.extend({
 						
 					// Create the elevator scene
 					self.elevator = new TVTElevator().depth(3)
-							.mount(self.game);
+							.mount(self.obj[2]);
 				}
 			});
 		});
