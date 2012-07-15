@@ -41,7 +41,7 @@ var Client = IgeClass.extend({
 					self.obj[1]= tempObj2 = new GameElement()
 						.id('background')
 						.depth(0)
-						.width(1000)
+						.width(1200)
 						.height(850)
 						.texture(gameTexture[0])
 						.translateTo(0, -110, 0)
