@@ -39,11 +39,7 @@ var Client = IgeClass.extend({
 						.autoSize(true)
 						.scene(self.main)
 						.drawBounds(false)
-						.mount(ige);
-
-					// Create the background scene
-					self.background = new IgeScene2d().depth(0);
-					self.background.mount(self.game);						
+						.mount(ige);				
 						
 					// Create our background
 					self.obj[1]= tempObj2 = new GameElement()
