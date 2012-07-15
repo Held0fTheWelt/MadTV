@@ -18,17 +18,22 @@ var TVTElevator = IgeEntity.extend({
             // Wait for our textures to load before continuing
             ige.on('texturesLoaded', function () {               
                 
-		// Create the elevator cart scene
+		
+		
+/*		// Create the elevator cart scene
 		nodeSSElevator.cart = new IgeScene2d().depth(0);
 		nodeSSElevator.cart.addComponent(IgeVelocityComponent);
 		nodeSSElevator.cart.velocity.y(-0.2);		
 		nodeSSElevator.cart.mount(nodeSSElevator);
+
+		//test = new VerticalMovement().addComponent(nodeSSElevator.cart, -0.2);
 		
+*/		
 		// Create the elevator doors scene
 		nodeSSElevator.doors = new IgeScene2d().depth(1);
 		nodeSSElevator.doors.mount(nodeSSElevator);		
 		
-		
+/*		
 		
 		
 		// Create elevatorbody
@@ -50,7 +55,8 @@ var TVTElevator = IgeEntity.extend({
 		    .texture(gameTexture[0])
 		    .translateTo(0, 263, 0)
 		    .mount(nodeSSElevator.cart);
-		
+
+*/
 		// Create elevator doors floor 0
 		nodeSSElevator.obj[2] = new VerticalMovement()
 		    .id('elevatordoors0')
@@ -180,7 +186,7 @@ var TVTElevator = IgeEntity.extend({
 		    .texture(gameTexture[2])
 		    .translateTo(0, -937, 0)
 		    .mount(nodeSSElevator.doors);
-		   
+
             });
         }
 });

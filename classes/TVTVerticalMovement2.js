@@ -1,5 +1,5 @@
-var VerticalMovement = IgeEntity.extend({
-        classId: 'VerticalMovement',
+var VerticalMovement2 = IgeEntity.extend({
+        classId: 'VerticalMovement2',
 	
 	
 	tick: function (ctx) {
