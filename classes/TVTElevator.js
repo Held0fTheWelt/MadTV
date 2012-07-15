@@ -55,7 +55,11 @@ var TVTElevator = IgeEntity.extend({
 		    .texture(gameTexture[0])
 		    .translateTo(0, 263, 0)
 		    .mount(nodeSSElevator.cart);
+<<<<<<< HEAD
 		
+=======
+		/*
+>>>>>>> ups !
 		// Create elevator doors floor 0
 		nodeSSElevator.obj[2] = new VerticalMovement()
 		    .id('elevatordoors0')
@@ -185,7 +189,11 @@ var TVTElevator = IgeEntity.extend({
 		    .texture(gameTexture[2])
 		    .translateTo(0, -937, 0)
 		    .mount(nodeSSElevator.doors);
+<<<<<<< HEAD
 		   
+=======
+		*/
+>>>>>>> ups !
             });
         }
 });
