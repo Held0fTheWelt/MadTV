@@ -1,0 +1,3 @@
+[submodule "ige"]
+	path = ige
+	url = git@github.com:coolbloke1324/ige.git
