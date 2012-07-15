@@ -5,7 +5,7 @@ var TVTSkyScraperBeauties = IgeEntity.extend({
             
             this._super();
             // Load our textures
-            var skyscraperbeauties = this;
+            var nodeSSBeauties = this;
             var gameTexture = [];
 
             this.obj = [];
@@ -35,351 +35,351 @@ var TVTSkyScraperBeauties = IgeEntity.extend({
                 
 		// Beauties Floor 8
 		// fresh water
-		skyscraperbeauties.obj[32] = new GameElement()
+		nodeSSBeauties.obj[32] = new GameElement()
 			.id('water')
 			.depth(0)
 			.width(33)
 			.height(94)
 			.texture(gameTexture[9])
 			.translateTo(355, -536, 0)
-			.mount(skyscraperbeauties);		
+			.mount(nodeSSBeauties);		
 
 		// small plants next to it
-		skyscraperbeauties.obj[31] = new GameElement()
+		nodeSSBeauties.obj[31] = new GameElement()
 			.id('water')
 			.depth(0)
 			.width(33)
 			.height(94)
 			.texture(gameTexture[8])
 			.translateTo(325, -536, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 		
-		skyscraperbeauties.obj[30] = new GameElement()
+		nodeSSBeauties.obj[30] = new GameElement()
 			.id('dracaena1')
 			.depth(0)
 			.width(46)
 			.height(75)
 			.texture(gameTexture[2])
 			.translateTo(305, -528, 0)
-			.mount(skyscraperbeauties);			
+			.mount(nodeSSBeauties);			
 		
 		// Beauties Floor 6
 		// painting on floor 1 slot 63
-		skyscraperbeauties.obj[29] = new GameElement()
+		nodeSSBeauties.obj[29] = new GameElement()
 			.id('painting63')
 			.depth(0)
 			.width(77)
 			.height(63)
 			.texture(gameTexture[7])
 			.translateTo(225, -345, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 		// Beauties Floor 3
 		// plant1
-		skyscraperbeauties.obj[28] = new GameElement()
+		nodeSSBeauties.obj[28] = new GameElement()
 			.id('plant1')
 			.depth(0)
 			.width(58)
 			.height(92)
 			.texture(gameTexture[8])
 			.translateTo(225, -38, 0)
-			.mount(skyscraperbeauties);		
+			.mount(nodeSSBeauties);		
 		
 		// Beauties Floor 2		
 		// painting on floor 2 slot 21
-		skyscraperbeauties.obj[27] = new GameElement()
+		nodeSSBeauties.obj[27] = new GameElement()
 			.id('painting21')
 			.depth(0)
 			.width(77)
 			.height(63)
 			.texture(gameTexture[6])
 			.translateTo(-325, 55, 0)
-			.mount(skyscraperbeauties);		
+			.mount(nodeSSBeauties);		
 		
 		// Beauties Floor 1
 		// dracaena1
-		skyscraperbeauties.obj[26] = new GameElement()
+		nodeSSBeauties.obj[26] = new GameElement()
 			.id('dracaena1')
 			.depth(0)
 			.width(46)
 			.height(75)
 			.texture(gameTexture[2])
 			.translateTo(-265, 173, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// banana1
-		skyscraperbeauties.obj[25] = new GameElement()
+		nodeSSBeauties.obj[25] = new GameElement()
 			.id('banana1')
 			.depth(0)
 			.width(34)
 			.height(45)
 			.texture(gameTexture[0])
 			.translateTo(-288, 186, 0)
-			.mount(skyscraperbeauties);			
+			.mount(nodeSSBeauties);			
 		
 		
 		// painting on floor 1 slot 13
-		skyscraperbeauties.obj[24] = new GameElement()
+		nodeSSBeauties.obj[24] = new GameElement()
 			.id('painting13')
 			.depth(0)
 			.width(77)
 			.height(63)
 			.texture(gameTexture[5])
 			.translateTo(225, 155, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 			
 		// Beauties Floor 0
 		
 		// bin on floor 0
-		skyscraperbeauties.obj[23] = new GameElement()
+		nodeSSBeauties.obj[23] = new GameElement()
 			.id('lobbybin')
 			.depth(0)
 			.width(25)
 			.height(50)
 			.texture(gameTexture[1])
 			.translateTo(75, 285, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 		
 	        // Adding Top Lamps !
 		// Create lamp01
-		skyscraperbeauties.obj[0] = new GameElement()
+		nodeSSBeauties.obj[0] = new GameElement()
 			.id('lamp11')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, 225, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp02
-		skyscraperbeauties.obj[1] = new GameElement()
+		nodeSSBeauties.obj[1] = new GameElement()
 			.id('lamp12')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, 225, 0)
-			.mount(skyscraperbeauties);			
+			.mount(nodeSSBeauties);			
                                                 
 		// Create lamp11
-		skyscraperbeauties.obj[3] = new GameElement()
+		nodeSSBeauties.obj[3] = new GameElement()
 			.id('lamp21')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, 125, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp12
-		skyscraperbeauties.obj[4] = new GameElement()
+		nodeSSBeauties.obj[4] = new GameElement()
 			.id('lamp22')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, 125, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp21
-		skyscraperbeauties.obj[5] = new GameElement()
+		nodeSSBeauties.obj[5] = new GameElement()
 			.id('lamp21')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, 25, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp22
-		skyscraperbeauties.obj[6] = new GameElement()
+		nodeSSBeauties.obj[6] = new GameElement()
 			.id('lamp22')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, 25, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp31
-		skyscraperbeauties.obj[7] = new GameElement()
+		nodeSSBeauties.obj[7] = new GameElement()
 			.id('lamp31')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -75, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp32
-		skyscraperbeauties.obj[8] = new GameElement()
+		nodeSSBeauties.obj[8] = new GameElement()
 			.id('lamp32')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -75, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp41
-		skyscraperbeauties.obj[9] = new GameElement()
+		nodeSSBeauties.obj[9] = new GameElement()
 			.id('lamp41')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -175, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp42
-		skyscraperbeauties.obj[10] = new GameElement()
+		nodeSSBeauties.obj[10] = new GameElement()
 			.id('lamp42')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -175, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp51
-		skyscraperbeauties.obj[11] = new GameElement()
+		nodeSSBeauties.obj[11] = new GameElement()
 			.id('lamp51')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -275, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp52
-		skyscraperbeauties.obj[12] = new GameElement()
+		nodeSSBeauties.obj[12] = new GameElement()
 			.id('lamp52')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -275, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp61
-		skyscraperbeauties.obj[13] = new GameElement()
+		nodeSSBeauties.obj[13] = new GameElement()
 			.id('lamp61')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -375, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp62
-		skyscraperbeauties.obj[14] = new GameElement()
+		nodeSSBeauties.obj[14] = new GameElement()
 			.id('lamp62')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -375, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp71
-		skyscraperbeauties.obj[15] = new GameElement()
+		nodeSSBeauties.obj[15] = new GameElement()
 			.id('lamp71')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -475, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp72
-		skyscraperbeauties.obj[16] = new GameElement()
+		nodeSSBeauties.obj[16] = new GameElement()
 			.id('lamp72')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -475, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp81
-		skyscraperbeauties.obj[17] = new GameElement()
+		nodeSSBeauties.obj[17] = new GameElement()
 			.id('lamp81')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -575, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp82
-		skyscraperbeauties.obj[18] = new GameElement()
+		nodeSSBeauties.obj[18] = new GameElement()
 			.id('lamp82')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -575, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp91
-		skyscraperbeauties.obj[19] = new GameElement()
+		nodeSSBeauties.obj[19] = new GameElement()
 			.id('lamp91')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -675, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp92
-		skyscraperbeauties.obj[20] = new GameElement()
+		nodeSSBeauties.obj[20] = new GameElement()
 			.id('lamp92')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -675, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp101
-		skyscraperbeauties.obj[21] = new GameElement()
+		nodeSSBeauties.obj[21] = new GameElement()
 			.id('lamp101')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -775, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp1102
-		skyscraperbeauties.obj[22] = new GameElement()
+		nodeSSBeauties.obj[22] = new GameElement()
 			.id('lamp102')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -775, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp111
-		skyscraperbeauties.obj[21] = new GameElement()
+		nodeSSBeauties.obj[21] = new GameElement()
 			.id('lamp111')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(-275, -875, 0)
-			.mount(skyscraperbeauties);
+			.mount(nodeSSBeauties);
 			
 		// Create lamp112
-		skyscraperbeauties.obj[22] = new GameElement()
+		nodeSSBeauties.obj[22] = new GameElement()
 			.id('lamp112')
 			.depth(1)
 			.width(65)
 			.height(25)
 			.texture(gameTexture[4])
 			.translateTo(275, -875, 0)
-			.mount(skyscraperbeauties);			
+			.mount(nodeSSBeauties);			
 	   
             });
         }
