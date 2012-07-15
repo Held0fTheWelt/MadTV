@@ -81,8 +81,8 @@ var Client = IgeClass.extend({
 						
 					// Create our Skyscraper
 					self.obj[2] = tempObj = new TVTSkyScraper();
-				//	tempObj.addComponent(IgeVelocityComponent);
-				//	tempObj.velocity.y(0.1);
+					tempObj.addComponent(IgeVelocityComponent);
+					tempObj.velocity.y(0.1);
 					tempObj.depth(1);
 					tempObj.mount(self.game);
 					
