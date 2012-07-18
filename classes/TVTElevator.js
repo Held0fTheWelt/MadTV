@@ -1,8 +1,10 @@
 var TVTElevator = IgeEntity.extend({
     classId: 'TVTElevator',
-        
+
         init: function () {
             
+
+	    
             this._super();
             // Load our textures
             var nodeSSElevator = this;
@@ -20,6 +22,7 @@ var TVTElevator = IgeEntity.extend({
                 
 		// Create the elevator cart scene
 		nodeSSElevator.cart = new IgeScene2d().depth(0);
+		nodeSSElevator.cart.translateTo(0, 263, 0)
 		nodeSSElevator.cart.addComponent(IgeVelocityComponent);
 		nodeSSElevator.cart.velocity.y(-0.2);		
 		nodeSSElevator.cart.mount(nodeSSElevator);
@@ -38,7 +41,7 @@ var TVTElevator = IgeEntity.extend({
 		    .width(75)
 		    .height(89)
 		    .texture(gameTexture[1])
-		    .translateTo(0, 263, 0)
+		    
 		    .mount(nodeSSElevator.cart);		
 		
 		// Create elevatorborder
@@ -48,7 +51,7 @@ var TVTElevator = IgeEntity.extend({
 		    .width(77)
 		    .height(89)
 		    .texture(gameTexture[0])
-		    .translateTo(0, 263, 0)
+		    
 		    .mount(nodeSSElevator.cart);
 		
 		// Create elevator doors floor 0
