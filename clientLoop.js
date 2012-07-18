@@ -7,12 +7,12 @@ var clientLoop = IgeEntity.extend({
         var y = testElevator.y();
         if(y>=263)
         {   rootNode.obj[4].cart.velocity.y(-0.2);
-	    skyscraper.velocity.y(0.1);		
-	    background.velocity.y(0.01);        
+	    skyscraper.velocity.y(0.15);		
+	    background.velocity.y(0.015);        
         } else if (y<=-937){
             rootNode.obj[4].cart.velocity.y(0.2);
-	    skyscraper.velocity.y(-0.1);		
-	    background.velocity.y(-0.01);
+	    skyscraper.velocity.y(-0.15);		
+	    background.velocity.y(-0.015);
         }
 	this._super(ctx);
     },
