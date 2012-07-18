@@ -1,7 +1,7 @@
 var clientLoop = IgeEntity.extend({
     classId: 'clientLoop',
     
-    testElevator: 0,
+
     tick: function (ctx) {
         testElevator = rootNode.obj[4].cart.translate();
         var y = testElevator.y();
@@ -59,7 +59,7 @@ var clientLoop = IgeEntity.extend({
             // Load our textures
             rootNode = this;
             gameTexture = [];
-
+	    this.testElevator= 0;
             this.obj = [];
             gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
             
