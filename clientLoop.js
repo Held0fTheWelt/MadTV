@@ -1,10 +1,9 @@
 var clientLoop = IgeEntity.extend({
     classId: 'clientLoop',
     
-
     tick: function (ctx) {
-        testElevator = rootNode.obj[4].cart.translate();
-        var y = testElevator.y();
+	testElevator = elevators.cart;
+        var y = testElevator.translate().y();
         if(y>=263)
         {   rootNode.obj[4].cart.velocity.y(-0.2);
 	    skyscraper.velocity.y(0.15);		
@@ -50,8 +49,10 @@ var clientLoop = IgeEntity.extend({
         },
         loadElevator: function(){
 	    // Create the elevator scene
-            rootNode.obj[4] = new TVTElevator().depth(3)
+            rootNode.obj[4] = elevators = new TVTElevator().depth(3)
 		.mount(skyscraper);
+	    
+		
         },
         init: function () {
             
@@ -59,7 +60,7 @@ var clientLoop = IgeEntity.extend({
             // Load our textures
             rootNode = this;
             gameTexture = [];
-	    this.testElevator= 0;
+	    this.testElevator = 0;
             this.obj = [];
             gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
             
