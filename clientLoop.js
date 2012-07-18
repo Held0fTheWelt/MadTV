@@ -1,6 +1,21 @@
 var clientLoop = IgeEntity.extend({
     classId: 'clientLoop',
-    parentNode:this,
+    
+    testElevator: 0,
+    tick: function (ctx) {
+        testElevator = rootNode.obj[4].cart.translate();
+        var y = testElevator.y();
+        if(y>=263)
+        {   rootNode.obj[4].cart.velocity.y(-0.2);
+	    skyscraper.velocity.y(0.1);		
+	    background.velocity.y(0.01);        
+        } else if (y<=-937){
+            rootNode.obj[4].cart.velocity.y(0.2);
+	    skyscraper.velocity.y(-0.1);		
+	    background.velocity.y(-0.01);
+        }
+	this._super(ctx);
+    },
     gameTexture:[],
         loadBackground: function() {
             // Create our background
@@ -12,18 +27,20 @@ var clientLoop = IgeEntity.extend({
                     .texture(gameTexture[0])
                     .translateTo(0, -110, 0)
                     .mount(rootNode);
+	    background.addComponent(IgeVelocityComponent);                    
         },
         loadSkyscraper: function() {
 	    // Create our Skyscraper
             rootNode.obj[1] = skyscraper = new TVTSkyScraper();
             skyscraper.depth(1);
-            skyscraper.mount(rootNode);            
+            skyscraper.mount(rootNode);
+            skyscraper.addComponent(IgeVelocityComponent);            
         },
         loadSkyscraperRooms: function() {
 	    // Create our Skyscraper Rooms
-            rootNode.obj[2] = skyscraperRooms = new TVTSkyScraperRooms();
-            skyscraperRooms.depth(3);
-            skyscraperRooms.mount(skyscraper);            
+            rootNode.obj[2] = skyscraperRooms = new TVTSkyScraperRooms()
+                .depth(3)
+                .mount(skyscraper);            
         },
         loadSkyscraperBeauties: function(){
             // Add our beauties

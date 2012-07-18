@@ -1,6 +1,7 @@
 var TVTElevator = IgeEntity.extend({
     classId: 'TVTElevator',
-
+	nodeSSElevator : this,
+	cart : null,
         init: function () {
             
 
@@ -21,12 +22,13 @@ var TVTElevator = IgeEntity.extend({
             ige.on('texturesLoaded', function () {               
                 
 		// Create the elevator cart scene
-		nodeSSElevator.cart = new IgeScene2d().depth(0);
+		nodeSSElevator.cart = new IgeScene2d().depth(2);
 		nodeSSElevator.cart.translateTo(0, 263, 0)
 		nodeSSElevator.cart.addComponent(IgeVelocityComponent);
-		nodeSSElevator.cart.velocity.y(-0.2);		
 		nodeSSElevator.cart.mount(nodeSSElevator);
-		
+
+	    	cart = nodeSSElevator.cart;   
+	    		
 		// Create the elevator doors scene
 		nodeSSElevator.doors = new IgeScene2d().depth(1);
 		nodeSSElevator.doors.mount(nodeSSElevator);		

@@ -7,8 +7,7 @@ var Client = IgeClass.extend({
 		gameTexture = [];
 
 		this.obj = [];
-		
-			
+				
 		gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
 		// Wait for our textures to load before continuing
 		ige.on('texturesLoaded', function () {
@@ -61,22 +60,7 @@ var Client = IgeClass.extend({
 					// Create our Skyscraper
 
 					tempObj.addComponent(IgeVelocityComponent);
-					tempObj.velocity.y(0.1);
-
-					
-					// Create our Skyscraper Rooms
-					self.obj[3] = tempObj3 = new TVTSkyScraperRooms();
-					tempObj3.depth(3);
-					tempObj3.mount(self.obj[2]);
-					
-					// Add our beauties
-					self.obj[4] = new TVTSkyScraperBeauties().depth(4)
-							.mount(self.obj[2]);					
-					
-						
-					// Create the elevator scene
-					self.elevator = new TVTElevator().depth(3)
-							.mount(self.obj[2]);*/
+					tempObj.velocity.y(0.1);*/
 				}
 			});
 		});
