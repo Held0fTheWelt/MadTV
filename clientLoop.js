@@ -1,76 +1,81 @@
 var clientLoop = IgeEntity.extend({
     classId: 'clientLoop',
-    
-    tick: function (ctx) {
-	testElevator = elevators.cart;
-        var y = testElevator.translate().y();
-        if(y>=263)
-        {   rootNode.obj[4].cart.velocity.y(-0.2);
-	    skyscraper.velocity.y(0.15);		
-	    background.velocity.y(0.015);        
-        } else if (y<=-937){
-            rootNode.obj[4].cart.velocity.y(0.2);
-	    skyscraper.velocity.y(-0.15);		
-	    background.velocity.y(-0.015);
-        }
-	this._super(ctx);
-    },
-    gameTexture:[],
         loadBackground: function() {
             // Create our background
-	    rootNode.obj[0]= background = new GameElement()
+	    return new GameElement()
                     .id('background')
                     .depth(0)
                     .width(1200)
 		    .height(850)
                     .texture(gameTexture[0])
-                    .translateTo(0, -110, 0)
-                    .mount(rootNode);
-	    background.addComponent(IgeVelocityComponent);                    
+                    .translateTo(0, -110, 0);
+		    //.addComponent(IgeVelocityComponent);
         },
         loadSkyscraper: function() {
 	    // Create our Skyscraper
-            rootNode.obj[1] = skyscraper = new TVTSkyScraper();
-            skyscraper.depth(1);
-            skyscraper.mount(rootNode);
-            skyscraper.addComponent(IgeVelocityComponent);            
+            return new TVTSkyScraper().depth(1);//.addComponent(IgeVelocityComponent);  
         },
         loadSkyscraperRooms: function() {
 	    // Create our Skyscraper Rooms
-            rootNode.obj[2] = skyscraperRooms = new TVTSkyScraperRooms()
-                .depth(3)
-                .mount(skyscraper);            
+            return new TVTSkyScraperRooms().depth(3);            
         },
         loadSkyscraperBeauties: function(){
             // Add our beauties
-            rootNode.obj[3] = new TVTSkyScraperBeauties().depth(4)
-                    .mount(skyscraper);					
+            return new TVTSkyScraperBeauties().depth(4);					
             
         },
         loadElevator: function(){
 	    // Create the elevator scene
-            rootNode.obj[4] = elevators = new TVTElevator().depth(3)
-		.mount(skyscraper);
+            return new TVTElevator().depth(3);
 	    
 		
         },
+	loadCharacter: function(){
+	    // Create the elevator scene
+            return new CharacterMonk().depth(4)
+		.translateTo(0, 268, 0);
+	    
+	},
         init: function () {
             
             this._super();
             // Load our textures
             rootNode = this;
             gameTexture = [];
-	    this.testElevator = 0;
+	    //this.testElevator = null;
             this.obj = [];
             gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
             
-            this.loadBackground();
-            this.loadSkyscraper();
-            this.loadSkyscraperRooms();
-            this.loadSkyscraperBeauties();
-            this.loadElevator();
+	    
+            this.obj[0]= background = this.loadBackground().mount(rootNode);
+	    
+            this.obj[1] = skyscraper = this.loadSkyscraper().mount(rootNode);
+
+            this.obj[2] = skyscraperRooms = this.loadSkyscraperRooms().mount(skyscraper);
             
+	    
+            this.obj[3] = this.loadSkyscraperBeauties().mount(skyscraper);
+            this.obj[4] = this.loadElevator().mount(skyscraper);
+	    this.obj[5]  = this.loadCharacter().mount(skyscraper);
+		    
+            
+        },    
+    tick: function (ctx) {
+	var y = this.obj[4].getCart();
+        
+        if(y>=263)
+        {   this.obj[4].setVelocity(-0.2);
+	 //   this.obj[1].velocity.y(0.15);		
+	 //   this.obj[0].velocity.y(0.015);        
+        } else if (y<=-937){
+	    this.obj[4].setVelocity(0.2);
+	  //  this.obj[1].velocity.y(-0.15);		
+	  //  this.obj[0].velocity.y(-0.015);
         }
+	this._super(ctx);
+    }
+    
+
 });
 
 if (typeof(module) !== 'undefined' && typeof(module.exports) !== 'undefined') { module.exports = Client; }

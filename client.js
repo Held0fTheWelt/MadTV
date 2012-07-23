@@ -9,6 +9,7 @@ var Client = IgeClass.extend({
 		this.obj = [];
 				
 		gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
+		gameTexture[1] = new IgeCellSheet('vx_chara02_c.png', 12, 8);
 		// Wait for our textures to load before continuing
 		ige.on('texturesLoaded', function () {
 			ige.createFrontBuffer(true);
@@ -48,19 +49,6 @@ var Client = IgeClass.extend({
 						.mouseOver(function () {this.backgroundColor('#49ceff'); })
 						.mouseOut(function () {this.backgroundColor('#474747'); })
 						.mount(self.ui);
-
-				
-					/*	
-						
-					tempObj2.addComponent(IgeVelocityComponent);
-					tempObj2.velocity.y(0.01);						
-
-
-						
-					// Create our Skyscraper
-
-					tempObj.addComponent(IgeVelocityComponent);
-					tempObj.velocity.y(0.1);*/
 				}
 			});
 		});

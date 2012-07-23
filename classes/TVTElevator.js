@@ -1,11 +1,8 @@
 var TVTElevator = IgeEntity.extend({
     classId: 'TVTElevator',
-	nodeSSElevator : this,
-	cart : null,
+
         init: function () {
             
-
-	    
             this._super();
             // Load our textures
             var nodeSSElevator = this;
@@ -22,39 +19,31 @@ var TVTElevator = IgeEntity.extend({
             ige.on('texturesLoaded', function () {               
                 
 		// Create the elevator cart scene
-		nodeSSElevator.cart = new IgeScene2d().depth(2);
-		nodeSSElevator.cart.translateTo(0, 263, 0)
-		nodeSSElevator.cart.addComponent(IgeVelocityComponent);
-		nodeSSElevator.cart.mount(nodeSSElevator);
+		nodeSSElevator.obj[0] = new IgeScene2d().depth(2);
+		nodeSSElevator.obj[0].translateTo(0, 263, 0)
+		nodeSSElevator.obj[0].addComponent(IgeVelocityComponent);
+		nodeSSElevator.obj[0].mount(nodeSSElevator);
 
-	    	cart = nodeSSElevator.cart;   
+   
 	    		
 		// Create the elevator doors scene
-		nodeSSElevator.doors = new IgeScene2d().depth(1);
+		nodeSSElevator.doors = new IgeScene2d().depth(3).opacity(0.3);
 		nodeSSElevator.doors.mount(nodeSSElevator);		
 		
 		
 		
 		
 		// Create elevatorbody
-		nodeSSElevator.obj[0] = new VerticalMovement()
+		nodeSSElevator.obj[15] = new VerticalMovement()
 		    .id('elevatorcart')
-		    .depth(1)
+		    .depth(0)
 		    .width(75)
 		    .height(89)
 		    .texture(gameTexture[1])
 		    
-		    .mount(nodeSSElevator.cart);		
+		    .mount(nodeSSElevator.obj[0]);
 		
-		// Create elevatorborder
-		nodeSSElevator.obj[1] = new VerticalMovement()
-		    .id('elevatorbody')
-		    .depth(1)
-		    .width(77)
-		    .height(89)
-		    .texture(gameTexture[0])
-		    
-		    .mount(nodeSSElevator.cart);
+		
 		
 		// Create elevator doors floor 0
 		nodeSSElevator.obj[2] = new VerticalMovement()
@@ -187,7 +176,19 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 		   
             });
-        }
+        },
+	getCart: function(){
+	    var translate;
+	    if(this.obj[0]){
+		    translate = this.obj[0].translate();
+	    }else{
+		    return 0;
+	    }
+	    return translate.y();
+	},
+	setVelocity: function(velo){
+	    this.obj[0].velocity.y(velo);
+	}
 });
 
 if (typeof(module) !== 'undefined' && typeof(module.exports) !== 'undefined') { module.exports = Client; }
