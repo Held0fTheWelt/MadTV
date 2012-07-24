@@ -33,7 +33,7 @@ var clientLoop = IgeEntity.extend({
 	loadCharacter: function(){
 	    // Create the elevator scene
             return new CharacterMonk().depth(4)
-		.translateTo(0, 268, 0);
+		.translateTo(400, -233, 0);
 	    
 	},
         init: function () {

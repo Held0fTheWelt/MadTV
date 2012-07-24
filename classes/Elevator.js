@@ -2,7 +2,7 @@ var Elevator = IgeEntity.extend({
     classId: 'Elevator',
         init: function () {
             this._super();
-	    this.currentHeading = 5;
+	    this.currentHeading = 11;
 	    this.currentFloor = 0;
 	    this.count = 0;
         },

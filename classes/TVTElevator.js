@@ -33,7 +33,7 @@ var TVTElevator = IgeEntity.extend({
 		    .texture(gameTexture[1])
 		    .dimensionsFromCell()
 		    .translateTo(0, 263, 0)
-		    .opacity(0.3)
+		    .opacity(0.7)
 		    .mount(nodeSSElevator);
 		    
 /*		    
