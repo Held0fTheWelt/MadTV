@@ -8,12 +8,12 @@ var clientLoop = IgeEntity.extend({
                     .width(1200)
 		    .height(850)
                     .texture(gameTexture[0])
-                    .translateTo(0, -110, 0);
-		    //.addComponent(IgeVelocityComponent);
+                    .translateTo(0, -110, 0)
+		    .addComponent(IgeVelocityComponent);
         },
         loadSkyscraper: function() {
 	    // Create our Skyscraper
-            return new TVTSkyScraper().depth(1);//.addComponent(IgeVelocityComponent);  
+            return new TVTSkyScraper().depth(1).addComponent(IgeVelocityComponent);  
         },
         loadSkyscraperRooms: function() {
 	    // Create our Skyscraper Rooms
@@ -61,17 +61,23 @@ var clientLoop = IgeEntity.extend({
             
         },    
     tick: function (ctx) {
-	var y = this.obj[4].getCart();
-        
-        if(y>=263)
-        {   this.obj[4].setVelocity(-0.2);
-	 //   this.obj[1].velocity.y(0.15);		
-	 //   this.obj[0].velocity.y(0.015);        
-        } else if (y<=-937){
-	    this.obj[4].setVelocity(0.2);
-	  //  this.obj[1].velocity.y(-0.15);		
-	  //  this.obj[0].velocity.y(-0.015);
-        }
+	var y = this.obj[4].getHeading();
+      
+        if(y>0)
+        {   //this.obj[4].setVelocity(-0.2);
+	    this.obj[1].velocity.y(0.15);		
+	    this.obj[0].velocity.y(0.015);
+	 console.log("downwards");
+        } else if (y<0){
+	    //this.obj[4].setVelocity(0.2);
+	  this.obj[1].velocity.y(-0.15);		
+	  this.obj[0].velocity.y(-0.015);
+	  console.log("upwards");
+        } else if(y == 0){
+	  this.obj[1].velocity.y(0);		
+	  this.obj[0].velocity.y(0);
+	  console.log("stay");	    
+	}
 	this._super(ctx);
     }
     

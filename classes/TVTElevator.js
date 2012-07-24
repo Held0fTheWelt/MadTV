@@ -11,26 +11,45 @@ var TVTElevator = IgeEntity.extend({
             this.obj = [];
 	    
 	    gameTexture[0] = new IgeTexture('assets/textures/elevators/elevatorcart.png');
-	    gameTexture[1] = new IgeTexture('assets/textures/elevators/elevatorbody.jpg');
+	    gameTexture[1] = new IgeCellSheet('elevator.png', 4, 1);
+	    //gameTexture[1] = new IgeTexture('assets/textures/elevators/elevatorbody.jpg');
 	    gameTexture[2] = new IgeTexture('assets/textures/elevators/elevator3.jpg');
             
             
             // Wait for our textures to load before continuing
             ige.on('texturesLoaded', function () {               
                 
+		
+		nodeSSElevator.obj[0] = new Elevator();
+		// Setup the entity
+		nodeSSElevator.obj[0].addComponent(IgeAnimationComponent)
+		    .addComponent(IgeVelocityComponent)
+		    .animation.define('opened', [4, 4, 4, 4], 8, -1)
+		    .animation.define('closed', [1, 1, 1, 1], 8, -1)
+		    .animation.define('open', [1, 2, 3, 4], 8, -1)
+		    .animation.define('close', [4, 3, 2, 1], 8, -1)
+		    .cell(4)
+		    .depth(3)
+		    .texture(gameTexture[1])
+		    .dimensionsFromCell()
+		    .translateTo(0, 263, 0)
+		    .opacity(0.3)
+		    .mount(nodeSSElevator);
+		    
+/*		    
 		// Create the elevator cart scene
 		nodeSSElevator.obj[0] = new IgeScene2d().depth(2);
 		nodeSSElevator.obj[0].translateTo(0, 263, 0)
 		nodeSSElevator.obj[0].addComponent(IgeVelocityComponent);
 		nodeSSElevator.obj[0].mount(nodeSSElevator);
 
-   
+*/
 	    		
 		// Create the elevator doors scene
 		nodeSSElevator.doors = new IgeScene2d().depth(3).opacity(0.3);
 		nodeSSElevator.doors.mount(nodeSSElevator);		
 		
-		
+/*
 		
 		
 		// Create elevatorbody
@@ -42,7 +61,7 @@ var TVTElevator = IgeEntity.extend({
 		    .texture(gameTexture[1])
 		    
 		    .mount(nodeSSElevator.obj[0]);
-		
+*/
 		
 		
 		// Create elevator doors floor 0
@@ -177,6 +196,16 @@ var TVTElevator = IgeEntity.extend({
 		   
             });
         },
+	getHeading: function(){
+	    var translate;
+	    if(this.obj[0]){
+		    translate = this.obj[0].getHeading();
+	    }else{
+		    return 0;
+	    }
+	    return translate;
+	},
+	/** returns the y position of the elevators cart for the applications scrolling mechanism */
 	getCart: function(){
 	    var translate;
 	    if(this.obj[0]){
@@ -186,8 +215,41 @@ var TVTElevator = IgeEntity.extend({
 	    }
 	    return translate.y();
 	},
+	/** changes the velocity of the elevator */
 	setVelocity: function(velo){
 	    this.obj[0].velocity.y(velo);
+	},
+	/** function for getting the correct height, when moving to some floor */
+	getFloorsHeight: function(floornumber){
+	    if(floornumber == 0){
+		return 263;
+	    } else if (floornumber == 1){
+		return 163;
+	    } else if (floornumber == 2){
+		return 63;
+	    } else if (floornumber == 3){
+		return -37;
+	    } else if (floornumber == 4){
+		return -137;
+	    } else if (floornumber == 5){
+		return -237;
+	    } else if (floornumber == 6){
+		return -337;
+	    } else if (floornumber == 7){
+		return -437;
+	    } else if (floornumber == 8){
+		return -537;
+	    } else if (floornumber == 9){
+		return -637;
+	    } else if (floornumber == 10){
+		return -737;
+	    } else if (floornumber == 11){
+		return -837;
+	    } else if (floornumber == 12){
+		return -937;
+	    }
+	    // goes anywhere if something went wrong
+	    return 500;
 	}
 });
 
