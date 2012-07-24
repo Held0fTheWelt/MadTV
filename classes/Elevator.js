@@ -2,9 +2,10 @@ var Elevator = IgeEntity.extend({
     classId: 'Elevator',
         init: function () {
             this._super();
-	    this.currentHeading = 11;
+	    this.currentHeading = 0;
 	    this.currentFloor = 0;
-	    this.count = 0;
+	    this.count = 500;
+	    this.startHeading = 0;
         },
 	/** function for getting the correct height, when moving to some floor */
 	getFloorsHeight: function(floornumber){
@@ -50,53 +51,29 @@ var Elevator = IgeEntity.extend({
 		),
 		speed = 0.25,
 		time = (distance / speed);
-
-		if (Math.abs(distY) > 1) {
+		console.log(Math.abs(distY));
+		if (Math.abs(distY) > 2) {
 		    	this.animation.select('opened');
 			this.velocity.y(distY / time);
 		}else {
-			this.velocity.y(0).translateTo(x, y, 0);
-			this.currentFloor = this.currentHeading;
+			this.currentFloor = this.currentHeading;			
+			this.velocity.y(0);
+			
 		}
 		return this;
 	},
 	getHeading: function(){
-	   if((this.currentFloor - this.currentHeading) < 0){
-		return 1;
-	   } else if((this.currentFloor - this.currentHeading) > 0){
-		return -1;
-	   }
-	   else{
-	    return 0;
+	    if(this.startHeading == 1){
+		if((this.currentFloor - this.currentHeading) < 0){
+		    return 1;
+		} else if((this.currentFloor - this.currentHeading) > 0){
+		    return -1;
+		} else {return 0;}
+	    }   else{
+		return 0;
 	   }
 	},
 	tick: function (ctx) {
-		//this.currentState = 'moveup';
-		if(this.currentFloor != this.currentHeading){
-		    this.moveTo(0,this.getFloorsHeight(this.currentHeading));
-		}else{
-		    if(this.count <= 20){
-			this.animation.select('close');
-			this.count++;
-
-		    } else if(this.count <= 30){
-			this.animation.select('closed');
-			this.count++;
-			
-		    }
-		    else if(this.count <= 50){
-			this.animation.select('open');
-			this.count++;
-		    }
-		    else {
-			this.animation.select('opened');
-			/*if(this.currentFloor == 0){
-			    this.currentHeading = 5;
-			}else{
-        		    this.currentHeading = 0;
-			}*/
-		    }		    
-		}
 		this._super(ctx);
 	}
 });

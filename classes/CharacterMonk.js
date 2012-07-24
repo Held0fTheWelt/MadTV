@@ -77,7 +77,7 @@ gameTexture = [];
 	},
 
 	tick: function (ctx) {
-		this.walkTo(this.input.val('mouseX'),this.translate().y());
+		//this.walkTo(this.input.val('mouseX'),this.translate().y());
 		this._super(ctx);
 	}
 });
