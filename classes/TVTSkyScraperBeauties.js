@@ -29,10 +29,21 @@ var TVTSkyScraperBeauties = IgeEntity.extend({
 	    gameTexture[8] = new IgeTexture('assets/textures/accessoires/floor/plant.png');
 	    // a water bar
 	    gameTexture[9] = new IgeTexture('assets/textures/accessoires/floor/water.png');
-	    
+	    // a sign on top of the building
+	    gameTexture[10] = new IgeTexture('assets/textures/sign.png');	    
             // Wait for our textures to load before continuing
             ige.on('texturesLoaded', function () {               
                 
+		// fresh water
+		nodeSSBeauties.obj[33] = new GameElement()
+			.id('towersign')
+			.depth(0)
+			.width(300)
+			.height(164)
+			.texture(gameTexture[10])
+			.translateTo(0, -1073, 0)
+			.mount(nodeSSBeauties);		
+		
 		// Beauties Floor 8
 		// fresh water
 		nodeSSBeauties.obj[32] = new GameElement()

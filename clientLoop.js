@@ -178,7 +178,7 @@ var clientLoop = IgeEntity.extend({
 		    this.obj[4].obj[1].animation.select('opened');
 		    this.obj[4].obj[1].count = 500;
 		    if(this.obj[4].obj[1].currentFloor == 0){
-			this.obj[4].obj[1].currentHeading = 1;
+			this.obj[4].obj[1].currentHeading = 12;
 		    }else if(this.obj[4].obj[1].currentFloor == 1){
 			this.obj[4].obj[1].currentHeading = 2;
 		    }else if(this.obj[4].obj[1].currentFloor == 2){
