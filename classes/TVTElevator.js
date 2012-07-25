@@ -14,58 +14,72 @@ var TVTElevator = IgeEntity.extend({
 	    gameTexture[1] = new IgeCellSheet('elevator.png', 4, 1);
 	    //gameTexture[1] = new IgeTexture('assets/textures/elevators/elevatorbody.jpg');
 	    gameTexture[2] = new IgeTexture('assets/textures/elevators/elevator3.jpg');
+            gameTexture[3] = new IgeTexture('cart.jpg');
             
-            
+	    gameTexture[4] = new IgeCellSheet('vx_chara02_c.png', 12, 8);
             // Wait for our textures to load before continuing
             ige.on('texturesLoaded', function () {               
-                
+ 		// Create the elevator cart scene
+		nodeSSElevator.obj[0] = new IgeScene2d().depth(2);
+		nodeSSElevator.obj[0].translateTo(0, 263, 0)
+		nodeSSElevator.obj[0].mount(nodeSSElevator);               
 		
-		nodeSSElevator.obj[0] = new Elevator();
+		nodeSSElevator.obj[1] = new Elevator();
 		// Setup the entity
-		nodeSSElevator.obj[0].addComponent(IgeAnimationComponent)
+		nodeSSElevator.obj[1].addComponent(IgeAnimationComponent)
 		    .addComponent(IgeVelocityComponent)
 		    .animation.define('opened', [4, 4, 4, 4], 8, -1)
 		    .animation.define('closed', [1, 1, 1, 1], 8, -1)
 		    .animation.define('open', [1, 2, 3, 4], 8, -1)
 		    .animation.define('close', [4, 3, 2, 1], 8, -1)
-		    .cell(4)
+		    .cell(1)
 		    .depth(3)
 		    .texture(gameTexture[1])
 		    .dimensionsFromCell()
-		    .translateTo(0, 263, 0)
-		    .opacity(0.7)
-		    .mount(nodeSSElevator);
-		    
-/*		    
-		// Create the elevator cart scene
-		nodeSSElevator.obj[0] = new IgeScene2d().depth(2);
-		nodeSSElevator.obj[0].translateTo(0, 263, 0)
-		nodeSSElevator.obj[0].addComponent(IgeVelocityComponent);
-		nodeSSElevator.obj[0].mount(nodeSSElevator);
-
-*/
-	    		
-		// Create the elevator doors scene
-		nodeSSElevator.doors = new IgeScene2d().depth(3).opacity(0.3);
-		nodeSSElevator.doors.mount(nodeSSElevator);		
-		
-/*
-		
-		
-		// Create elevatorbody
-		nodeSSElevator.obj[15] = new VerticalMovement()
-		    .id('elevatorcart')
-		    .depth(0)
+		    .mount(nodeSSElevator.obj[0]);
+		    		   		
+		// Create elevator cart
+		nodeSSElevator.obj[2] = new VerticalMovement()
+		    .id('cart')
+		    .depth(1)
 		    .width(75)
 		    .height(89)
-		    .texture(gameTexture[1])
-		    
+		    .texture(gameTexture[3])
 		    .mount(nodeSSElevator.obj[0]);
-*/
-		
+
+	    	nodeSSElevator.obj[3] = new CharacterMonk();
+		// Setup the entity	
+			
+		nodeSSElevator.obj[3].addComponent(IgeAnimationComponent)
+			.addComponent(IgeVelocityComponent)
+			.animation.define('walkDown', [10, 11, 12, 11], 8, -1)
+			.animation.define('walkLeft', [22, 23, 24, 23], 8, -1)
+			.animation.define('walkRight', [34, 35, 36, 35], 8, -1)
+			.animation.define('walkUp', [46, 47, 48, 47], 8, -1)
+			.cell(10)
+			.depth(2)
+			.texture(gameTexture[4])
+			.width(50)
+			.height(90)
+			.mount(nodeSSElevator.obj[0]);
+		/*
+		nodeSSElevator.obj[3].input.map('mouseX', nodeSSElevator.obj[0].input.mouse.x);
+		nodeSSElevator.obj[3].input.map('mouseY', nodeSSElevator.obj[0].input.mouse.y);			
+			
+			
+	    */
+			
+			
+			
+			
+			
+			
+		// Create the elevator doors scene
+		nodeSSElevator.doors = new IgeScene2d().depth(1).opacity(0.3);
+		nodeSSElevator.doors.mount(nodeSSElevator);				
 		
 		// Create elevator doors floor 0
-		nodeSSElevator.obj[2] = new VerticalMovement()
+		nodeSSElevator.obj[15] = new VerticalMovement()
 		    .id('elevatordoors0')
 		    .depth(3)
 		    .width(87)
@@ -75,7 +89,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);		    
 		    
 		// Create elevator doors floor 1
-		nodeSSElevator.obj[3] = new VerticalMovement()
+		nodeSSElevator.obj[16] = new VerticalMovement()
 		    .id('elevatordoors1')
 		    .depth(3)
 		    .width(87)

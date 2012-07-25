@@ -4,37 +4,37 @@ var Elevator = IgeEntity.extend({
             this._super();
 	    this.currentHeading = 0;
 	    this.currentFloor = 0;
-	    this.count = 500;
+	    this.count = 450;
 	    this.startHeading = 0;
         },
 	/** function for getting the correct height, when moving to some floor */
 	getFloorsHeight: function(floornumber){
 	    if(floornumber == 0){
-		return 263;
+		return 0;
 	    } else if (floornumber == 1){
-		return 163;
+		return -100;
 	    } else if (floornumber == 2){
-		return 63;
+		return -200;
 	    } else if (floornumber == 3){
-		return -37;
+		return -300;
 	    } else if (floornumber == 4){
-		return -137;
+		return -400;
 	    } else if (floornumber == 5){
-		return -237;
+		return -500;
 	    } else if (floornumber == 6){
-		return -337;
+		return -600;
 	    } else if (floornumber == 7){
-		return -437;
+		return -700;
 	    } else if (floornumber == 8){
-		return -537;
+		return -800;
 	    } else if (floornumber == 9){
-		return -637;
+		return -900;
 	    } else if (floornumber == 10){
-		return -737;
+		return -1000;
 	    } else if (floornumber == 11){
-		return -837;
+		return -1100;
 	    } else if (floornumber == 12){
-		return -937;
+		return -1200;
 	    }
 	    // goes anywhere if something went wrong
 	    return 500;
@@ -51,7 +51,6 @@ var Elevator = IgeEntity.extend({
 		),
 		speed = 0.25,
 		time = (distance / speed);
-		console.log(Math.abs(distY));
 		if (Math.abs(distY) > 2) {
 		    	this.animation.select('opened');
 			this.velocity.y(distY / time);
