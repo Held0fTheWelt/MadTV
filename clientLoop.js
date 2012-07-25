@@ -42,10 +42,14 @@ var clientLoop = IgeEntity.extend({
             // Load our textures
             rootNode = this;
             gameTexture = [];
+	    this.count = 0;
 	    //this.testElevator = null;
             this.obj = [];
             gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
-            
+            	    gameTexture[1] = new IgeCellSheet('elevator.png', 4, 1);
+	    gameTexture[2] = new IgeTexture('assets/textures/elevators/elevator3.jpg');
+	    gameTexture[3] = new IgeCellSheet('vx_chara02_c.png', 12, 8);
+	    gameTexture[4] = new IgeTexture('cart.jpg');
 	    
             this.obj[0]= background = this.loadBackground().mount(rootNode);
 	    
@@ -56,91 +60,134 @@ var clientLoop = IgeEntity.extend({
 	    
             this.obj[3] = this.loadSkyscraperBeauties().mount(skyscraper);
             this.obj[4] = this.loadElevator().mount(skyscraper);
-	    this.obj[5]  = this.loadCharacter().mount(skyscraper);
+	   // this.obj[5]  = this.loadCharacter().mount(skyscraper);
 		    
             
         },
     getBackgroundPosition: function(floor){
-	if(this.obj[4].obj[0].currentFloor == 0){
+	if(this.obj[4].obj[1].currentFloor == 0){
 	    return -110;
-	} else if(this.obj[4].obj[0].currentFloor == 1){
+	} else if(this.obj[4].obj[1].currentFloor == 1){
 	    return -102.5;
-	} else if(this.obj[4].obj[0].currentFloor == 2){
+	} else if(this.obj[4].obj[1].currentFloor == 2){
 	    return -95;
-	} else if(this.obj[4].obj[0].currentFloor == 3){
+	} else if(this.obj[4].obj[1].currentFloor == 3){
 	    return -87.5;
-	} else if(this.obj[4].obj[0].currentFloor == 4){
+	} else if(this.obj[4].obj[1].currentFloor == 4){
 	    return -80;
-	} else if(this.obj[4].obj[0].currentFloor == 5){
+	} else if(this.obj[4].obj[1].currentFloor == 5){
 	    return -72.5;
-	} else if(this.obj[4].obj[0].currentFloor == 6){
+	} else if(this.obj[4].obj[1].currentFloor == 6){
 	    return -65;
-	} else if(this.obj[4].obj[0].currentFloor == 7){
+	} else if(this.obj[4].obj[1].currentFloor == 7){
 	    return -57.5;
-	} else if(this.obj[4].obj[0].currentFloor == 8){
+	} else if(this.obj[4].obj[1].currentFloor == 8){
 	    return -50;
-	} else if(this.obj[4].obj[0].currentFloor == 9){
+	} else if(this.obj[4].obj[1].currentFloor == 9){
 	    return -42.5;
-	} else if(this.obj[4].obj[0].currentFloor == 10){
+	} else if(this.obj[4].obj[1].currentFloor == 10){
 	    return -35;
-	} else if(this.obj[4].obj[0].currentFloor == 11){
+	} else if(this.obj[4].obj[1].currentFloor == 11){
 	    return -27.5;
-	} else if(this.obj[4].obj[0].currentFloor == 12){
+	} else if(this.obj[4].obj[1].currentFloor == 12){
 	    return -25;
 	} else return -110;
 	
     },
     getSkyscraperPosition: function(floor){
-	if(this.obj[4].obj[0].currentFloor == 0){
+	if(this.obj[4].obj[1].currentFloor == 0){
 	    return 0;
-	} else if(this.obj[4].obj[0].currentFloor == 1){
+	} else if(this.obj[4].obj[1].currentFloor == 1){
 	    return 60;
-	} else if(this.obj[4].obj[0].currentFloor == 2){
+	} else if(this.obj[4].obj[1].currentFloor == 2){
 	    return 120;
-	} else if(this.obj[4].obj[0].currentFloor == 3){
+	} else if(this.obj[4].obj[1].currentFloor == 3){
 	    return 180;
-	} else if(this.obj[4].obj[0].currentFloor == 4){
+	} else if(this.obj[4].obj[1].currentFloor == 4){
 	    return 240;
-	} else if(this.obj[4].obj[0].currentFloor == 5){
+	} else if(this.obj[4].obj[1].currentFloor == 5){
 	    return 300;
-	} else if(this.obj[4].obj[0].currentFloor == 6){
+	} else if(this.obj[4].obj[1].currentFloor == 6){
 	    return 360;
-	} else if(this.obj[4].obj[0].currentFloor == 7){
+	} else if(this.obj[4].obj[1].currentFloor == 7){
 	    return 420;
-	} else if(this.obj[4].obj[0].currentFloor == 8){
+	} else if(this.obj[4].obj[1].currentFloor == 8){
 	    return 480;
-	} else if(this.obj[4].obj[0].currentFloor == 9){
+	} else if(this.obj[4].obj[1].currentFloor == 9){
 	    return 540;
-	} else if(this.obj[4].obj[0].currentFloor == 10){
+	} else if(this.obj[4].obj[1].currentFloor == 10){
 	    return 600;
-	} else if(this.obj[4].obj[0].currentFloor == 11){
+	} else if(this.obj[4].obj[1].currentFloor == 11){
 	    return 660;
-	} else if(this.obj[4].obj[0].currentFloor == 12){
+	} else if(this.obj[4].obj[1].currentFloor == 12){
 	    return 720;
 	} else return 0;
 	
     },
     tick: function (ctx) {
-	this.obj[5].walkTo(this.obj[5].input.val('mouseX'),this.obj[5].input.val('mouseY'));
-	// gettomg the ticktime
+	
 	var delta = ige.tickDelta;
+	
+	
+	var test = this.obj[4].obj[1].currentFloor - this.obj[4].obj[1].currentHeading;
 	// if elevator exists
-	if(this.obj[4].obj[0]){
+	if(this.obj[4].obj[1]){
 	    // if the currentFloor ist not where we want to be
-	    if(this.obj[4].obj[0].currentFloor != this.obj[4].obj[0].currentHeading){
-		// if counter time is between 500 an 300 ms close the elevator and take some portion of time
-		if(this.obj[4].obj[0].count >= 300){
-		    this.obj[4].obj[0].animation.select('close');
-		    this.obj[4].obj[0].count-=delta;
-		// if counter time is between 300 an 200 ms let the elevator be closed and take some portion of time
-		} else if(this.obj[4].obj[0].count >= 200){
-		    this.obj[4].obj[0].animation.select('closed');
-		    this.obj[4].obj[0].count-=delta;    
+	    if(test==0){
+		if(this.count <= 449){
+		    // look that the elevator, skyscraper and background are in place, close the elevator and add some amount of time
+		    // stop movement
+		   // this.obj[1].velocity.y(0);		
+		  //  this.obj[0].velocity.y(0);
+		//this.obj[4].obj[1].translateTo(0, this.obj[4].obj[1].getFloorsHeight(this.obj[4].obj[1].currentHeading), 0);
+		  //  this.obj[1].translateTo(0, this.getSkyscraperPosition(this.obj[4].obj[1].currentFloor), 0);
+		  //  this.obj[0].translateTo(0, this.getBackgroundPosition(this.obj[4].obj[1].currentFloor), 0);
+
+		    this.obj[4].obj[1].animation.select('open');
+		    this.count+=delta;
 		}
-		// if counter time is between 200 an 0 ms open the elevator and take some portion of time
-		else if(this.obj[4].obj[0].count > 0){
-		    this.obj[4].obj[0].animation.select('open');
-		    this.obj[4].obj[0].count-=delta;
+		// if counter time is 500 or above let the elevator opened and add some time
+		else {
+		    this.obj[4].obj[1].animation.select('opened');
+		    console.log("try moving down");
+		    this.count = 450;
+		    if(this.obj[4].obj[1].currentFloor == 0){
+			console.log("yeah this is my position");
+			this.obj[4].obj[1].currentHeading = 1;
+		    }else if(this.obj[4].obj[1].currentFloor == 1){
+			this.obj[4].obj[1].currentHeading = 2;
+		    }else if(this.obj[4].obj[1].currentFloor == 2){
+			this.obj[4].obj[1].currentHeading = 3;
+		    }else if(this.obj[4].obj[1].currentFloor == 3){
+			this.obj[4].obj[1].currentHeading = 4;
+		    }else if(this.obj[4].obj[1].currentFloor == 4){
+			this.obj[4].obj[1].currentHeading = 5;
+		    }else if(this.obj[4].obj[1].currentFloor == 5){
+			this.obj[4].obj[1].currentHeading = 6;
+		    }else if(this.obj[4].obj[1].currentFloor == 6){
+			this.obj[4].obj[1].currentHeading = 7;
+		    }else if(this.obj[4].obj[1].currentFloor == 7){
+			this.obj[4].obj[1].currentHeading = 8;
+		    }else if(this.obj[4].obj[1].currentFloor == 8){
+			this.obj[4].obj[1].currentHeading = 9;
+		    }else if(this.obj[4].obj[1].currentFloor == 9){
+			this.obj[4].obj[1].currentHeading = 10;
+		    }else if(this.obj[4].obj[1].currentFloor == 10){
+			this.obj[4].obj[1].currentHeading = 11;
+		    }else if(this.obj[4].obj[1].currentFloor == 11){
+			this.obj[4].obj[1].currentHeading = 12;
+		    }else if(this.obj[4].obj[1].currentFloor == 12){
+			this.obj[4].obj[1].currentHeading = 0;
+		    }
+		}
+	    }else {
+		
+		// if counter time is between 500 an 300 ms close the elevator and take some portion of time
+		if(this.count >= 1){
+		    console.log("trying to move");
+		    this.obj[4].obj[1].animation.select('close');
+		    this.count-=delta;
+		    console.log(this.count);
 		}
 		// if counter time is zero or below ms let the elevator be opened 
 		// tell elevator to set startHeading Tag (do we need that any longer ? we'll see)
@@ -149,82 +196,27 @@ var clientLoop = IgeEntity.extend({
 		// if up (y < 0) -> move skyscraper and background downwards
 		// if down (y > 0) -> move skyscraper and background upwards
 		else {
-		    this.obj[4].obj[0].animation.select('opened');
-		    this.obj[4].obj[0].startHeading = 1;
-		    this.obj[4].obj[0].moveTo(0,this.obj[4].obj[0].getFloorsHeight(this.obj[4].obj[0].currentHeading));
-		    
-		    var y = this.obj[4].obj[0].currentFloor - this.obj[4].obj[0].currentHeading;
+		    this.obj[4].obj[1].animation.select('closed');
+		    this.obj[4].obj[1].startHeading = 1;
+		    this.obj[4].obj[1].moveTo(0,this.obj[4].obj[1].getFloorsHeight(this.obj[4].obj[1].currentHeading));
+/*
+		    var v = this.obj[4].obj[1].currentFloor - this.obj[4].obj[1].currentHeading;
 			
-		    if(y<0) {   
+		    if(v<0) {   
 			this.obj[1].velocity.y(0.15);		
 			this.obj[0].velocity.y(0.015);
-		    } else if (y>0) {
+		    } else if (v>0) {
 			this.obj[1].velocity.y(-0.15);		
 			this.obj[0].velocity.y(-0.015);
-		    }		
+		    }*/		
     
-		    this.obj[4].obj[0].count = 0;
+		    this.count = 0;
 		}		    
 	    // if we are on the current floor we want to be
-	    }else{
-
-		// if counter time is between 0 and 200
-		if(this.obj[4].obj[0].count <= 200){
-		    // look that the elevator, skyscraper and background are in place, close the elevator and add some amount of time
-		    // stop movement
-		    this.obj[1].velocity.y(0);		
-		    this.obj[0].velocity.y(0);
-		    this.obj[1].translateTo(0, this.getSkyscraperPosition(this.obj[4].obj[0].currentFloor), 0);
-		    this.obj[0].translateTo(0, this.getBackgroundPosition(this.obj[4].obj[0].currentFloor), 0);
-		    this.obj[4].obj[0].translateTo(0, this.obj[4].obj[0].getFloorsHeight(this.obj[4].obj[0].currentHeading), 0);
-		    this.obj[4].obj[0].animation.select('close');
-		    this.obj[4].obj[0].count+=delta;
-    
-		}
-		// if counter time is between 200 and 300 let the elevator closed and add some time
-		else if(this.obj[4].obj[0].count <= 299){
-		    this.obj[4].obj[0].animation.select('closed');
-		    this.obj[4].obj[0].count+=delta;
-		    
-		}
-		// if counter time is between 300 and 500 open the elevator and add some time
-		else if(this.obj[4].obj[0].count <= 499){
-		    this.obj[4].obj[0].animation.select('open');
-		    this.obj[4].obj[0].count+=delta;
-		}
-		// if counter time is 500 or above let the elevator opened and add some time
-		else {
-		    this.obj[4].obj[0].animation.select('opened');
-		    this.obj[4].obj[0].count = 500;
-		    if(this.obj[4].obj[0].currentFloor == 0){
-			this.obj[4].obj[0].currentHeading = 1;
-		    }else if(this.obj[4].obj[0].currentFloor == 1){
-			this.obj[4].obj[0].currentHeading = 2;
-		    }else if(this.obj[4].obj[0].currentFloor == 2){
-			this.obj[4].obj[0].currentHeading = 3;
-		    }else if(this.obj[4].obj[0].currentFloor == 3){
-			this.obj[4].obj[0].currentHeading = 4;
-		    }else if(this.obj[4].obj[0].currentFloor == 4){
-			this.obj[4].obj[0].currentHeading = 5;
-		    }else if(this.obj[4].obj[0].currentFloor == 5){
-			this.obj[4].obj[0].currentHeading = 6;
-		    }else if(this.obj[4].obj[0].currentFloor == 6){
-			this.obj[4].obj[0].currentHeading = 7;
-		    }else if(this.obj[4].obj[0].currentFloor == 7){
-			this.obj[4].obj[0].currentHeading = 8;
-		    }else if(this.obj[4].obj[0].currentFloor == 8){
-			this.obj[4].obj[0].currentHeading = 9;
-		    }else if(this.obj[4].obj[0].currentFloor == 9){
-			this.obj[4].obj[0].currentHeading = 10;
-		    }else if(this.obj[4].obj[0].currentFloor == 10){
-			this.obj[4].obj[0].currentHeading = 11;
-		    }else if(this.obj[4].obj[0].currentFloor == 11){
-			this.obj[4].obj[0].currentHeading = 12;
-		    }else if(this.obj[4].obj[0].currentFloor == 12){
-			this.obj[4].obj[0].currentHeading = 0;
-		    }
-		}		    
 	    }
+    
+			    
+	    
 	}
 	this._super(ctx);
     }
