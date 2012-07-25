@@ -5,7 +5,6 @@ var TVTElevator = IgeEntity.extend({
             
             this._super();
             // Load our textures
-	
             var nodeSSElevator = this;
             var gameTexture = [];
 
@@ -13,70 +12,60 @@ var TVTElevator = IgeEntity.extend({
 	    
 	    gameTexture[0] = new IgeTexture('assets/textures/elevators/elevatorcart.png');
 	    gameTexture[1] = new IgeCellSheet('elevator.png', 4, 1);
+	    //gameTexture[1] = new IgeTexture('assets/textures/elevators/elevatorbody.jpg');
 	    gameTexture[2] = new IgeTexture('assets/textures/elevators/elevator3.jpg');
-	    gameTexture[3] = new IgeCellSheet('vx_chara02_c.png', 12, 8);
-	    gameTexture[4] = new IgeTexture('cart.jpg');
+            
             
             // Wait for our textures to load before continuing
             ige.on('texturesLoaded', function () {               
-              
-		// Create the elevator cart scene
-		nodeSSElevator.obj[0] = new IgeScene2d().depth(2);
+                
 		
-		nodeSSElevator.obj[0].addComponent(IgeVelocityComponent);
-		nodeSSElevator.obj[0].mount(nodeSSElevator);
-		
-		nodeSSElevator.obj[1] = new Elevator();
+		nodeSSElevator.obj[0] = new Elevator();
 		// Setup the entity
-		nodeSSElevator.obj[1].addComponent(IgeAnimationComponent)
+		nodeSSElevator.obj[0].addComponent(IgeAnimationComponent)
 		    .addComponent(IgeVelocityComponent)
 		    .animation.define('opened', [4, 4, 4, 4], 8, -1)
 		    .animation.define('closed', [1, 1, 1, 1], 8, -1)
 		    .animation.define('open', [1, 2, 3, 4], 8, -1)
 		    .animation.define('close', [4, 3, 2, 1], 8, -1)
-		    .cell(1)
+		    .cell(4)
 		    .depth(3)
 		    .texture(gameTexture[1])
-		    .width(75)
-		    .height(89)
-		    .mount(nodeSSElevator.obj[0]);
-		nodeSSElevator.obj[1].translateTo(0, 263, 0);
-		
-		nodeSSElevator.obj[2] = new CharacterMonk().mount(nodeSSElevator.obj[0]);;
-		// Setup the entity
-		nodeSSElevator.obj[2].addComponent(IgeAnimationComponent)
-			.addComponent(IgeVelocityComponent)
-			.animation.define('walkDown', [10, 11, 12, 11], 8, -1)
-			.animation.define('walkLeft', [22, 23, 24, 23], 8, -1)
-			.animation.define('walkRight', [34, 35, 36, 35], 8, -1)
-			.animation.define('walkUp', [46, 47, 48, 47], 8, -1)
-			.cell(10)
-			.depth(2)
-			.texture(gameTexture[3])
-			.width(50)
-			.height(90);
-		nodeSSElevator.obj[2].translateTo(0, 263, 0);		
-		//nodeSSElevator.obj[16].input.map('mouseX', rootNode.obj[16].input.mouse.x);
-		//nodeSSElevator.obj[16].input.map('mouseY', rootNode.obj[16].input.mouse.y);
-	
-		
-		// Create elevator doors floor 0
-		nodeSSElevator.obj[3] = new VerticalMovement()
-		    .id('cart')
-		    .depth(1)
-		    .width(75)
-		    .height(89)
-		    .texture(gameTexture[4])
-		    .mount(nodeSSElevator.obj[0]);
-		nodeSSElevator.obj[3].translateTo(0, 263, 0);
-		
+		    .dimensionsFromCell()
+		    .translateTo(0, 263, 0)
+		    .opacity(0.7)
+		    .mount(nodeSSElevator);
+		    
+/*		    
+		// Create the elevator cart scene
+		nodeSSElevator.obj[0] = new IgeScene2d().depth(2);
+		nodeSSElevator.obj[0].translateTo(0, 263, 0)
+		nodeSSElevator.obj[0].addComponent(IgeVelocityComponent);
+		nodeSSElevator.obj[0].mount(nodeSSElevator);
+
+*/
+	    		
 		// Create the elevator doors scene
-		nodeSSElevator.doors = new IgeScene2d().depth(0).opacity(0.3);
+		nodeSSElevator.doors = new IgeScene2d().depth(3).opacity(0.3);
 		nodeSSElevator.doors.mount(nodeSSElevator);		
-				
+		
+/*
+		
+		
+		// Create elevatorbody
+		nodeSSElevator.obj[15] = new VerticalMovement()
+		    .id('elevatorcart')
+		    .depth(0)
+		    .width(75)
+		    .height(89)
+		    .texture(gameTexture[1])
+		    
+		    .mount(nodeSSElevator.obj[0]);
+*/
+		
 		
 		// Create elevator doors floor 0
-		nodeSSElevator.obj[4] = new VerticalMovement()
+		nodeSSElevator.obj[2] = new VerticalMovement()
 		    .id('elevatordoors0')
 		    .depth(3)
 		    .width(87)
@@ -86,7 +75,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);		    
 		    
 		// Create elevator doors floor 1
-		nodeSSElevator.obj[5] = new VerticalMovement()
+		nodeSSElevator.obj[3] = new VerticalMovement()
 		    .id('elevatordoors1')
 		    .depth(3)
 		    .width(87)
@@ -96,7 +85,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 		   
 		// Create elevator doors floor 2
-		nodeSSElevator.obj[6] = new VerticalMovement()
+		nodeSSElevator.obj[4] = new VerticalMovement()
 		    .id('elevatordoors2')
 		    .depth(3)
 		    .width(87)
@@ -106,7 +95,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 3
-		nodeSSElevator.obj[7] = new VerticalMovement()
+		nodeSSElevator.obj[5] = new VerticalMovement()
 		    .id('elevatordoors3')
 		    .depth(3)
 		    .width(87)
@@ -116,7 +105,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 4
-		nodeSSElevator.obj[8] = new VerticalMovement()
+		nodeSSElevator.obj[6] = new VerticalMovement()
 		    .id('elevatordoors4')
 		    .depth(3)
 		    .width(87)
@@ -126,7 +115,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 5
-		nodeSSElevator.obj[9] = new VerticalMovement()
+		nodeSSElevator.obj[7] = new VerticalMovement()
 		    .id('elevatordoors5')
 		    .depth(3)
 		    .width(87)
@@ -136,7 +125,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 6
-		nodeSSElevator.obj[10] = new VerticalMovement()
+		nodeSSElevator.obj[8] = new VerticalMovement()
 		    .id('elevatordoors6')
 		    .depth(3)
 		    .width(87)
@@ -146,7 +135,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 7
-		nodeSSElevator.obj[11] = new VerticalMovement()
+		nodeSSElevator.obj[9] = new VerticalMovement()
 		    .id('elevatordoors7')
 		    .depth(3)
 		    .width(87)
@@ -156,7 +145,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 8
-		nodeSSElevator.obj[12] = new VerticalMovement()
+		nodeSSElevator.obj[10] = new VerticalMovement()
 		    .id('elevatordoors8')
 		    .depth(3)
 		    .width(87)
@@ -166,7 +155,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 9
-		nodeSSElevator.obj[13] = new VerticalMovement()
+		nodeSSElevator.obj[11] = new VerticalMovement()
 		    .id('elevatordoors9')
 		    .depth(3)
 		    .width(87)
@@ -176,7 +165,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 10
-		nodeSSElevator.obj[14] = new VerticalMovement()
+		nodeSSElevator.obj[12] = new VerticalMovement()
 		    .id('elevatordoors10')
 		    .depth(3)
 		    .width(87)
@@ -186,7 +175,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 11
-		nodeSSElevator.obj[15] = new VerticalMovement()
+		nodeSSElevator.obj[13] = new VerticalMovement()
 		    .id('elevatordoors11')
 		    .depth(3)
 		    .width(87)
@@ -196,7 +185,7 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 
 		// Create elevator doors floor 12
-		nodeSSElevator.obj[16] = new VerticalMovement()
+		nodeSSElevator.obj[14] = new VerticalMovement()
 		    .id('elevatordoors12')
 		    .depth(3)
 		    .width(87)
@@ -210,7 +199,7 @@ var TVTElevator = IgeEntity.extend({
 	getHeading: function(){
 	    var translate;
 	    if(this.obj[0]){
-		    translate = this.obj[1].getHeading();
+		    translate = this.obj[0].getHeading();
 	    }else{
 		    return 0;
 	    }
@@ -220,7 +209,7 @@ var TVTElevator = IgeEntity.extend({
 	getCart: function(){
 	    var translate;
 	    if(this.obj[0]){
-		    translate = this.obj[1].translate();
+		    translate = this.obj[0].translate();
 	    }else{
 		    return 0;
 	    }
@@ -228,7 +217,7 @@ var TVTElevator = IgeEntity.extend({
 	},
 	/** changes the velocity of the elevator */
 	setVelocity: function(velo){
-	    this.obj[1].velocity.y(velo);
+	    this.obj[0].velocity.y(velo);
 	},
 	/** function for getting the correct height, when moving to some floor */
 	getFloorsHeight: function(floornumber){

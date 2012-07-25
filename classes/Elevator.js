@@ -4,9 +4,8 @@ var Elevator = IgeEntity.extend({
             this._super();
 	    this.currentHeading = 0;
 	    this.currentFloor = 0;
-	    this.count = 0;
+	    this.count = 500;
 	    this.startHeading = 0;
-
         },
 	/** function for getting the correct height, when moving to some floor */
 	getFloorsHeight: function(floornumber){
@@ -52,6 +51,7 @@ var Elevator = IgeEntity.extend({
 		),
 		speed = 0.25,
 		time = (distance / speed);
+		console.log(Math.abs(distY));
 		if (Math.abs(distY) > 2) {
 		    	this.animation.select('opened');
 			this.velocity.y(distY / time);
