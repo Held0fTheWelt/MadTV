@@ -57,7 +57,7 @@ var TVTSkyScraperBeauties = IgeEntity.extend({
 
 		// small plants next to it
 		nodeSSBeauties.obj[31] = new GameElement()
-			.id('water')
+			.id('plant2')
 			.depth(0)
 			.width(33)
 			.height(94)

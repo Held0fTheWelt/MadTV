@@ -1,6 +1,7 @@
 var CharacterMonk = IgeEntity.extend({
     classId: 'CharacterMonk',
         init: function () {
+	    this.flag = 0;
             this._super();     
         },
 
@@ -17,7 +18,7 @@ var CharacterMonk = IgeEntity.extend({
 			speed = 0.1,
 			time = (distance / speed);
 
-		if (Math.abs(distX) > 0.2 || Math.abs(distY) > 0.2) {
+		if (Math.abs(distX) > 1 || Math.abs(distY) > 1) {
 			this.velocity.x(distX / time);
 			this.velocity.y(distY / time);
 
@@ -41,6 +42,11 @@ var CharacterMonk = IgeEntity.extend({
 				}
 			}
 		} else {
+			this.flag = 1;
+			// stop the animation
+			this.animation.stop();
+			// set image to cell 10
+			this.cell(10);			
 			this.velocity.x(0)
 				.velocity.y(0)
 				.translateTo(x, y, 0);
@@ -50,7 +56,6 @@ var CharacterMonk = IgeEntity.extend({
 	},
 
 	tick: function (ctx) {
-	//	this.walkTo(this.input.val('mouseX'),this.input.val('mouseY'));
 		this._super(ctx);
 	}
 });

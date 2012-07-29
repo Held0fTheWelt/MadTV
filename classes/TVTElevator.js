@@ -7,8 +7,16 @@ var TVTElevator = IgeEntity.extend({
             // Load our textures
             var nodeSSElevator = this;
             var gameTexture = [];
-
+	    this.pretendedX = 0;
+	    this.pretendedY = 0;
+	    this.move = 0;
             this.obj = [];
+
+	    this.currentHeading = 0;
+	    this.currentFloor = 0;
+	    this.count = 550;
+	    this.startHeading = 0;
+
 	    
 	    gameTexture[0] = new IgeTexture('assets/textures/elevators/elevatorcart.png');
 	    gameTexture[1] = new IgeCellSheet('elevator.png', 4, 1);
@@ -61,17 +69,9 @@ var TVTElevator = IgeEntity.extend({
 			.texture(gameTexture[4])
 			.width(50)
 			.height(90)
+			.translateTo(0, 6, 0)
 			.mount(nodeSSElevator.obj[0]);
-		/*
-		nodeSSElevator.obj[3].input.map('mouseX', nodeSSElevator.obj[0].input.mouse.x);
-		nodeSSElevator.obj[3].input.map('mouseY', nodeSSElevator.obj[0].input.mouse.y);			
-			
-			
-	    */
-			
-			
-			
-			
+	
 			
 			
 		// Create the elevator doors scene
@@ -209,15 +209,22 @@ var TVTElevator = IgeEntity.extend({
 		    .mount(nodeSSElevator.doors);
 		   
             });
+	    
+
+	    ige.input.on('mouseUp', function (event) {
+		    nodeSSElevator._mouseUp(event);
+	    });
         },
 	getHeading: function(){
-	    var translate;
-	    if(this.obj[0]){
-		    translate = this.obj[0].getHeading();
-	    }else{
-		    return 0;
-	    }
-	    return translate;
+	    if(this.startHeading == 1){
+		if((this.currentFloor - this.currentHeading) < 0){
+		    return 1;
+		} else if((this.currentFloor - this.currentHeading) > 0){
+		    return -1;
+		} else {return 0;}
+	    }   else{
+		return 0;
+	   }
 	},
 	/** returns the y position of the elevators cart for the applications scrolling mechanism */
 	getCart: function(){
@@ -234,36 +241,66 @@ var TVTElevator = IgeEntity.extend({
 	    this.obj[0].velocity.y(velo);
 	},
 	/** function for getting the correct height, when moving to some floor */
+		/** function for getting the correct height, when moving to some floor */
 	getFloorsHeight: function(floornumber){
 	    if(floornumber == 0){
-		return 263;
+		return 0;
 	    } else if (floornumber == 1){
-		return 163;
+		return -100;
 	    } else if (floornumber == 2){
-		return 63;
+		return -200;
 	    } else if (floornumber == 3){
-		return -37;
+		return -300;
 	    } else if (floornumber == 4){
-		return -137;
+		return -400;
 	    } else if (floornumber == 5){
-		return -237;
+		return -500;
 	    } else if (floornumber == 6){
-		return -337;
+		return -600;
 	    } else if (floornumber == 7){
-		return -437;
+		return -700;
 	    } else if (floornumber == 8){
-		return -537;
+		return -800;
 	    } else if (floornumber == 9){
-		return -637;
+		return -900;
 	    } else if (floornumber == 10){
-		return -737;
+		return -1000;
 	    } else if (floornumber == 11){
-		return -837;
+		return -1100;
 	    } else if (floornumber == 12){
-		return -937;
+		return -1200;
 	    }
 	    // goes anywhere if something went wrong
 	    return 500;
+	},
+	setCurrentHeading: function(heading){
+	    this.currentHeading = heading;  
+	},
+	getCurrentHeading: function(){
+	    return this.currentHeading;
+	},
+	_mouseUp: function () {
+		this.pretendedX = ige.input.val(ige.input.mouse.x),
+		this.pretendedY = ige.input.val(ige.input.mouse.y)-263;
+		this.move = 1;
+		console.log("clicked X:"+this.pretendedX+" Y:"+this.pretendedY);
+	},
+	tick: function (ctx) {
+	    // if walk-flag == 1
+	    if(this.move == 1){
+		this.obj[3].walkTo(this.pretendedX,this.getFloorsHeight(this.currentFloor)+6);
+		if(this.obj[3].flag == 1){
+		    this.obj[3].flag = 0;
+		    this.move = 0;		    
+		}
+
+	    }
+		if(this.obj[1].flag == 1){
+		    this.currentFloor = this.currentHeading;
+		    
+		}
+		this._super(ctx);
+	    
 	}
 });
 
