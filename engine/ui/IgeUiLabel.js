@@ -1,3 +1,0 @@
-var IgeUiLabel = IgeUiEntity.extend({
-
-});
