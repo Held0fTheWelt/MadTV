@@ -182,7 +182,7 @@ var clientLoop = IgeEntity.extend({
 		// if counter time is 500 or above let the elevator opened and add some time
 		else {
 		    this.obj[4].obj[1].animation.select('opened');
-		    this.obj[4].obj[1].count = 550;
+		    this.obj[4].count = 550;
 		    console.log("bin da");
 		    this.obj[4].setCurrentHeading(2);
 		    console.log(this.obj[4].currentHeading);
