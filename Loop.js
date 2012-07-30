@@ -6,7 +6,7 @@ var Loop = IgeEntity.extend({
 			.id('background')
 			.depth(0)
 			.width(1200)
-			.height(1200)
+			.height(2250)
 			.texture(gameTexture[0])
 			.translateTo(0, -140, 0)
 			.addComponent(IgeVelocityComponent);
@@ -68,7 +68,7 @@ var Loop = IgeEntity.extend({
 		gameTexture = [];
 		//this.testElevator = null;
 		this.obj = [];
-		gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
+		gameTexture[0] = new IgeTexture('assets/textures/backgrounds/background.jpg');
 
         rootNode.obj[0] = this.loadBackground().mount(this);
         rootNode.obj[1] = this.loadSkyscraper().mount(this);
