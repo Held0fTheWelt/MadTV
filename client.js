@@ -67,7 +67,7 @@ var Client = IgeClass.extend({
 		gameTexture = [];
 
 		this.obj = [];
-		gameTexture[0] = new IgeTexture('assets/textures/backgrounds/backgroundType.jpg');
+		gameTexture[0] = new IgeTexture('assets/textures/backgrounds/background.jpg');
 
 		// Wait for our textures to load before continuing
 		ige.on('texturesLoaded', function () {
