@@ -28,8 +28,10 @@ var PlayerComponent = IgeClass.extend({
 	_mouseUp: function (event) {
 		this._entity.walkTo(
 			ige.input.actionVal('mouseX'),
-			ige.input.actionVal('mouseY')
+			ige.input.actionVal('mouseY')-268
 		);
+        console.log(ige.input.actionVal('mouseX'));
+        console.log(ige.input.actionVal('mouseY')-268);
 	}
 });
 
