@@ -78,7 +78,7 @@ var Loop = IgeEntity.extend({
 
         ige.addBehaviour("tick", function () {
             var y = rootNode.obj[3].currentFloor;
-         /*   switch (y) {
+            switch (y) {
                 case 0: rootNode.obj[3].currentHeading = 1;
                     break;
                 case 1: rootNode.obj[3].currentHeading = 2;
@@ -105,7 +105,7 @@ var Loop = IgeEntity.extend({
                     break;
                 case 12: rootNode.obj[3].currentHeading = 0;
                     break;
-            }*/
+            }
             var direction = rootNode.obj[3].currentHeading - rootNode.obj[3].currentFloor;
 
             if(direction > 0){
