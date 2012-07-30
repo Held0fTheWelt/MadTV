@@ -22,7 +22,7 @@ var Client = IgeClass.extend({
         // Create the Skyscraper
         return new Rooms().depth(1);
     },
-    loadElevator: function() {
+    loadFloorScene: function() {
         return new FloorScene().depth(2).translateTo(2, -47, 0);
     },
     loadCharacter: function(){
@@ -91,7 +91,7 @@ var Client = IgeClass.extend({
                     rootNode.obj[0] = rootNode.loadBackground().mount(rootNode.scene1);
                     rootNode.obj[1] = rootNode.loadSkyscraper().mount(rootNode.scene1);
                     rootNode.obj[2] = rootNode.loadSkyscraperRooms().mount(rootNode.obj[1]);
-                    rootNode.obj[3] = rootNode.loadElevator().mount(rootNode.obj[1]);
+                    rootNode.obj[3] = rootNode.loadFloorScene().mount(rootNode.obj[1]);
                     rootNode.obj[4] = rootNode.loadCharacter().mount(rootNode.obj[3]);
                     // Create the UI scene
                     rootNode.obj[5] = new IgeScene2d().depth(2)
@@ -118,6 +118,7 @@ var Client = IgeClass.extend({
                 var y = rootNode.obj[3].currentFloor;
                 switch (y) {
                     case 0: rootNode.obj[3].currentHeading = 1;
+
                         break;
                     case 1: rootNode.obj[3].currentHeading = 2;
                         break;
