@@ -20,7 +20,7 @@ var Rooms = IgeEntity.extend({
         // Bureau door 3 closed
         gameTexture[4] = new IgeTexture('assets/textures/accessoires/bureau/buro31.jpg');
         // The elevator body
-        gameTexture[5] = new IgeTexture('assets/textures/elevators/outerelevator.png');
+        gameTexture[5] = new IgeTexture('assets/textures/elevators/elevator3.jpg');
 
         // Wait for our textures to load before continuing
         ige.on('texturesLoaded', function () {
@@ -448,6 +448,8 @@ var Rooms = IgeEntity.extend({
                 .texture(gameTexture[5])
                 .translateTo(0, -1247, 0)
                 .mount(nodeSSRooms);
+
+
         });
     }
 });

@@ -21,6 +21,9 @@ var Loop = IgeEntity.extend({
         // Create the Skyscraper
         return new Rooms().depth(1);
     },
+    loadElevator: function() {
+        return new FloorScene().depth(2).translateTo(2, -47, 0);
+    },
 	init:function () {
 
 		this._super();
@@ -33,6 +36,7 @@ var Loop = IgeEntity.extend({
 		this.obj[0] = this.loadBackground().mount(this);
         this.obj[1] = this.loadSkyscraper().mount(this);
         this.obj[2] = this.loadSkyscraperRooms().mount(this.obj[1]);
+        this.obj[3] = this.loadElevator().mount(this.obj[1]);
 	},
 
 	getBackgroundPosition:function (floor) {
