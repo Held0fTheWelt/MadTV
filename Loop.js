@@ -24,6 +24,12 @@ var Loop = IgeEntity.extend({
     loadElevator: function() {
         return new FloorScene().depth(2).translateTo(2, -47, 0);
     },
+    loadCharacter: function(){
+        return new Character().depth(2).translateTo(0, 5, 0)
+            .addComponent(PlayerComponent)
+            .setType(4);
+
+    },
 	init:function () {
 
 		this._super();
@@ -37,6 +43,7 @@ var Loop = IgeEntity.extend({
         this.obj[1] = this.loadSkyscraper().mount(this);
         this.obj[2] = this.loadSkyscraperRooms().mount(this.obj[1]);
         this.obj[3] = this.loadElevator().mount(this.obj[1]);
+        this.obj[4] = this.loadCharacter().mount(this.obj[3]);
 	},
 
 	getBackgroundPosition:function (floor) {

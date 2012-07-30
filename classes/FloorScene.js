@@ -88,8 +88,8 @@ var FloorScene = IgeEntity.extend({
             // Setup the entity
             nodeSSElevator.obj[0].addComponent(IgeAnimationComponent)
                 .addComponent(IgeVelocityComponent)
-                .animation.define('opened', [4, 4, 4, 4], 8, -1)
-                .animation.define('closed', [1, 1, 1, 1], 8, -1)
+                .animation.define('opened', [4], 0, 0)
+                .animation.define('closed', [1], 0, 0)
                 .animation.define('open', [1, 2, 3, 4], 8, -1)
                 .animation.define('close', [4, 3, 2, 1], 8, -1)
                 .cell(1)
