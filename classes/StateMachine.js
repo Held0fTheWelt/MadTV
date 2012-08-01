@@ -1,4 +1,5 @@
-/**
+/** State Machine holds valuable information of entities states.
+ * It shall manage all needed diagnostical variables.
  * User: Yves Tanas
  * Date: 01.08.12
  * Time: 22:32
