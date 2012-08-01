@@ -65,7 +65,7 @@ var StateMachine = IgeEntity.extend({
         // Just some standards
 
         stateMachine.currentFloor = 0;
-        stateMachine.currentHeading = 10;
+        stateMachine.currentHeading = 5;
         stateMachine.count = 450;
         stateMachine.startHeading = 0;
         stateMachine.pretendedX = 0;
@@ -100,6 +100,69 @@ var StateMachine = IgeEntity.extend({
             case 11: return -1100;
                 break;
             case 12: return -1200;
+                break;
+        }
+    },
+    getBackgroundHeight: function(){
+        var stateMachine = this;
+        switch(stateMachine.currentFloor){
+            case 0: return -140;
+                break;
+            case 1: return -132.5;
+                break;
+            case 2: return -125;
+                break;
+            case 3: return -117.5;
+                break;
+            case 4: return -110;
+                break;
+            case 5: return -102.5;
+                break;
+            case 6: return -95;
+                break;
+            case 7: return -87.5;
+                break;
+            case 8: return -80;
+                break;
+            case 9: return -72.5;
+                break;
+            case 10: return -65;
+                break;
+            case 11: return -57.5;
+                break;
+            case 12: return -50;
+                break;
+        }
+    }
+    ,
+    getSkyScraperHeight: function(){
+        var stateMachine = this;
+        switch(stateMachine.currentFloor){
+            case 0: return 310;
+                break;
+            case 1: return 385;
+                break;
+            case 2: return 460;
+                break;
+            case 3: return 535;
+                break;
+            case 4: return 610;
+                break;
+            case 5: return 685;
+                break;
+            case 6: return 760;
+                break;
+            case 7: return 835;
+                break;
+            case 8: return 910;
+                break;
+            case 9: return 985;
+                break;
+            case 10: return 1060;
+                break;
+            case 11: return 1135;
+                break;
+            case 12: return 1210;
                 break;
         }
     }

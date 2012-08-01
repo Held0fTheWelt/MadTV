@@ -29,14 +29,16 @@ var Client = IgeClass.extend({
             .depth(2)
             .translateTo(2, -47, 0);
     },
+    /*
     loadCharacter: function(){
         return new Character()
-            .depth(2)
+            .depth(1)
             .translateTo(0, 5, 0)
             .addComponent(PlayerComponent)
             .setType(6);
 
     },
+    */
 	init: function () {
 		// Load our textures
         ige.client = this;
@@ -56,6 +58,7 @@ var Client = IgeClass.extend({
 					// Create the scene
                     ige.client.scene1 = new IgeScene2d();
 
+
 					// Create the main viewport
                     ige.client.vp1 = new IgeViewport()
 						.autoSize(true)
@@ -67,7 +70,8 @@ var Client = IgeClass.extend({
                     ige.client.obj[1] = ige.client.loadSkyscraper().mount(ige.client.scene1);
                     ige.client.obj[2] = ige.client.loadSkyscraperRooms().mount(ige.client.obj[1]);
                     ige.client.obj[3] = ige.client.loadFloorScene().mount(ige.client.obj[1]);
-                    ige.client.obj[4] = ige.client.loadCharacter().mount(ige.client.obj[3]);
+                    ige.client.obj[4] = new GameElement();
+                   // ige.client.obj[4] = ige.client.loadCharacter().mount(ige.client.obj[3]);
                     // Create the UI scene
                     ige.client.obj[5] = new IgeScene2d().depth(2)
                         .mount(ige.client.scene1);
@@ -92,7 +96,6 @@ var Client = IgeClass.extend({
 			});
 
             ige.addBehaviour("tick", function () {
-                console.log(ige.client.obj[7].startHeading);
                 var y = ige.client.obj[7].currentFloor;
             /*    switch (y) {
                     case 0: ige.client.obj[3].currentHeading = 1;
@@ -128,11 +131,11 @@ var Client = IgeClass.extend({
                 if(direction > 0){
                     ige.client.obj[0].velocity.y(0.015);
                     ige.client.obj[1].velocity.y(0.15);
-                    ige.client.obj[3].obj[0].velocity.y(-0.25);
+                    ige.client.obj[3].obj[0].velocity.y(-0.2);
                 } else if (direction < 0){
                     ige.client.obj[0].velocity.y(-0.015);
                     ige.client.obj[1].velocity.y(-0.15);
-                    ige.client.obj[3].obj[0].velocity.y(0.25);
+                    ige.client.obj[3].obj[0].velocity.y(0.2);
                 } else {
                     ige.client.obj[0].velocity.y(0);
                     ige.client.obj[1].velocity.y(0);
@@ -141,10 +144,23 @@ var Client = IgeClass.extend({
 
                 var elevatorpos = ige.client.obj[3].obj[0].translate().y();
                     elevatorpos-= ige.client.obj[7].getFloorsHeight();
+                //console.log("Pos: "+elevatorpos);
+                if(elevatorpos  >= -2 && elevatorpos <= 2     ){
 
-                if(elevatorpos  >= -2 && elevatorpos <= 2){
                     ige.client.obj[7].startHeading = 0;
                     ige.client.obj[7].currentFloor = ige.client.obj[7].currentHeading;
+
+                    ige.client.obj[0].translateTo(0,ige.client.obj[7].getBackgroundHeight(),0);
+                    ige.client.obj[1].translateTo(0,ige.client.obj[7].getSkyScraperHeight(),0);
+                    ige.client.obj[3].obj[0].translateTo(0,ige.client.obj[7].getFloorsHeight(),0);
+
+
+                    /*                    ige.client.obj[3].obj[4].unMount();
+                    ige.client.obj[3].obj[4].mount(ige.client.scene1);
+                    ige.client.obj[3].obj[4].translateTo(0,-150,0);
+                    ige.client.obj[3].obj[0].translateTo(0,-100,0);
+                    ige.client.obj[3].obj[0].depth(1);
+                    ige.client.obj[3].obj[4].depth(4);*/
                 }
 
             });

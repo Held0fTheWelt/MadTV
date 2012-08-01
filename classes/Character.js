@@ -1,11 +1,11 @@
 // Define our player character classes
 var Character = IgeInteractiveEntity.extend({
 	init: function () {
-		var self = this;
+		var character = this;
 		this._super();
 
 		// Setup the entity
-		self.addComponent(IgeAnimationComponent)
+        character.addComponent(IgeAnimationComponent)
 			.addComponent(IgeVelocityComponent);
 
 		// Load the character texture file
@@ -13,7 +13,7 @@ var Character = IgeInteractiveEntity.extend({
 
 		// Wait for the texture to load
 		this._characterTexture.on('loaded', function () {
-			self.texture(self._characterTexture)
+            character.texture(character._characterTexture)
 				.width(50)
                 .height(90);
 		}, false, true);
@@ -153,7 +153,7 @@ var Character = IgeInteractiveEntity.extend({
 		}
 
 		// Start tweening the little person to their destination
-		this._translate.tween()
+		/*this._translate.tween()
 			.stopAll()
 			.properties({x: x, y: y})
 			.duration(time)
@@ -163,7 +163,7 @@ var Character = IgeInteractiveEntity.extend({
 				// to his original animation frame with:
 				//self.cell(10);
 			})
-			.start();
+			.start();*/
 
 		return this;
 	},

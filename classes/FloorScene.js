@@ -6,7 +6,14 @@
  */
 var FloorScene = IgeEntity.extend({
     classId:'FloorScene',
+    loadCharacter: function(){
+        return new Character()
+            .depth(2)
+            .translateTo(0, 5, 0);
+     //       .addComponent(PlayerComponent)
+            //.setType(6);
 
+    },
     init:function () {
 
         this._super();
@@ -18,7 +25,7 @@ var FloorScene = IgeEntity.extend({
 
         gameTexture[0] = new IgeCellSheet('assets/textures/elevators/elevator.png', 4, 1);
         gameTexture[1] = new IgeTexture('assets/textures/elevators/cart.jpg');
-
+        gameTexture[2] = new IgeCellSheet('assets/textures/sprites/vx_chara02_c.png', 12, 8);
 
         // Wait for our textures to load before continuing
         ige.on('texturesLoaded', function () {
@@ -29,8 +36,8 @@ var FloorScene = IgeEntity.extend({
                 .depth(1)
                 .width(75)
                 .height(89)
-                .texture(gameTexture[1])
                 .addComponent(IgeVelocityComponent)
+                .texture(gameTexture[1])
                 .mount(nodeSSElevator);
 
 
@@ -47,7 +54,26 @@ var FloorScene = IgeEntity.extend({
             .height(89)
             .mount(nodeSSElevator.obj[0]);
 
+
+        nodeSSElevator.obj[4] =  new CharacterMonk();
+
+        nodeSSElevator.obj[4].addComponent(IgeAnimationComponent)
+            .addComponent(IgeVelocityComponent)
+            .animation.define('walkDown', [10, 11, 12, 11], 8, -1)
+            .animation.define('walkLeft', [22, 23, 24, 23], 8, -1)
+            .animation.define('walkRight', [34, 35, 36, 35], 8, -1)
+            .animation.define('walkUp', [46, 47, 48, 47], 8, -1)
+            .cell(10)
+            .depth(2)
+            .texture(gameTexture[2])
+            .width(50)
+            .height(90)
+            .translateTo(0, 5, 0)
+            .mount(nodeSSElevator.obj[0]);
+
+          //  nodeSSElevator.obj[4] = nodeSSElevator.loadCharacter().mount(nodeSSElevator.obj[0]);
         });
+
     }
 
 });
