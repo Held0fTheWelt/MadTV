@@ -13,14 +13,14 @@ var StateMachine = IgeEntity.extend({
         this._super();
         var stateMachine = this;
         /** Stores the X-Value where we want to ride */
-        Object.defineProperty(this, 'pretendedX', {
+        Object.defineProperty(this, 'targetX', {
             enumerable: true,
             configurable: true,
             get: function () { return myValue1; },
             set: function (newValue) { myValue1 = newValue; }
         });
         /** Stores the Y-Value where we want to ride */
-        Object.defineProperty(this, 'pretendedY', {
+        Object.defineProperty(this, 'targetY', {
             enumerable: true,
             configurable: true,
             get: function () { return myValue2; },
@@ -65,11 +65,11 @@ var StateMachine = IgeEntity.extend({
         // Just some standards
 
         stateMachine.currentFloor = 0;
-        stateMachine.currentHeading = 5;
+        stateMachine.currentHeading = 0;
         stateMachine.count = 450;
         stateMachine.startHeading = 0;
-        stateMachine.pretendedX = 0;
-        stateMachine.pretendedY = 0;
+        stateMachine.targetX = 0;
+        stateMachine.targetY = 5;
         stateMachine.move = 0;
     },
     getFloorsHeight: function(){

@@ -92,10 +92,52 @@ var Client = IgeClass.extend({
                         .mount(ige.client.obj[5]);
 
                     ige.client.obj[7] = new StateMachine();
+
+                    // Setup some actions and map them to inputs
+                    ige.input.mapAction('predictedX', ige.input.mouse.x);
+                    ige.input.mapAction('predictedY', ige.input.mouse.y);
+
+                    // Listen for the mouse up event
+                    ige.input.on('mouseUp', function (event) { ige.client._mouseUp(event); });
 				}
 			});
 
             ige.addBehaviour("tick", function () {
+
+                var characterPos = ige.client.obj[3].obj[4].translate();
+                var moveHorizontal = characterPos.x() - ige.client.obj[7].targetX;
+                var moveVertical = characterPos.y() - ige.client.obj[7].targetY;
+                console.log(moveVertical);
+                if(moveVertical >= 0 && moveVertical <= 100){
+
+                    if(moveHorizontal <= -4){
+                        ige.client.obj[3].obj[4].velocity.x(0.15);
+                        ige.client.obj[3].obj[4].animation.select('walkRight');
+                    }else if(moveHorizontal >= 4){
+                        ige.client.obj[3].obj[4].velocity.x(-0.15);
+                        ige.client.obj[3].obj[4].animation.select('walkLeft');
+                    }else{
+                        ige.client.obj[3].obj[4].velocity.x(0);
+                        ige.client.obj[3].obj[4].translateTo(ige.client.obj[7].targetX,6,0);
+                        ige.client.obj[3].obj[4].animation.stop();
+                        ige.client.obj[3].obj[4].cell(10);
+                    }
+                } else{
+                    if(characterPos.x() <= -1){
+                        ige.client.obj[3].obj[4].velocity.x(0.15);
+                        ige.client.obj[3].obj[4].animation.select('walkRight');
+                    }else if(characterPos.x()>= 1){
+                        ige.client.obj[3].obj[4].velocity.x(-0.15);
+                        ige.client.obj[3].obj[4].animation.select('walkLeft');
+                    } else{
+                        ige.client.obj[3].obj[4].velocity.x(0);
+                        ige.client.obj[3].obj[4].translateTo(0,6,0);
+                        ige.client.obj[3].obj[4].animation.stop();
+                        ige.client.obj[3].obj[4].cell(47);
+                        ige.client.obj[3].obj[4].depth(4);
+                    }
+                }
+
                 var y = ige.client.obj[7].currentFloor;
             /*    switch (y) {
                     case 0: ige.client.obj[3].currentHeading = 1;
@@ -165,7 +207,11 @@ var Client = IgeClass.extend({
 
             });
 		});
-	}
+	},
+    _mouseUp: function (event) {
+        ige.client.obj[7].targetX = ige.input.actionVal('predictedX');
+        ige.client.obj[7].targetY = ige.input.actionVal('predictedY')-ige.client.obj[7].getSkyScraperHeight()-ige.client.obj[7].getFloorsHeight()-5;
+    }
 });
 
 if (typeof(module) !== 'undefined' && typeof(module.exports) !== 'undefined') { module.exports = Client; }
