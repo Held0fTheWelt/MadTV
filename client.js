@@ -81,7 +81,7 @@ var Client = IgeClass.extend({
                     ige.client.scene1 = new IgeScene2d();
 					
 
-                    ige.client.states = new StateMachine();
+
 
 					// Create the main viewport
                     ige.client.vp1 = new IgeViewport()
@@ -113,12 +113,14 @@ var Client = IgeClass.extend({
                         .mouseOver(function () {this.backgroundColor('#49ceff'); })
                         .mouseOut(function () {this.backgroundColor('#474747'); })
                         .mount(ige.client.obj[5]);
+
+                    ige.client.obj[7] = new StateMachine();
 				}
 			});
 
             ige.addBehaviour("tick", function () {
-                console.log(ige.client.states.currentFloor);
-                var y = ige.client.states.currentFloor;
+                console.log(ige.client.obj[7].startHeading);
+                var y = ige.client.obj[7].currentFloor;
             /*    switch (y) {
                     case 0: ige.client.obj[3].currentHeading = 1;
 
@@ -148,7 +150,7 @@ var Client = IgeClass.extend({
                     case 12: ige.client.obj[3].currentHeading = 0;
                         break;
                 }*/
-                var direction = ige.client.states.currentHeading - ige.client.states.currentFloor;
+                var direction = ige.client.obj[7].currentHeading - ige.client.obj[7].currentFloor;
 
                 if(direction > 0){
                     ige.client.obj[0].velocity.y(0.015);
@@ -165,10 +167,12 @@ var Client = IgeClass.extend({
                 }
 
                 var elevatorpos = ige.client.obj[3].obj[0].translate().y();
-                elevatorpos-=ige.client.getFloorsHeight(ige.client.states.currentHeading);
+                elevatorpos-=ige.client.getFloorsHeight(ige.client.obj[7].currentHeading);
 
-                if(elevatorpos  >= -10 && elevatorpos <= 10){
-                    ige.client.states.currentFloor = ige.client.states.currentHeading;
+                if(elevatorpos  >= -2 && elevatorpos <= 2){
+                    ige.client.obj[7].startHeading = 0;
+
+                    ige.client.obj[7].currentFloor = ige.client.obj[7].currentHeading;
                 }
 
             });

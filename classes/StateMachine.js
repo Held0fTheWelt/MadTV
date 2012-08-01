@@ -64,13 +64,13 @@ var StateMachine = IgeEntity.extend({
 
         // Just some standards
 
-        this.currentFloor = 20;
-        this.currentHeading =10;
+        this.currentFloor = 0;
+        this.currentHeading = 0;
         this.count = 450;
-        this.startHeading = 50;
-        this.pretendedX = 30;
-        this.pretendedY = 40;
-        this.move = 60;
+        this.startHeading = 0;
+        this.pretendedX = 0;
+        this.pretendedY = 0;
+        this.move = 0;
     }
 
 });

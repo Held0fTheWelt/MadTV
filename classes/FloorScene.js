@@ -16,67 +16,6 @@ var FloorScene = IgeEntity.extend({
 
         this.obj = [];
 
-        /** Stores the X-Value where we want to ride */
-        Object.defineProperty(this, 'pretendedX', {
-            enumerable: true,
-            configurable: true,
-            get: function () { return myValue1; },
-            set: function (newValue) { myValue1 = newValue; }
-        });
-        /** Stores the Y-Value where we want to ride */
-        Object.defineProperty(this, 'pretendedY', {
-            enumerable: true,
-            configurable: true,
-            get: function () { return myValue2; },
-            set: function (newValue) { myValue2 = newValue; }
-        });
-        /** If 1 Character is Moving */
-        Object.defineProperty(this, 'move', {
-            enumerable: true,
-            configurable: true,
-            get: function () { return myValue3; },
-            set: function (newValue) { myValue3 = newValue; }
-        });
-        /** Stores which floor the elevator is heading */
-        Object.defineProperty(this, 'currentHeading', {
-            enumerable: true,
-            configurable: true,
-            get: function () { return myValue4; },
-            set: function (newValue) { myValue4 = newValue; }
-        });
-        /** Stores which floor the elevator is right now */
-        Object.defineProperty(this, 'currentFloor', {
-            enumerable: true,
-            configurable: true,
-            get: function () { return myValue5; },
-            set: function (newValue) { myValue5 = newValue; }
-        });
-        /** Time counter for animation purpose */
-        Object.defineProperty(this, 'count', {
-            enumerable: true,
-            configurable: true,
-            get: function () { return myValue6; },
-            set: function (newValue) { myValue6 = newValue; }
-        });
-        /** If 1 the Elevator may move. 0 will stop moving*/
-        Object.defineProperty(this, 'startHeading', {
-            enumerable: true,
-            configurable: true,
-            get: function () { return myValue7; },
-            set: function (newValue) { myValue7 = newValue; }
-        });
-
-        // Just some standards
-        this.currentHeading =0;
-        this.currentFloor = 0;
-        this.count = 450;
-        this.startHeading = 0;
-        this.pretendedX = 0;
-        this.pretendedY = 0;
-        this.move = 0;
-
-
-
         gameTexture[0] = new IgeCellSheet('assets/textures/elevators/elevator.png', 4, 1);
         gameTexture[1] = new IgeTexture('assets/textures/elevators/cart.jpg');
 
@@ -95,7 +34,7 @@ var FloorScene = IgeEntity.extend({
                 .mount(nodeSSElevator);
 
 
-        nodeSSElevator.obj[1] = new Elevator();
+        nodeSSElevator.obj[1] = new GameElement();
         // Setup the entity
         nodeSSElevator.obj[1].addComponent(IgeAnimationComponent)
 
