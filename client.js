@@ -28,7 +28,7 @@ var Client = IgeClass.extend({
     loadCharacter: function(){
         return new Character().depth(2).translateTo(0, 5, 0)
             .addComponent(PlayerComponent)
-            .setType(4);
+            .setType(6);
 
     },
     getFloorsHeight: function(floornumber){
@@ -63,7 +63,7 @@ var Client = IgeClass.extend({
     },
 	init: function () {
 		// Load our textures
-        var rootNode = this;
+        ige.client = this;
 		gameTexture = [];
 
 		this.obj = [];
@@ -78,26 +78,28 @@ var Client = IgeClass.extend({
 				// Check if the engine started successfully
 				if (success) {
 					// Create the scene
-                    rootNode.scene1 = new IgeScene2d();
+                    ige.client.scene1 = new IgeScene2d();
 					
 
+                    ige.client.states = new StateMachine();
+
 					// Create the main viewport
-                    rootNode.vp1 = new IgeViewport()
+                    ige.client.vp1 = new IgeViewport()
 						.autoSize(true)
-						.scene(rootNode.scene1)
+						.scene(ige.client.scene1)
 						.drawBounds(false)
 						.mount(ige);
 
-                    rootNode.obj[0] = rootNode.loadBackground().mount(rootNode.scene1);
-                    rootNode.obj[1] = rootNode.loadSkyscraper().mount(rootNode.scene1);
-                    rootNode.obj[2] = rootNode.loadSkyscraperRooms().mount(rootNode.obj[1]);
-                    rootNode.obj[3] = rootNode.loadFloorScene().mount(rootNode.obj[1]);
-                    rootNode.obj[4] = rootNode.loadCharacter().mount(rootNode.obj[3]);
+                    ige.client.obj[0] = ige.client.loadBackground().mount(ige.client.scene1);
+                    ige.client.obj[1] = ige.client.loadSkyscraper().mount(ige.client.scene1);
+                    ige.client.obj[2] = ige.client.loadSkyscraperRooms().mount(ige.client.obj[1]);
+                    ige.client.obj[3] = ige.client.loadFloorScene().mount(ige.client.obj[1]);
+                    ige.client.obj[4] = ige.client.loadCharacter().mount(ige.client.obj[3]);
                     // Create the UI scene
-                    rootNode.obj[5] = new IgeScene2d().depth(2)
-                        .mount(rootNode.scene1);
+                    ige.client.obj[5] = new IgeScene2d().depth(2)
+                        .mount(ige.client.scene1);
 
-                    rootNode.obj[6] = new IgeUiEntity()
+                    ige.client.obj[6] = new IgeUiEntity()
                         .id('bottomBar')
                         .depth(1)
                         .backgroundColor('#474747')
@@ -110,62 +112,63 @@ var Client = IgeClass.extend({
                         .backgroundPosition(0, 0)
                         .mouseOver(function () {this.backgroundColor('#49ceff'); })
                         .mouseOut(function () {this.backgroundColor('#474747'); })
-                        .mount(rootNode.obj[5]);
+                        .mount(ige.client.obj[5]);
 				}
 			});
 
             ige.addBehaviour("tick", function () {
-                var y = rootNode.obj[3].currentFloor;
-                switch (y) {
-                    case 0: rootNode.obj[3].currentHeading = 1;
+                console.log(ige.client.states.currentFloor);
+                var y = ige.client.states.currentFloor;
+            /*    switch (y) {
+                    case 0: ige.client.obj[3].currentHeading = 1;
 
                         break;
-                    case 1: rootNode.obj[3].currentHeading = 2;
+                    case 1: ige.client.obj[3].currentHeading = 2;
                         break;
-                    case 2: rootNode.obj[3].currentHeading = 3;
+                    case 2: ige.client.obj[3].currentHeading = 3;
                         break;
-                    case 3: rootNode.obj[3].currentHeading = 4;
+                    case 3: ige.client.obj[3].currentHeading = 4;
                         break;
-                    case 4: rootNode.obj[3].currentHeading = 5;
+                    case 4: ige.client.obj[3].currentHeading = 5;
                         break;
-                    case 5: rootNode.obj[3].currentHeading = 6;
+                    case 5: ige.client.obj[3].currentHeading = 6;
                         break;
-                    case 6: rootNode.obj[3].currentHeading = 7;
+                    case 6: ige.client.obj[3].currentHeading = 7;
                         break;
-                    case 7: rootNode.obj[3].currentHeading = 8;
+                    case 7: ige.client.obj[3].currentHeading = 8;
                         break;
-                    case 8: rootNode.obj[3].currentHeading = 9;
+                    case 8: ige.client.obj[3].currentHeading = 9;
                         break;
-                    case 9: rootNode.obj[3].currentHeading = 10;
+                    case 9: ige.client.obj[3].currentHeading = 10;
                         break;
-                    case 10: rootNode.obj[3].currentHeading = 11;
+                    case 10: ige.client.obj[3].currentHeading = 11;
                         break;
-                    case 11: rootNode.obj[3].currentHeading = 12;
+                    case 11: ige.client.obj[3].currentHeading = 12;
                         break;
-                    case 12: rootNode.obj[3].currentHeading = 0;
+                    case 12: ige.client.obj[3].currentHeading = 0;
                         break;
-                }
-                var direction = rootNode.obj[3].currentHeading - rootNode.obj[3].currentFloor;
+                }*/
+                var direction = ige.client.states.currentHeading - ige.client.states.currentFloor;
 
                 if(direction > 0){
-                    rootNode.obj[0].velocity.y(0.015);
-                    rootNode.obj[1].velocity.y(0.15);
-                    rootNode.obj[3].obj[0].velocity.y(-0.25);
+                    ige.client.obj[0].velocity.y(0.015);
+                    ige.client.obj[1].velocity.y(0.15);
+                    ige.client.obj[3].obj[0].velocity.y(-0.25);
                 } else if (direction < 0){
-                    rootNode.obj[0].velocity.y(-0.015);
-                    rootNode.obj[1].velocity.y(-0.15);
-                    rootNode.obj[3].obj[0].velocity.y(0.25);
+                    ige.client.obj[0].velocity.y(-0.015);
+                    ige.client.obj[1].velocity.y(-0.15);
+                    ige.client.obj[3].obj[0].velocity.y(0.25);
                 } else {
-                    rootNode.obj[0].velocity.y(0);
-                    rootNode.obj[1].velocity.y(0);
-                    rootNode.obj[3].obj[0].velocity.y(0);
+                    ige.client.obj[0].velocity.y(0);
+                    ige.client.obj[1].velocity.y(0);
+                    ige.client.obj[3].obj[0].velocity.y(0);
                 }
 
-                var elevatorpos = rootNode.obj[3].obj[0].translate().y();
-                elevatorpos-=rootNode.getFloorsHeight(rootNode.obj[3].currentHeading);
+                var elevatorpos = ige.client.obj[3].obj[0].translate().y();
+                elevatorpos-=ige.client.getFloorsHeight(ige.client.states.currentHeading);
 
                 if(elevatorpos  >= -10 && elevatorpos <= 10){
-                    rootNode.obj[3].currentFloor = rootNode.obj[3].currentHeading;
+                    ige.client.states.currentFloor = ige.client.states.currentHeading;
                 }
 
             });
