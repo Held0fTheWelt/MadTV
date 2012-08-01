@@ -11,7 +11,7 @@ var StateMachine = IgeEntity.extend({
     init:function () {
 
         this._super();
-
+        var stateMachine = this;
         /** Stores the X-Value where we want to ride */
         Object.defineProperty(this, 'pretendedX', {
             enumerable: true,
@@ -64,15 +64,45 @@ var StateMachine = IgeEntity.extend({
 
         // Just some standards
 
-        this.currentFloor = 0;
-        this.currentHeading = 0;
-        this.count = 450;
-        this.startHeading = 0;
-        this.pretendedX = 0;
-        this.pretendedY = 0;
-        this.move = 0;
+        stateMachine.currentFloor = 0;
+        stateMachine.currentHeading = 10;
+        stateMachine.count = 450;
+        stateMachine.startHeading = 0;
+        stateMachine.pretendedX = 0;
+        stateMachine.pretendedY = 0;
+        stateMachine.move = 0;
+    },
+    getFloorsHeight: function(){
+        var stateMachine = this;
+        switch(stateMachine.currentHeading){
+            case 0: return 0;
+                break;
+            case 1: return -100;
+                break;
+            case 2: return -200;
+                break;
+            case 3: return -300;
+                break;
+            case 4: return -400;
+                break;
+            case 5: return -500;
+                break;
+            case 6: return -600;
+                break;
+            case 7: return -700;
+                break;
+            case 8: return -800;
+                break;
+            case 9: return -900;
+                break;
+            case 10: return -1000;
+                break;
+            case 11: return -1100;
+                break;
+            case 12: return -1200;
+                break;
+        }
     }
-
 });
 
 if (typeof(module) !== 'undefined' && typeof(module.exports) !== 'undefined') {

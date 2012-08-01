@@ -14,52 +14,28 @@ var Client = IgeClass.extend({
     },
     loadSkyscraper: function () {
         // Create the Skyscraper
-        return new Skyscraper().depth(1)
+        return new Skyscraper()
+            .depth(1)
             .translateTo(0, 310, 0)
             .addComponent(IgeVelocityComponent);
     },
     loadSkyscraperRooms: function() {
         // Create the Skyscraper
-        return new Rooms().depth(1);
+        return new Rooms()
+            .depth(1);
     },
     loadFloorScene: function() {
-        return new FloorScene().depth(2).translateTo(2, -47, 0);
+        return new FloorScene()
+            .depth(2)
+            .translateTo(2, -47, 0);
     },
     loadCharacter: function(){
-        return new Character().depth(2).translateTo(0, 5, 0)
+        return new Character()
+            .depth(2)
+            .translateTo(0, 5, 0)
             .addComponent(PlayerComponent)
             .setType(6);
 
-    },
-    getFloorsHeight: function(floornumber){
-        switch(floornumber){
-            case 0: return 0;
-                break;
-            case 1: return -100;
-                break;
-            case 2: return -200;
-                break;
-            case 3: return -300;
-                break;
-            case 4: return -400;
-                break;
-            case 5: return -500;
-                break;
-            case 6: return -600;
-                break;
-            case 7: return -700;
-                break;
-            case 8: return -800;
-                break;
-            case 9: return -900;
-                break;
-            case 10: return -1000;
-                break;
-            case 11: return -1100;
-                break;
-            case 12: return -1200;
-                break;
-        }
     },
 	init: function () {
 		// Load our textures
@@ -79,9 +55,6 @@ var Client = IgeClass.extend({
 				if (success) {
 					// Create the scene
                     ige.client.scene1 = new IgeScene2d();
-					
-
-
 
 					// Create the main viewport
                     ige.client.vp1 = new IgeViewport()
@@ -167,11 +140,10 @@ var Client = IgeClass.extend({
                 }
 
                 var elevatorpos = ige.client.obj[3].obj[0].translate().y();
-                elevatorpos-=ige.client.getFloorsHeight(ige.client.obj[7].currentHeading);
+                    elevatorpos-= ige.client.obj[7].getFloorsHeight();
 
                 if(elevatorpos  >= -2 && elevatorpos <= 2){
                     ige.client.obj[7].startHeading = 0;
-
                     ige.client.obj[7].currentFloor = ige.client.obj[7].currentHeading;
                 }
 
