@@ -46,12 +46,19 @@ var StateMachine = IgeEntity.extend({
             get: function () { return myValue3; },
             set: function (newValue3) { myValue3 = newValue3; }
         });
-        /** Stores which floor the elevator is heading */
+        /** Stores which floor the character is heading */
         Object.defineProperty(this, 'currentHeading', {
             enumerable: true,
             configurable: true,
             get: function () { return myValue4; },
             set: function (newValue4) { myValue4 = newValue4; }
+        });
+        /** Stores which floor the elevator is heading */
+        Object.defineProperty(this, 'elevatorHeading', {
+            enumerable: true,
+            configurable: true,
+            get: function () { return myValue10; },
+            set: function (newValue4) { myValue10 = newValue4; }
         });
         /** Stores which floor the elevator is right now */
         Object.defineProperty(this, 'currentFloor', {
@@ -91,8 +98,9 @@ var StateMachine = IgeEntity.extend({
         // Just some standards
 
         stateMachine.currentFloor = 0;
-        stateMachine.elevatorsFloor = 2;
-        stateMachine.currentHeading = 6;
+        stateMachine.elevatorsFloor = 0;
+        stateMachine.currentHeading = 0;
+        stateMachine.elevatorHeading = 4;
         stateMachine.count = 900;
         stateMachine.turn = 300;
         stateMachine.startHeading = 0;
@@ -137,7 +145,7 @@ var StateMachine = IgeEntity.extend({
     },
     getFloorsHeight: function(){
         var stateMachine = this;
-        switch(stateMachine.currentHeading){
+        switch(stateMachine.elevatorHeading){
             case 0: return 0;
                 break;
             case 1: return -100;
