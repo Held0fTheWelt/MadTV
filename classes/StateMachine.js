@@ -61,16 +61,27 @@ var StateMachine = IgeEntity.extend({
             get: function () { return myValue7; },
             set: function (newValue7) { myValue7 = newValue7; }
         });
-
+        /** This is where our elevator is*/
+        Object.defineProperty(this, 'elevatorsFloor', {
+            enumerable: true,
+            configurable: true,
+            get: function () { return myValue8; },
+            set: function (newValue8) { myValue8 = newValue8; }
+        });
         // Just some standards
 
         stateMachine.currentFloor = 0;
-        stateMachine.currentHeading = 0;
+        stateMachine.elevatorsFloor = 0;
+        stateMachine.currentHeading = 1;
         stateMachine.count = 450;
         stateMachine.startHeading = 0;
         stateMachine.targetX = 0;
-        stateMachine.targetY = 5;
+        stateMachine.targetY = 0;
         stateMachine.move = 0;
+    },
+    callElevator: function(){
+        var stateMachine = this;
+        stateMachine.currentHeading = stateMachine.currentFloor;
     },
     getFloorsHeight: function(){
         var stateMachine = this;
