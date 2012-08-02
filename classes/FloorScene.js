@@ -63,6 +63,7 @@ var FloorScene = IgeEntity.extend({
             .animation.define('walkLeft', [22, 23, 24, 23], 8, -1)
             .animation.define('walkRight', [34, 35, 36, 35], 8, -1)
             .animation.define('walkUp', [46, 47, 48, 47], 8, -1)
+            .animation.define('turn', [46, 22, 10], 8, -1)
             .cell(10)
             .depth(4)
             .texture(gameTexture[2])

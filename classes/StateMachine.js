@@ -26,8 +26,21 @@ var StateMachine = IgeEntity.extend({
             get: function () { return myValue2; },
             set: function (newValue2) { myValue2 = newValue2; }
         });
-        /** If 1 Character is Moving */
-        Object.defineProperty(this, 'move', {
+        /** Flag to invoke changeFloor beahviour.
+         * 0 will not call for elevator
+         * 1 will call elevator
+         * 2 will open elevator
+         * 3 will invoke turn behaviour and change depth to 2 (inside the elevator)
+         *   also we need to unmount the character and mount it to the elevator
+         * 4 will close the elevator
+         * 5 will start heading
+         * 6 will open the elevator
+         * 7 will mount unmount the character and mount it to the floorscene
+         *   we need special translation here to make a miracle of it all happens smooth
+         *   flag will be set to 0
+         *
+         * */
+        Object.defineProperty(this, 'changeFloor', {
             enumerable: true,
             configurable: true,
             get: function () { return myValue3; },
@@ -54,7 +67,7 @@ var StateMachine = IgeEntity.extend({
             get: function () { return myValue6; },
             set: function (newValue6) { myValue6 = newValue6; }
         });
-        /** If 1 the Elevator may move. 0 will stop moving*/
+
         Object.defineProperty(this, 'startHeading', {
             enumerable: true,
             configurable: true,
@@ -71,17 +84,48 @@ var StateMachine = IgeEntity.extend({
         // Just some standards
 
         stateMachine.currentFloor = 0;
-        stateMachine.elevatorsFloor = 0;
-        stateMachine.currentHeading = 1;
-        stateMachine.count = 450;
+        stateMachine.elevatorsFloor = 2;
+        stateMachine.currentHeading = 6;
+        stateMachine.count = 550;
         stateMachine.startHeading = 0;
         stateMachine.targetX = 0;
         stateMachine.targetY = 0;
-        stateMachine.move = 0;
+        stateMachine.changeFloor = 0;
     },
     callElevator: function(){
         var stateMachine = this;
         stateMachine.currentHeading = stateMachine.currentFloor;
+    },
+    getCurrentHeight: function(){
+        var stateMachine = this;
+        switch(stateMachine.currentFloor){
+            case 0: return 0;
+                break;
+            case 1: return -100;
+                break;
+            case 2: return -200;
+                break;
+            case 3: return -300;
+                break;
+            case 4: return -400;
+                break;
+            case 5: return -500;
+                break;
+            case 6: return -600;
+                break;
+            case 7: return -700;
+                break;
+            case 8: return -800;
+                break;
+            case 9: return -900;
+                break;
+            case 10: return -1000;
+                break;
+            case 11: return -1100;
+                break;
+            case 12: return -1200;
+                break;
+        }
     },
     getFloorsHeight: function(){
         var stateMachine = this;
