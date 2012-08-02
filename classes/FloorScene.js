@@ -43,7 +43,6 @@ var FloorScene = IgeEntity.extend({
             floorscene.obj[1] = new GameElement();
             // Setup the entity
             floorscene.obj[1].addComponent(IgeAnimationComponent)
-
                 .animation.define('open', [1, 2, 3, 4], 8, -1)
                 .animation.define('close', [4, 3, 2, 1], 8, -1)
                 .cell(1)

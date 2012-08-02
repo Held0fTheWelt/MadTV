@@ -147,7 +147,7 @@ var Client = IgeClass.extend({
                             // We are going to the elevator and call it
                             case 1:
                                 ige.client.obj[3].obj[4].velocity.x(0);
-                                ige.client.obj[3].obj[4].translateTo(0,6,0);
+                                ige.client.obj[3].obj[4].translateTo(0,ige.client.obj[7].getCurrentHeight(),0);
                                 ige.client.obj[3].obj[4].animation.stop();
                                 ige.client.obj[3].obj[4].cell(47);
 
@@ -204,24 +204,35 @@ var Client = IgeClass.extend({
                                 ige.client.obj[7].changeFloor++;
                                 break;
                             case 6:
-                                ige.client.obj[3].obj[1].animation.select('open');
-                                ige.client.obj[7].count-=delta;
-                                if(ige.client.obj[7].count<=0){
-                                    // stop the animation and set the correct cell
-                                    ige.client.obj[3].obj[1].animation.stop();
-                                    ige.client.obj[3].obj[1].cell(4);
-                                    // unmount character from elevator and mount it to the scene
-                                    ige.client.obj[3].obj[4].unMount();
-                                    ige.client.obj[3].obj[4].mount(ige.client.obj[3]);
-                                    // reset depth so our character is outside the elevator
-                                    ige.client.obj[3].obj[4].depth(4);
-                                    // set targetY as finished
-                                    ige.client.obj[7].targetY = characterPos.y();
-                                    // reset translation of character
-                                    ige.client.obj[3].obj[4].translateTo(0,ige.client.obj[7].getFloorsHeight(),0);
-                                    // count changeFloor Sequence upwards
-                                    ige.client.obj[7].changeFloor++;
+                                if(ige.client.obj[7].startHeading == 0){
+                                    ige.client.obj[3].obj[1].animation.select('open');
+                                    ige.client.obj[7].count-=delta;
+                                    if(ige.client.obj[7].count<=0){
+                                        ige.client.obj[7].currentFloor = ige.client.obj[7].currentHeading;
+                                        // stop the animation and set the correct cell
+                                        ige.client.obj[3].obj[1].animation.stop();
+                                        ige.client.obj[3].obj[1].cell(4);
+                                        // unmount character from elevator and mount it to the scene
+                                        ige.client.obj[3].obj[4].unMount();
+                                        // reset translation of character
+                                        ige.client.obj[3].obj[4].translateTo(0,-94,0);
+                                        ige.client.obj[3].obj[4].mount(ige.client.obj[3]);
+                                        // reset depth so our character is outside the elevator
+                                        ige.client.obj[3].obj[4].depth(4);
+                                        // set targetY as finished
+                                        ige.client.obj[7].targetY = characterPos.y();
+
+                                        // count changeFloor Sequence upwards
+                                        ige.client.obj[7].changeFloor++;
+
+                                        console.log(ige.client.obj[7].targetX);
+                                        console.log(ige.client.obj[7].targetY);
+                                        console.log(moveVertical-ige.client.obj[7].getSkyScraperHeight()-ige.client.obj[7].getCurrentHeight()-5);
+                                    }
                                 }
+                                break;
+                            case 7:
+                                console.log("Hohoho");
                                 break;
                         }
                     }
@@ -246,6 +257,7 @@ var Client = IgeClass.extend({
                         && ige.client.obj[7].changeFloor<=1){
                         ige.client.obj[7].changeFloor=2;
                     }
+                    ige.client.obj[7].elevatorsFloor= ige.client.obj[7].currentHeading;
                     ige.client.obj[7].currentFloor = ige.client.obj[7].currentHeading;
 
                     ige.client.obj[3].obj[0].velocity.y(0);
@@ -256,7 +268,9 @@ var Client = IgeClass.extend({
 
                     ige.client.obj[0].translateTo(0,ige.client.obj[7].getBackgroundHeight(),0);
                     ige.client.obj[1].translateTo(0,ige.client.obj[7].getSkyScraperHeight(),0);
-                    ige.client.obj[7].startHeading == 0;
+
+                    ige.client.obj[7].startHeading = 0;
+              //          ige.client.obj[7].startHeading == 0;
 
                  /*   if(ige.client.obj[7].changeFloor==5){
                         ige.client.obj[7].changeFloor++;
