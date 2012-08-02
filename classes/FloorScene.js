@@ -40,43 +40,39 @@ var FloorScene = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .mount(floorscene);
 
+            floorscene.obj[1] = new GameElement();
+            // Setup the entity
+            floorscene.obj[1].addComponent(IgeAnimationComponent)
 
-        floorscene.obj[1] = new GameElement();
-        // Setup the entity
-        floorscene.obj[1].addComponent(IgeAnimationComponent)
+                .animation.define('open', [1, 2, 3, 4], 8, -1)
+                .animation.define('close', [4, 3, 2, 1], 8, -1)
+                .cell(1)
+                .depth(3)
+                .texture(gameTexture[0])
+                .width(75)
+                .height(89)
+                .mount(floorscene.obj[0]);
 
-            .animation.define('open', [1, 2, 3, 4], 8, -1)
-            .animation.define('close', [4, 3, 2, 1], 8, -1)
-            .cell(1)
-            .depth(3)
-            .texture(gameTexture[0])
-            .width(75)
-            .height(89)
-            .mount(floorscene.obj[0]);
+            floorscene.obj[4] =  new GameElement();
+            //  floorscene.obj[4] = floorscene.loadCharacter().mount(floorscene.obj[0]);
 
+            floorscene.obj[4].addComponent(IgeAnimationComponent)
+                .addComponent(IgeVelocityComponent)
+                .animation.define('walkDown', [10, 11, 12, 11], 8, -1)
+                .animation.define('walkLeft', [22, 23, 24, 23], 8, -1)
+                .animation.define('walkRight', [34, 35, 36, 35], 8, -1)
+                .animation.define('walkUp', [46, 47, 48, 47], 8, -1)
+                .animation.define('turn', [46, 22, 10], 8, -1)
+                .cell(10)
+                .depth(4)
+                .texture(gameTexture[2])
+                .width(50)
+                .height(90)
+                .translateTo(0, 5, 0)
+                .mount(floorscene);
 
-        floorscene.obj[4] =  new GameElement();
-
-        floorscene.obj[4].addComponent(IgeAnimationComponent)
-            .addComponent(IgeVelocityComponent)
-            .animation.define('walkDown', [10, 11, 12, 11], 8, -1)
-            .animation.define('walkLeft', [22, 23, 24, 23], 8, -1)
-            .animation.define('walkRight', [34, 35, 36, 35], 8, -1)
-            .animation.define('walkUp', [46, 47, 48, 47], 8, -1)
-            .animation.define('turn', [46, 22, 10], 8, -1)
-            .cell(10)
-            .depth(4)
-            .texture(gameTexture[2])
-            .width(50)
-            .height(90)
-            .translateTo(0, 5, 0)
-            .mount(floorscene);
-
-          //  floorscene.obj[4] = floorscene.loadCharacter().mount(floorscene.obj[0]);
         });
-
     }
-
 });
 
 if (typeof(module) !== 'undefined' && typeof(module.exports) !== 'undefined') {

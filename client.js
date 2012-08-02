@@ -94,6 +94,7 @@ var Client = IgeClass.extend({
 			});
 
             ige.addBehaviour("tick", function () {
+
                 // tick Delta - needed for calculations
                 var delta = ige.tickDelta;
                 // get our characters position
@@ -125,100 +126,104 @@ var Client = IgeClass.extend({
                 }
                 // if we need to change floor
                 else{
-                    console.log(ige.client.obj[7].changeFloor);
                     // if we are left to the elevator lets walk right
-                    if(characterPos.x() <= -5){
+                    if(characterPos.x() <= -10){
                         ige.client.obj[3].obj[4].velocity.x(0.15);
                         ige.client.obj[3].obj[4].animation.select('walkRight');
                     }
                     // if we are right to the elevator lets walk left
-                    else if(characterPos.x()>= 5){
-
+                    else if(characterPos.x()>= 10){
                         ige.client.obj[3].obj[4].velocity.x(-0.15);
                         ige.client.obj[3].obj[4].animation.select('walkLeft');
                     }
                     // otherwise first let's wait for the elevator
                     // next step in and turn around (step 1), close elevators dorrs (step 2) and start heading (step 3)
                     else{
-                        console.log("Ich bin hier");
-                        // We are going to the elevator and call it
-                        if(ige.client.obj[7].changeFloor == 0){
-                            ige.client.obj[3].obj[4].velocity.x(0);
-                            ige.client.obj[3].obj[4].translateTo(0,6,0);
-                            ige.client.obj[3].obj[4].animation.stop();
-                            ige.client.obj[3].obj[4].cell(47);
+                        switch(ige.client.obj[7].changeFloor){
 
-                            ige.client.obj[7].changeFloor++;
-                        }
-                        // we wait for the elevator to come
-                        else if(ige.client.obj[7].changeFloor == 1){
-                            ige.client.obj[7].currentHeading = ige.client.obj[7].currentFloor;
-                        }
+                            // We don't need elevator ?!?
+                            case 0:
+                                break;
+                            // We are going to the elevator and call it
+                            case 1:
+                                ige.client.obj[3].obj[4].velocity.x(0);
+                                ige.client.obj[3].obj[4].translateTo(0,6,0);
+                                ige.client.obj[3].obj[4].animation.stop();
+                                ige.client.obj[3].obj[4].cell(47);
 
-                        // we open elevators doors
-                        else if(ige.client.obj[7].changeFloor == 2){
-                            ige.client.obj[3].obj[1].animation.select('open');
-                            ige.client.obj[7].count-=delta;;
-                            if(ige.client.obj[7].count<=0){
-                            //    ige.client.obj[7].count = 150;
+                                ige.client.obj[7].currentHeading = ige.client.obj[7].currentFloor;
 
-                                ige.client.obj[3].obj[1].animation.stop();
-                                ige.client.obj[3].obj[1].cell(4);
-                                ige.client.obj[7].changeFloor++;
-
-                            }
-                        }
-
-                        // now we init turn
-                        else if(ige.client.obj[7].changeFloor == 3){
-                      //      ige.client.obj[3].obj[4].animation.select('turn');
-                            ige.client.obj[3].obj[4].depth(2);
-                            ige.client.obj[3].obj[4].unMount();
-                            ige.client.obj[3].obj[4].mount(ige.client.obj[3].obj[0]);
-                            ige.client.obj[7].changeFloor++;
-
-                        }
-                        // and turn
-                        else if(ige.client.obj[7].changeFloor == 4){
-                      //      ige.client.obj[7].count-=delta;
-                        //    if(ige.client.obj[7].count<=0){
-                          //      ige.client.obj[7].count = 0;
-                      //          ige.client.obj[3].obj[4].animation.stop();
-                        //        ige.client.obj[3].obj[4].cell(47);
-                            ige.client.obj[7].count = 450;
-                            ige.client.obj[7].changeFloor++;
-                            //}
-                        }
-                        // let's close the doors
-                        else if(ige.client.obj[7].changeFloor == 5){
-                            ige.client.obj[3].obj[1].animation.select('close');
-                            ige.client.obj[7].count+=delta;
-                            if(ige.client.obj[7].count<=0){
-
-                                ige.client.obj[3].obj[1].animation.stop();
-                                ige.client.obj[3].obj[1].cell(1);
-                                ige.client.obj[7].changeFloor = 0;
-                            }
-
-                        }
-
-                        /*)
-                        // elevator is already on this floor
-                        if(ige.client.obj[7].currentFloor == ige.client.obj[7].elevatorsFloor){
-                            ige.client.obj[3].obj[4].velocity.x(0);
-                            ige.client.obj[3].obj[4].translateTo(0,6,0);
+                                break;
+                            // we open elevators doors
+                            case 2:
+                                ige.client.obj[3].obj[1].animation.select('open');
+                                ige.client.obj[7].count-=delta;
+                                if(ige.client.obj[7].count<=0){
+                                   // stop the animation and set the correct cell
+                                    ige.client.obj[3].obj[1].animation.stop();
+                                    ige.client.obj[3].obj[1].cell(4);
+                                    // count changeFloor Sequence upwards
+                                    ige.client.obj[7].changeFloor++;
+                                    // reset count for the turn animation
+                                    ige.client.obj[7].count = 300;
+                                    // unmount character from floorscene and mount it to the elevator
+                                    ige.client.obj[3].obj[4].unMount();
+                                    ige.client.obj[3].obj[4].mount(ige.client.obj[3].obj[0]);
+                                    // reset depth so our character is inside the elevator
+                                    ige.client.obj[3].obj[4].depth(2);
+                                }
+                                break;
+                            // now we init turn and count up
+                            case 3:
                             ige.client.obj[3].obj[4].animation.select('turn');
-                        }
-                        else{
-                            // step 1 stop moving and wait for the elevator
-                            // we set currentHeading to the currentFloor
-                            ige.client.obj[3].obj[4].velocity.x(0);
-                            ige.client.obj[3].obj[4].translateTo(0,6,0);
-                            ige.client.obj[3].obj[4].animation.stop();
-                            ige.client.obj[3].obj[4].cell(47);
-                            ige.client.obj[7].currentHeading = 0;
-                        }*/
+                                ige.client.obj[7].count-=delta;
+                                if(ige.client.obj[7].count<=0){
+                                    ige.client.obj[3].obj[4].animation.stop();
+                                    ige.client.obj[3].obj[4].cell(10);
+                                    ige.client.obj[7].changeFloor++;
+                                    // preset count for the close elevator doors animation
+                                    ige.client.obj[7].count = 900
+                                }
 
+                                break;
+                            // let's close the doors
+                            case 4:
+                                ige.client.obj[3].obj[1].animation.select('close');
+                                ige.client.obj[7].count-=delta;
+                                if(ige.client.obj[7].count<=0){
+                                    ige.client.obj[3].obj[1].animation.stop();
+                                    ige.client.obj[3].obj[1].cell(1);
+                                    ige.client.obj[7].changeFloor++;
+                                }
+                                break;
+                            // and move the elevator upwards
+                            case 5:
+                                ige.client.obj[7].currentHeading = ige.client.obj[7].currentFloor+(-(Math.floor(ige.client.obj[7].targetY/100))-1);
+                                ige.client.obj[7].startHeading = 1;
+                                ige.client.obj[7].count = 900;
+                                ige.client.obj[7].changeFloor++;
+                                break;
+                            case 6:
+                                ige.client.obj[3].obj[1].animation.select('open');
+                                ige.client.obj[7].count-=delta;
+                                if(ige.client.obj[7].count<=0){
+                                    // stop the animation and set the correct cell
+                                    ige.client.obj[3].obj[1].animation.stop();
+                                    ige.client.obj[3].obj[1].cell(4);
+                                    // unmount character from elevator and mount it to the scene
+                                    ige.client.obj[3].obj[4].unMount();
+                                    ige.client.obj[3].obj[4].mount(ige.client.obj[3]);
+                                    // reset depth so our character is outside the elevator
+                                    ige.client.obj[3].obj[4].depth(4);
+                                    // set targetY as finished
+                                    ige.client.obj[7].targetY = characterPos.y();
+                                    // reset translation of character
+                                    ige.client.obj[3].obj[4].translateTo(0,ige.client.obj[7].getFloorsHeight(),0);
+                                    // count changeFloor Sequence upwards
+                                    ige.client.obj[7].changeFloor++;
+                                }
+                                break;
+                        }
                     }
                 }
 
@@ -226,32 +231,40 @@ var Client = IgeClass.extend({
 
                 if(direction > 0){
                     ige.client.obj[3].obj[0].velocity.y(-0.2);
+                    if(ige.client.obj[7].startHeading == 1){
+                        ige.client.obj[0].velocity.y(0.015);
+                        ige.client.obj[1].velocity.y(0.15);
+                    }
                 } else if (direction < 0){
                     ige.client.obj[3].obj[0].velocity.y(0.2);
+                    if(ige.client.obj[7].startHeading == 1){
+                        ige.client.obj[0].velocity.y(-0.015);
+                        ige.client.obj[1].velocity.y(-0.15);
+                    }
                 } else {
-                    if(ige.client.obj[7].currentFloor != ige.client.obj[7].elevatorsFloor){
+                    if(ige.client.obj[7].currentFloor == ige.client.obj[7].elevatorsFloor
+                        && ige.client.obj[7].changeFloor<=1){
                         ige.client.obj[7].changeFloor=2;
                     }
+                    ige.client.obj[7].currentFloor = ige.client.obj[7].currentHeading;
+
                     ige.client.obj[3].obj[0].velocity.y(0);
                     ige.client.obj[3].obj[0].translateTo(0,ige.client.obj[7].getFloorsHeight(),0);
-                }
 
-          /*      if(direction > 0){
-                    ige.client.obj[0].velocity.y(0.015);
-                    ige.client.obj[1].velocity.y(0.15);
-                    ige.client.obj[3].obj[0].velocity.y(-0.2);
-                } else if (direction < 0){
-                    ige.client.obj[0].velocity.y(-0.015);
-                    ige.client.obj[1].velocity.y(-0.15);
-                    ige.client.obj[3].obj[0].velocity.y(0.2);
-                } else {
                     ige.client.obj[0].velocity.y(0);
                     ige.client.obj[1].velocity.y(0);
-                    ige.client.obj[3].obj[0].velocity.y(0);
+
                     ige.client.obj[0].translateTo(0,ige.client.obj[7].getBackgroundHeight(),0);
                     ige.client.obj[1].translateTo(0,ige.client.obj[7].getSkyScraperHeight(),0);
-                    ige.client.obj[3].obj[0].translateTo(0,ige.client.obj[7].getFloorsHeight(),0);
-                }*/
+                    ige.client.obj[7].startHeading == 0;
+
+                 /*   if(ige.client.obj[7].changeFloor==5){
+                        ige.client.obj[7].changeFloor++;
+                    }
+*/
+
+                }
+
 
                 var elevatorpos = ige.client.obj[3].obj[0].translate().y();
                     elevatorpos-= ige.client.obj[7].getFloorsHeight();
@@ -269,7 +282,9 @@ var Client = IgeClass.extend({
     _mouseUp: function (event) {
         ige.client.obj[7].targetX = ige.input.actionVal('predictedX');
         ige.client.obj[7].targetY = ige.input.actionVal('predictedY')-ige.client.obj[7].getSkyScraperHeight()-ige.client.obj[7].getCurrentHeight()-5;
-        console.log(ige.client.obj[7].targetY/100);
+        //
+        //console.log(-(Math.floor(ige.client.obj[7].targetY/100))-1);
+        ige.client.obj[7].changeFloor = 1;
     }
 });
 

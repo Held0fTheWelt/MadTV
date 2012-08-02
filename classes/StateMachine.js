@@ -81,12 +81,20 @@ var StateMachine = IgeEntity.extend({
             get: function () { return myValue8; },
             set: function (newValue8) { myValue8 = newValue8; }
         });
+        /** This is where our elevator is*/
+        Object.defineProperty(this, 'turn', {
+            enumerable: true,
+            configurable: true,
+            get: function () { return myValue9; },
+            set: function (newValue8) { myValue9 = newValue8; }
+        });
         // Just some standards
 
         stateMachine.currentFloor = 0;
         stateMachine.elevatorsFloor = 2;
         stateMachine.currentHeading = 6;
-        stateMachine.count = 550;
+        stateMachine.count = 900;
+        stateMachine.turn = 300;
         stateMachine.startHeading = 0;
         stateMachine.targetX = 0;
         stateMachine.targetY = 0;
