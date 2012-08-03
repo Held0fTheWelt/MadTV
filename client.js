@@ -97,37 +97,25 @@ var Client = IgeClass.extend({
 
                 // tick Delta - needed for calculations
                 var delta = ige.tickDelta;
-                // get our characters position
-                var characterPos = ige.client.obj[3].obj[4].translate();
-                // look if we want to move horizontally
-                var moveHorizontal = characterPos.x() - ige.client.obj[7].targetX;
 
+                console.log(ige.client.obj[7].targetX);
+                console.log(ige.client.obj[7].getCurrentHeight()+6);
+                console.log(ige.client.obj[3].obj[4].translate().x());
                 // if we are on the floor we want to be
-                if(ige.client.obj[7].currentHeading == ige.client.obj[7].currentFloor){
-                    // if value <= -4 we want to move the right way
-                    if(moveHorizontal <= -4){
-                        ige.client.obj[3].obj[4].velocity.x(0.15);
-                        ige.client.obj[3].obj[4].animation.select('walkRight');
-                    }
-                    // if value >= 4 we want to move the left way
-                    else if(moveHorizontal >= 4){
-                        ige.client.obj[3].obj[4].velocity.x(-0.15);
-                        ige.client.obj[3].obj[4].animation.select('walkLeft');
-                    }
-                    // otherwise let us stop and look in to the front for waiting
-                    // for new orders
-                    else{
-                        ige.client.obj[3].obj[4].velocity.x(0);
-                        ige.client.obj[3].obj[4].translateTo(ige.client.obj[7].targetX,ige.client.obj[7].getCurrentHeight()+6 ,0);
-                        ige.client.obj[3].obj[4].animation.stop();
-                        ige.client.obj[3].obj[4].cell(10);
-                    }
-                }
+                //if(ige.client.obj[7].currentHeading == ige.client.obj[7].currentFloor){
+                    ige.client.obj[3].obj[4].walkTo(
+                        ige.client.obj[7].targetX,
+                        ige.client.obj[7].getCurrentHeight()+6
+                    );
+                /*}
                 // if we need to change floor
                 else{
                     console.log(ige.client.obj[7].changeFloor);
-                    // if we are left to the elevator lets walk right
-                    if(characterPos.x() <= 10){
+
+                }
+
+                    /*//* if we are left to the elevator lets walk right
+                    if(characterPos.x() != 10){
                         ige.client.obj[3].obj[4].velocity.x(0.15);
                         ige.client.obj[3].obj[4].animation.select('walkRight');
                     }
@@ -165,7 +153,7 @@ var Client = IgeClass.extend({
                                 ige.client.obj[7].elevatorHeading = ige.client.obj[7].currentFloor;
                                 break;
                             // we open elevators doors
-                      /*      case 2:
+                            case 2:
                                 ige.client.obj[3].obj[1].animation.select('open');
                                 ige.client.obj[7].count-=delta;
                                 if(ige.client.obj[7].count<=0){
@@ -245,12 +233,12 @@ var Client = IgeClass.extend({
                                 }
                                 break;
                             case 7:
-                                break;*/
+                                break;
                         }
                     }
-                }
+                }*/
 
-             /*   var direction = ige.client.obj[7].elevatorHeading - ige.client.obj[7].elevatorsFloor;
+            /*    var direction = ige.client.obj[7].elevatorHeading - ige.client.obj[7].elevatorsFloor;
 
                 if(direction > 0){
                     ige.client.obj[3].obj[0].velocity.y(-0.2);
@@ -265,11 +253,11 @@ var Client = IgeClass.extend({
                         ige.client.obj[1].velocity.y(-0.15);
                     }
                 } else {
-              /*      if(ige.client.obj[7].currentFloor == ige.client.obj[7].elevatorsFloor
+                    if(ige.client.obj[7].currentFloor == ige.client.obj[7].elevatorsFloor
                         && ige.client.obj[7].changeFloor==1){
                         ige.client.obj[7].changeFloor=2;
-                    }*/
-/*                    ige.client.obj[7].elevatorsFloor= ige.client.obj[7].elevatorHeading;
+                    }
+                    ige.client.obj[7].elevatorsFloor= ige.client.obj[7].elevatorHeading;
 
                     ige.client.obj[3].obj[0].velocity.y(0);
                     ige.client.obj[3].obj[0].translateTo(0,ige.client.obj[7].getFloorsHeight(),0);
@@ -300,6 +288,7 @@ var Client = IgeClass.extend({
 	},
     _mouseUp: function (event) {
         ige.client.obj[7].targetX = ige.input.actionVal('predictedX');
+        console.log(ige.client.obj[7].targetX);
         ige.client.obj[7].changeFloor=1;
     }
 });

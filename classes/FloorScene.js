@@ -52,7 +52,7 @@ var FloorScene = IgeEntity.extend({
                 .height(89)
                 .mount(floorscene.obj[0]);
 
-            floorscene.obj[4] =  new GameElement();
+            floorscene.obj[4] =  new CharacterMonk();
             //  floorscene.obj[4] = floorscene.loadCharacter().mount(floorscene.obj[0]);
 
             floorscene.obj[4].addComponent(IgeAnimationComponent)
