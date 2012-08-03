@@ -100,7 +100,7 @@ var StateMachine = IgeEntity.extend({
         stateMachine.currentFloor = 0;
         stateMachine.elevatorsFloor = 0;
         stateMachine.currentHeading = 0;
-        stateMachine.elevatorHeading = 4;
+        stateMachine.elevatorHeading = 0;
         stateMachine.count = 900;
         stateMachine.turn = 300;
         stateMachine.startHeading = 0;
@@ -176,7 +176,7 @@ var StateMachine = IgeEntity.extend({
     },
     getBackgroundHeight: function(){
         var stateMachine = this;
-        switch(stateMachine.currentFloor){
+        switch(stateMachine.elevatorHeading){
             case 0: return -140;
                 break;
             case 1: return -132.5;
@@ -208,7 +208,7 @@ var StateMachine = IgeEntity.extend({
     ,
     getSkyScraperHeight: function(){
         var stateMachine = this;
-        switch(stateMachine.currentFloor){
+        switch(stateMachine.elevatorHeading){
             case 0: return 310;
                 break;
             case 1: return 385;

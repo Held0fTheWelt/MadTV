@@ -1,7 +1,24 @@
 var Skyscraper = IgeEntity.extend({
     classId: 'Skyscraper',
 
+    changePosition: function () {
+        ige.client.obj[7].targetX = ige.input.actionVal('predictedX');
 
+        //@Todo: The currentHeading is changed after this function is called, so we now have to click it twice
+        if(ige.client.obj[7].currentHeading == ige.client.obj[7].currentFloor){
+            ige.client.obj[3].obj[4].walkTo(
+                ige.client.obj[7].targetX,
+                ige.client.obj[7].getCurrentHeight()+6
+            );
+        } else {
+            //ige.client.obj[7].changeFloor=1;
+            ige.client.obj[3].obj[4].walkTo(
+                0,
+                ige.client.obj[7].getCurrentHeight()+6
+            );
+            ige.client.obj[7].changeFloor = 1;
+        }
+    },
 
     init: function () {
 
@@ -46,7 +63,10 @@ var Skyscraper = IgeEntity.extend({
                 .height(4)
                 .depth(0)
                 .texture(gameTexture[0])
-                // .translateTo(0, 310, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 0;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 0
@@ -58,7 +78,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -50, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 0; })
+                    ige.client.obj[7].currentHeading = 0;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 1
@@ -69,6 +91,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[1])
                 .translateTo(0, -100, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 1;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 1
@@ -80,7 +106,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -150, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 1; })
+                    ige.client.obj[7].currentHeading = 1;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 2
@@ -91,6 +119,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[1])
                 .translateTo(0, -200, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 2;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 2
@@ -102,7 +134,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -250, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 2; })
+                    ige.client.obj[7].currentHeading = 2;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 3
@@ -113,6 +147,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[1])
                 .translateTo(0, -300, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 3;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 3
@@ -124,7 +162,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -350, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 3; })
+                    ige.client.obj[7].currentHeading = 3;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 4
@@ -136,7 +176,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -400, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 4; })
+                    ige.client.obj[7].currentHeading = 4;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 4
@@ -147,6 +189,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -450, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 4;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 5
@@ -158,7 +204,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -500, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 5; })
+                    ige.client.obj[7].currentHeading = 5;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 5
@@ -169,6 +217,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -550, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 5;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 6
@@ -180,7 +232,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -600, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 6; })
+                    ige.client.obj[7].currentHeading = 6;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 6
@@ -191,6 +245,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -650, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 6;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 7
@@ -202,7 +260,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -700, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 7; })
+                    ige.client.obj[7].currentHeading = 7;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 7
@@ -213,6 +273,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -750, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 7;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 8
@@ -224,7 +288,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -800, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 8; })
+                    ige.client.obj[7].currentHeading = 8;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 8
@@ -235,6 +301,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -850, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 8;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 9
@@ -246,7 +316,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -900, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 9; })
+                    ige.client.obj[7].currentHeading = 9;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 9
@@ -257,6 +329,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -950, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 9;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 10
@@ -268,7 +344,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -1000, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 10; })
+                    ige.client.obj[7].currentHeading = 10;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 10
@@ -279,6 +357,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -1050, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 10;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 11
@@ -290,7 +372,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -1100, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 11; })
+                    ige.client.obj[7].currentHeading = 11;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 11
@@ -301,6 +385,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -1150, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 11;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - floor 12
@@ -312,7 +400,9 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -1200, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 12; })
+                    ige.client.obj[7].currentHeading = 12;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create walls - floor 12
@@ -323,6 +413,10 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[2])
                 .translateTo(0, -1250, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 12;
+                    nodeSS.changePosition();
+                })
                 .mount(nodeSS);
 
             // Create ground - roof
@@ -410,7 +504,7 @@ var Skyscraper = IgeEntity.extend({
             // Beauties Floor 1
             // dracaena1
             nodeSS.obj[28] = new GameElement()
-                .id('dracaena1')
+                .id('dracaena2')
                 .depth(1)
                 .width(46)
                 .height(75)

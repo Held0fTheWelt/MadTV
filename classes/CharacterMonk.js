@@ -39,7 +39,6 @@ var CharacterMonk = IgeEntity.extend({
                 this.animation.select('walkDown');
             }
         }
-        debugger;
         // Start tweening the little person to their destination
         this._translate.tween()
             .stopAll()
@@ -49,7 +48,7 @@ var CharacterMonk = IgeEntity.extend({
                 char.animation.stop();
                 // And you could make him reset back
                 // to his original animation frame with:
-                char.cell(10);
+                //char.cell(10);
             })
             .start();
 
