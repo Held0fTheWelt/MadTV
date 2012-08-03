@@ -6,14 +6,6 @@
  */
 var FloorScene = IgeEntity.extend({
     classId:'FloorScene',
-    loadCharacter: function(){
-        return new Character()
-            .depth(2)
-            .translateTo(0, 5, 0);
-     //       .addComponent(PlayerComponent)
-            //.setType(6);
-
-    },
     init:function () {
 
         this._super();
@@ -39,7 +31,7 @@ var FloorScene = IgeEntity.extend({
                 .addComponent(IgeVelocityComponent)
                 .texture(gameTexture[1])
                 .mount(floorscene);
-
+            // create the elevators doors
             floorscene.obj[1] = new GameElement();
             // Setup the entity
             floorscene.obj[1].addComponent(IgeAnimationComponent)
@@ -52,8 +44,18 @@ var FloorScene = IgeEntity.extend({
                 .height(89)
                 .mount(floorscene.obj[0]);
 
+
+            // @Todo use Character instead of CharacterMonk
+            // Problems with instances yet
+            /*floorscene.obj[4] = new Character()
+                    .depth(4)
+                    .translateTo(0, 5, 0)
+                    .setType(0)
+                    .mount(floorscene);*/
+
+
+            // Our Character Monk
             floorscene.obj[4] =  new CharacterMonk();
-            //  floorscene.obj[4] = floorscene.loadCharacter().mount(floorscene.obj[0]);
 
             floorscene.obj[4].addComponent(IgeAnimationComponent)
                 .addComponent(IgeVelocityComponent)
@@ -62,8 +64,6 @@ var FloorScene = IgeEntity.extend({
                 .animation.define('walkRight', [34, 35, 36, 35], 8, -1)
                 .animation.define('walkUp', [46, 47, 48, 47], 8, -1)
                 .animation.define('turn', [46, 22, 10], 8, -1)
-                .animation.define('wait', [46], 8, -1)
-                .animation.define('look', [10], 8, -1)
                 .cell(10)
                 .depth(4)
                 .texture(gameTexture[2])

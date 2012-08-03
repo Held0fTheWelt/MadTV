@@ -12,7 +12,6 @@ var StateMachine = IgeEntity.extend({
 
         this._super();
         var stateMachine = this;
-        /** Stores the X-Value where we want to ride */
         Object.defineProperty(this, 'targetX', {
             enumerable: true,
             configurable: true,
@@ -26,20 +25,6 @@ var StateMachine = IgeEntity.extend({
             get: function () { return myValue2; },
             set: function (newValue2) { myValue2 = newValue2; }
         });
-        /** Flag to invoke changeFloor beahviour.
-         * 0 will not call for elevator
-         * 1 will call elevator
-         * 2 will open elevator
-         * 3 will invoke turn behaviour and change depth to 2 (inside the elevator)
-         *   also we need to unmount the character and mount it to the elevator
-         * 4 will close the elevator
-         * 5 will start heading
-         * 6 will open the elevator
-         * 7 will mount unmount the character and mount it to the floorscene
-         *   we need special translation here to make a miracle of it all happens smooth
-         *   flag will be set to 0
-         *
-         * */
         Object.defineProperty(this, 'changeFloor', {
             enumerable: true,
             configurable: true,
@@ -96,21 +81,24 @@ var StateMachine = IgeEntity.extend({
             set: function (newValue8) { myValue9 = newValue8; }
         });
         // Just some standards
-
+        /** This is the floor we are currently in*/
         stateMachine.currentFloor = 0;
+        /** This is the Floor the Elevator currently is*/
         stateMachine.elevatorsFloor = 0;
+        /** This floor we want to head to*/
         stateMachine.currentHeading = 0;
+        /** This floor the elevator heads to*/
         stateMachine.elevatorHeading = 0;
-        stateMachine.count = 900;
+        /** A counter for animation of the elevator*/
+        stateMachine.count = 450;
+        /** A counter for animation of the character turn*/
         stateMachine.turn = 300;
+        /** If this is set to 1, scrolling of background and skyscraper is started*/
         stateMachine.startHeading = 0;
+        /** Our characters targeted x-position*/
         stateMachine.targetX = 0;
-        stateMachine.targetY = 0;
+        /** The State which handles changing the floor correctly*/
         stateMachine.changeFloor = 0;
-    },
-    callElevator: function(){
-        var stateMachine = this;
-        stateMachine.currentHeading = stateMachine.currentFloor;
     },
     getCurrentHeight: function(){
         var stateMachine = this;

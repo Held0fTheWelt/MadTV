@@ -86,10 +86,6 @@ var Client = IgeClass.extend({
                     // Setup some actions and map them to inputs
                     ige.input.mapAction('predictedX', ige.input.mouse.x);
                     ige.input.mapAction('predictedY', ige.input.mouse.y);
-
-                    // Listen for the mouse up event
-                    ige.input.on('mouseUp', function (event) { ige.client._mouseUp(event); });
-
 				}
 			});
 
@@ -170,7 +166,6 @@ var Client = IgeClass.extend({
                             break;
                         // and move the elevator upwards
                         case 6:
-                            console.log("heading"+ige.client.obj[7].currentHeading);
                             ige.client.obj[7].elevatorHeading = ige.client.obj[7].currentHeading;
                             ige.client.obj[7].startHeading = 1;
 
@@ -209,7 +204,6 @@ var Client = IgeClass.extend({
                             break;
                     }
                 }
-
 
                 var direction = ige.client.obj[7].elevatorHeading - ige.client.obj[7].elevatorsFloor;
 
@@ -254,7 +248,6 @@ var Client = IgeClass.extend({
             });
 		});
 	}
-
 });
 
 if (typeof(module) !== 'undefined' && typeof(module.exports) !== 'undefined') { module.exports = Client; }
