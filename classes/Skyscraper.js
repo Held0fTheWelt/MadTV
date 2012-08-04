@@ -64,8 +64,7 @@ var Skyscraper = IgeEntity.extend({
                 .depth(0)
                 .texture(gameTexture[0])
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 0;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),0);
                 })
                 .mount(nodeSS);
 
@@ -78,8 +77,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -50, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 0;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),0);
                 })
                 .mount(nodeSS);
 
@@ -92,8 +90,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -100, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 1;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),1);
                 })
                 .mount(nodeSS);
 
@@ -106,8 +103,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -150, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 1;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),1);
                 })
                 .mount(nodeSS);
 
@@ -120,8 +116,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -200, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 2;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),2);
                 })
                 .mount(nodeSS);
 
@@ -134,8 +129,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -250, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 2;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),2);
                 })
                 .mount(nodeSS);
 
@@ -148,8 +142,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -300, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 3;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),3);
                 })
                 .mount(nodeSS);
 
@@ -162,8 +155,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -350, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 3;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),3);
                 })
                 .mount(nodeSS);
 
@@ -176,8 +168,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -400, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 4;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),4);
                 })
                 .mount(nodeSS);
 
@@ -190,8 +181,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -450, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 4;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),4);
                 })
                 .mount(nodeSS);
 
@@ -204,8 +194,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -500, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 5;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),5);
                 })
                 .mount(nodeSS);
 
@@ -218,8 +207,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -550, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 5;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),5);
                 })
                 .mount(nodeSS);
 
@@ -232,8 +220,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -600, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 6;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),6);
                 })
                 .mount(nodeSS);
 
@@ -246,8 +233,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -650, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 6;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),6);
                 })
                 .mount(nodeSS);
 
@@ -260,8 +246,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -700, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 7;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),7);
                 })
                 .mount(nodeSS);
 
@@ -274,8 +259,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -750, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 7;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),7);
                 })
                 .mount(nodeSS);
 
@@ -288,8 +272,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -800, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 8;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),8);
                 })
                 .mount(nodeSS);
 
@@ -302,8 +285,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -850, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 8;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),8);
                 })
                 .mount(nodeSS);
 
@@ -316,8 +298,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -900, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 9;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),9);
                 })
                 .mount(nodeSS);
 
@@ -330,8 +311,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -950, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 9;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),9);
                 })
                 .mount(nodeSS);
 
@@ -344,8 +324,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -1000, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 10;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),10);
                 })
                 .mount(nodeSS);
 
@@ -358,8 +337,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -1050, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 10;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),10);
                 })
                 .mount(nodeSS);
 
@@ -372,8 +350,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -1100, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 11;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),11);
                 })
                 .mount(nodeSS);
 
@@ -386,8 +363,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -1150, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 11;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),11);
                 })
                 .mount(nodeSS);
 
@@ -400,8 +376,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(0, -1200, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 12;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),12);
                 })
                 .mount(nodeSS);
 
@@ -414,8 +389,7 @@ var Skyscraper = IgeEntity.extend({
                 .texture(gameTexture[2])
                 .translateTo(0, -1250, 0)
                 .mouseUp(function () {
-                    ige.client.obj[7].currentHeading = 12;
-                    nodeSS.changePosition();
+                    ige.client.obj[7].changePosition(ige.input.actionVal('predictedX'),12);
                 })
                 .mount(nodeSS);
 

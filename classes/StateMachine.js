@@ -100,6 +100,24 @@ var StateMachine = IgeEntity.extend({
         /** The State which handles changing the floor correctly*/
         stateMachine.changeFloor = 0;
     },
+    changePosition: function (target, heading) {
+        ige.client.obj[7].targetX = target;
+        ige.client.obj[7].currentHeading = heading;
+
+        if(ige.client.obj[7].currentHeading == ige.client.obj[7].currentFloor){
+            ige.client.obj[3].obj[4].walkTo(
+                ige.client.obj[7].targetX,
+                ige.client.obj[7].getCurrentHeight()+6
+            );
+        } else {
+            //ige.client.obj[7].changeFloor=1;
+            ige.client.obj[3].obj[4].walkTo(
+                0,
+                ige.client.obj[7].getCurrentHeight()+6
+            );
+            ige.client.obj[7].changeFloor = 1;
+        }
+    },
     getCurrentHeight: function(){
         var stateMachine = this;
         switch(stateMachine.currentFloor){
