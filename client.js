@@ -208,17 +208,24 @@ var Client = IgeClass.extend({
                 var direction = ige.client.obj[7].elevatorHeading - ige.client.obj[7].elevatorsFloor;
 
                 if(direction > 0){
+
                     ige.client.obj[3].obj[0].velocity.y(-0.2);
-                    if(ige.client.obj[7].startHeading == 1 && ige.client.obj[3].obj[0].translate().y() <= -200){
+                    if(ige.client.obj[7].startHeading == 1 && ige.client.obj[3].obj[0].translate().y() <= -201){
                         ige.client.obj[0].velocity.y(0.015);
                         ige.client.obj[1].velocity.y(0.15);
                     }
                 } else if (direction < 0){
+                    console.log(ige.client.obj[3].obj[0].translate().y() <= -201);
                     ige.client.obj[3].obj[0].velocity.y(0.2);
-                    if(ige.client.obj[7].startHeading == 1 && ige.client.obj[3].obj[0].translate().y() <= -200){
+                    if(ige.client.obj[7].startHeading == 1){
                         ige.client.obj[0].velocity.y(-0.015);
                         ige.client.obj[1].velocity.y(-0.15);
                     }
+                    if(ige.client.obj[3].obj[0].translate().y() >= -200){
+                        ige.client.obj[0].velocity.y(0);
+                        ige.client.obj[1].velocity.y(0);
+                    }
+
                 } else {
                     if(ige.client.obj[7].startHeading == 1){
                         ige.client.obj[7].currentFloor= ige.client.obj[7].elevatorHeading;
