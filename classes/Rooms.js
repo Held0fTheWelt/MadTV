@@ -21,7 +21,14 @@ var Rooms = IgeEntity.extend({
         gameTexture[4] = new IgeTexture('assets/textures/accessoires/bureau/buro31.jpg');
         // The elevator body
         gameTexture[5] = new IgeTexture('assets/textures/elevators/elevator3.jpg');
-
+        // Bureau door 1 opened
+        gameTexture[6] = new IgeTexture('assets/textures/accessoires/bureau/buro12.png');
+        // Bureau door 2 opened
+        gameTexture[7] = new IgeTexture('assets/textures/accessoires/bureau/buro22.png');
+        // Bureau door 3 opened
+        gameTexture[8] = new IgeTexture('assets/textures/accessoires/bureau/buro32.jpg');
+        // The open lobby
+        gameTexture[9] = new IgeTexture('assets/textures/accessoires/lobby/lobbyOpened.jpg');
         // Wait for our textures to load before continuing
         ige.on('texturesLoaded', function () {
 
@@ -33,6 +40,11 @@ var Rooms = IgeEntity.extend({
                 .height(86)
                 .texture(gameTexture[0])
                 .translateTo(-300, -45, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[0].texture(gameTexture[9])
+                        .height(90)
+                        .translateTo(-300, -43, 0);
+                })
                 .mount(nodeSSRooms);
 
             // Create elevator - floor 0
@@ -60,6 +72,10 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[2])
                 .translateTo(-325, -142, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[2].texture(gameTexture[6])
+                        .height(90);
+                })
                 .mount(nodeSSRooms);
 
             // Create elevator - floor 1
@@ -78,6 +94,10 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[2])
                 .translateTo(325, -142, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[3].texture(gameTexture[6])
+                        .height(90);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 2.2
@@ -87,6 +107,10 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[2])
                 .translateTo(-225, -242, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[4].texture(gameTexture[6])
+                        .height(90);
+                })
                 .mount(nodeSSRooms);
 
             // Create elevator - floor 2
@@ -105,6 +129,10 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[2])
                 .translateTo(225, -242, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[5].texture(gameTexture[6])
+                        .height(90);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 2.4
@@ -114,6 +142,10 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[2])
                 .translateTo(325, -242, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[6].texture(gameTexture[6])
+                        .height(90);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 3.1
@@ -123,6 +155,10 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[3])
                 .translateTo(-325, -342, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[7].texture(gameTexture[7])
+                        .height(90);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 3.2
@@ -132,6 +168,11 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[3])
                 .translateTo(-225, -342, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[8].texture(gameTexture[7])
+                        .height(90);
+                })
+
                 .mount(nodeSSRooms);
 
             // Create elevator - floor 3
@@ -150,6 +191,10 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[3])
                 .translateTo(325, -342, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[9].texture(gameTexture[7])
+                    .height(90);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 4.1
@@ -159,6 +204,9 @@ var Rooms = IgeEntity.extend({
                 .height(84)
                 .texture(gameTexture[4])
                 .translateTo(-325, -442, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[10].texture(gameTexture[8]);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 4.2
@@ -168,6 +216,9 @@ var Rooms = IgeEntity.extend({
                 .height(84)
                 .texture(gameTexture[4])
                 .translateTo(-225, -442, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[11].texture(gameTexture[8]);
+                })
                 .mount(nodeSSRooms);
 
             // Create elevator - floor 4
@@ -186,6 +237,9 @@ var Rooms = IgeEntity.extend({
                 .height(84)
                 .texture(gameTexture[4])
                 .translateTo(225, -442, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[12].texture(gameTexture[8]);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 4.4
@@ -195,6 +249,9 @@ var Rooms = IgeEntity.extend({
                 .height(84)
                 .texture(gameTexture[4])
                 .translateTo(325, -442, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[13].texture(gameTexture[8]);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 5.2
@@ -204,6 +261,10 @@ var Rooms = IgeEntity.extend({
                 .height(80)
                 .texture(gameTexture[3])
                 .translateTo(-225, -542, 0)
+                .mouseUp(function () {
+                    nodeSSRooms.obj[14].texture(gameTexture[8])
+                        .height(90);
+                })
                 .mount(nodeSSRooms);
 
             // Create elevator - floor 5
