@@ -36,6 +36,8 @@ var Client = IgeClass.extend({
 
 		this.obj = [];
 		gameTexture[0] = new IgeTexture('assets/textures/backgrounds/background.jpg');
+        gameTexture[1] = new IgeTexture('assets/textures/bottoms/bottomLeft.jpg');
+        gameTexture[2] = new IgeTexture('assets/textures/bottoms/bottomRight.jpg');
 
 		// Wait for our textures to load before continuing
 		ige.on('texturesLoaded', function () {
@@ -80,6 +82,26 @@ var Client = IgeClass.extend({
                         .mouseOver(function () {this.backgroundColor('#49ceff'); })
                         .mouseOut(function () {this.backgroundColor('#474747'); })
                         .mount(ige.client.obj[5]);
+
+                    // Create tv scene
+                    ige.client.obj[7] = new GameElement()
+                        .id('tv')
+                        .depth(1)
+                        .width(300)
+                        .height(150)
+                        .translateTo(-300,0,0)
+                        .texture(gameTexture[1])
+                        .mount(ige.client.obj[6]);
+
+                    // Create couch scene
+                    ige.client.obj[8] = new GameElement()
+                        .id('tv')
+                        .depth(1)
+                        .width(300)
+                        .height(150)
+                        .translateTo(300,0,0)
+                        .texture(gameTexture[2])
+                        .mount(ige.client.obj[6]);
 
                     ige.client.obj[7] = new StateMachine();
 
@@ -208,23 +230,23 @@ var Client = IgeClass.extend({
                 var direction = ige.client.obj[7].elevatorHeading - ige.client.obj[7].elevatorsFloor;
 
                 if(direction > 0){
-
                     ige.client.obj[3].obj[0].velocity.y(-0.2);
                     if(ige.client.obj[7].startHeading == 1 && ige.client.obj[3].obj[0].translate().y() <= -201){
                         ige.client.obj[0].velocity.y(0.015);
                         ige.client.obj[1].velocity.y(0.15);
                     }
                 } else if (direction < 0){
-                    console.log(ige.client.obj[3].obj[0].translate().y() <= -201);
                     ige.client.obj[3].obj[0].velocity.y(0.2);
                     if(ige.client.obj[7].startHeading == 1){
-                        ige.client.obj[0].velocity.y(-0.015);
-                        ige.client.obj[1].velocity.y(-0.15);
+                        if(ige.client.obj[3].obj[0].translate().y() >= -200){
+                            ige.client.obj[0].velocity.y(0);
+                            ige.client.obj[1].velocity.y(0);
+                        }else{
+                            ige.client.obj[0].velocity.y(-0.015);
+                            ige.client.obj[1].velocity.y(-0.15);
+                        }
                     }
-                    if(ige.client.obj[3].obj[0].translate().y() >= -200){
-                        ige.client.obj[0].velocity.y(0);
-                        ige.client.obj[1].velocity.y(0);
-                    }
+
 
                 } else {
                     if(ige.client.obj[7].startHeading == 1){
