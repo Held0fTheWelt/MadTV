@@ -1,25 +1,6 @@
 var Skyscraper = IgeEntity.extend({
     classId: 'Skyscraper',
 
-    changePosition: function () {
-        ige.client.obj[7].targetX = ige.input.actionVal('predictedX');
-
-        //@Todo: The currentHeading is changed after this function is called, so we now have to click it twice
-        if(ige.client.obj[7].currentHeading == ige.client.obj[7].currentFloor){
-            ige.client.obj[3].obj[4].walkTo(
-                ige.client.obj[7].targetX,
-                ige.client.obj[7].getCurrentHeight()+6
-            );
-        } else {
-            //ige.client.obj[7].changeFloor=1;
-            ige.client.obj[3].obj[4].walkTo(
-                0,
-                ige.client.obj[7].getCurrentHeight()+6
-            );
-            ige.client.obj[7].changeFloor = 1;
-        }
-    },
-
     init: function () {
 
         this._super();
