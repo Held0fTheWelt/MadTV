@@ -167,30 +167,34 @@ var StateMachine = IgeEntity.extend({
         switch(stateMachine.elevatorHeading){
             case 0: return -140;
                 break;
-            case 1: return -132.5;
+            case 1: return -140;
                 break;
-            case 2: return -125;
+            case 2: return -140;
                 break;
-            case 3: return -117.5;
+            case 3: return -132.5;
                 break;
-            case 4: return -110;
+            case 4: return -125;
                 break;
-            case 5: return -102.5;
+            case 5: return -117.5;
                 break;
-            case 6: return -95;
+            case 6: return -110;
                 break;
-            case 7: return -87.5;
+            case 7: return -102.5;
                 break;
-            case 8: return -80;
+            case 8: return -95;
                 break;
-            case 9: return -72.5;
+            case 9: return -87.5;
                 break;
-            case 10: return -65;
+            case 10: return -80;
                 break;
-            case 11: return -57.5;
+            case 11: return -72.5;
+                break;
+            case 12: return -65;
+                break;
+/*            case 11: return -57.5;
                 break;
             case 12: return -50;
-                break;
+                break;*/
         }
     }
     ,
@@ -199,30 +203,34 @@ var StateMachine = IgeEntity.extend({
         switch(stateMachine.elevatorHeading){
             case 0: return 310;
                 break;
-            case 1: return 385;
+            case 1: return 310;
                 break;
-            case 2: return 460;
+            case 2: return 310;
                 break;
-            case 3: return 535;
+            case 3: return 385;
                 break;
-            case 4: return 610;
+            case 4: return 460;
                 break;
-            case 5: return 685;
+            case 5: return 535;
                 break;
-            case 6: return 760;
+            case 6: return 610;
                 break;
-            case 7: return 835;
+            case 7: return 685;
                 break;
-            case 8: return 910;
+            case 8: return 760;
                 break;
-            case 9: return 985;
+            case 9: return 835;
                 break;
-            case 10: return 1060;
+            case 10: return 910;
                 break;
-            case 11: return 1135;
+            case 11: return 985;
+                break;
+            case 12: return 1060;
+                break;
+/*            case 11: return 1135;
                 break;
             case 12: return 1210;
-                break;
+                break;*/
         }
     }
 });

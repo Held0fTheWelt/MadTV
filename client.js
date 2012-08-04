@@ -209,13 +209,13 @@ var Client = IgeClass.extend({
 
                 if(direction > 0){
                     ige.client.obj[3].obj[0].velocity.y(-0.2);
-                    if(ige.client.obj[7].startHeading == 1){
+                    if(ige.client.obj[7].startHeading == 1 && ige.client.obj[3].obj[0].translate().y() <= -200){
                         ige.client.obj[0].velocity.y(0.015);
                         ige.client.obj[1].velocity.y(0.15);
                     }
                 } else if (direction < 0){
                     ige.client.obj[3].obj[0].velocity.y(0.2);
-                    if(ige.client.obj[7].startHeading == 1){
+                    if(ige.client.obj[7].startHeading == 1 && ige.client.obj[3].obj[0].translate().y() <= -200){
                         ige.client.obj[0].velocity.y(-0.015);
                         ige.client.obj[1].velocity.y(-0.15);
                     }
