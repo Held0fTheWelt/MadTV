@@ -1,5 +1,22 @@
 var Rooms = IgeEntity.extend({
     classId: 'Rooms',
+    changePosition: function (target) {
+        ige.client.obj[7].targetX = target;
+
+        if(ige.client.obj[7].currentHeading == ige.client.obj[7].currentFloor){
+            ige.client.obj[3].obj[4].walkTo(
+                ige.client.obj[7].targetX,
+                ige.client.obj[7].getCurrentHeight()+6
+            );
+        } else {
+            //ige.client.obj[7].changeFloor=1;
+            ige.client.obj[3].obj[4].walkTo(
+                0,
+                ige.client.obj[7].getCurrentHeight()+6
+            );
+            ige.client.obj[7].changeFloor = 1;
+        }
+    },
 
     init: function () {
 
@@ -44,7 +61,10 @@ var Rooms = IgeEntity.extend({
                     this.texture(gameTexture[9])
                         .height(90)
                         .translateTo(-300, -43, 0);
+                    ige.client.obj[7].currentHeading = 0;
+                    nodeSSRooms.changePosition(-285);
                 })
+
                 .mount(nodeSSRooms);
 
             // Create elevator - floor 0
@@ -63,6 +83,10 @@ var Rooms = IgeEntity.extend({
                 .height(50)
                 .texture(gameTexture[1])
                 .translateTo(300, -55, 0)
+                .mouseUp(function () {
+                    ige.client.obj[7].currentHeading = 0;
+                    nodeSSRooms.changePosition(300);
+                })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 1.1
@@ -75,6 +99,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 1;
+                    nodeSSRooms.changePosition(-325);
                 })
                 .mount(nodeSSRooms);
 
@@ -97,6 +123,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 1;
+                    nodeSSRooms.changePosition(325);
                 })
                 .mount(nodeSSRooms);
 
@@ -110,6 +138,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 2;
+                    nodeSSRooms.changePosition(-225);
                 })
                 .mount(nodeSSRooms);
 
@@ -132,6 +162,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 2;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
@@ -145,6 +177,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 2;
+                    nodeSSRooms.changePosition(325);
                 })
                 .mount(nodeSSRooms);
 
@@ -158,6 +192,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 3;
+                    nodeSSRooms.changePosition(-325);
                 })
                 .mount(nodeSSRooms);
 
@@ -171,6 +207,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 3;
+                    nodeSSRooms.changePosition(-225);
                 })
 
                 .mount(nodeSSRooms);
@@ -194,6 +232,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                     .height(90);
+                    ige.client.obj[7].currentHeading = 1;
+                    nodeSSRooms.changePosition(325);
                 })
                 .mount(nodeSSRooms);
 
@@ -206,6 +246,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-325, -442, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 4;
+                    nodeSSRooms.changePosition(-325);
                 })
                 .mount(nodeSSRooms);
 
@@ -218,6 +260,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-225, -442, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 4;
+                    nodeSSRooms.changePosition(-225);
                 })
                 .mount(nodeSSRooms);
 
@@ -239,6 +283,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(225, -442, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 4;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
@@ -251,6 +297,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(325, -442, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 4;
+                    nodeSSRooms.changePosition(325);
                 })
                 .mount(nodeSSRooms);
 
@@ -264,6 +312,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 5;
+                    nodeSSRooms.changePosition(-225);
                 })
                 .mount(nodeSSRooms);
 
@@ -286,6 +336,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 5;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
@@ -299,6 +351,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 6;
+                    nodeSSRooms.changePosition(-325);
                 })
                 .mount(nodeSSRooms);
 
@@ -321,6 +375,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 6;
+                    nodeSSRooms.changePosition(325);
                 })
                 .mount(nodeSSRooms);
 
@@ -333,6 +389,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-325, -742, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 7;
+                    nodeSSRooms.changePosition(-325);
                 })
                 .mount(nodeSSRooms);
 
@@ -345,6 +403,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-225, -742, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 7;
+                    nodeSSRooms.changePosition(-225);
                 })
                 .mount(nodeSSRooms);
 
@@ -366,6 +426,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(225, -742, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 7;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
@@ -378,6 +440,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(325, -742, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 7;
+                    nodeSSRooms.changePosition(325);
                 })
                 .mount(nodeSSRooms);
 
@@ -391,6 +455,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 8;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
@@ -413,6 +479,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 8;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
@@ -426,6 +494,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 9;
+                    nodeSSRooms.changePosition(-325);
                 })
                 .mount(nodeSSRooms);
 
@@ -448,6 +518,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 9;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
@@ -461,6 +533,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 9;
+                    nodeSSRooms.changePosition(325);
                 })
                 .mount(nodeSSRooms);
 
@@ -473,6 +547,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-325, -1042, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 10;
+                    nodeSSRooms.changePosition(-325);
                 })
                 .mount(nodeSSRooms);
 
@@ -485,6 +561,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-225, -1042, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 10;
+                    nodeSSRooms.changePosition(-225);
                 })
                 .mount(nodeSSRooms);
 
@@ -506,6 +584,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(225, -1042, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 10;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
@@ -518,6 +598,8 @@ var Rooms = IgeEntity.extend({
                 .translateTo(325, -1042, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 10;
+                    nodeSSRooms.changePosition(325);
                 })
                 .mount(nodeSSRooms);
 
@@ -531,6 +613,8 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 11;
+                    nodeSSRooms.changePosition(-225);
                 })
                 .mount(nodeSSRooms);
 
@@ -553,18 +637,22 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
+                    ige.client.obj[7].currentHeading = 11;
+                    nodeSSRooms.changePosition(225);
                 })
                 .mount(nodeSSRooms);
 
             // Create Bureau on Slot 12.1
             nodeSSRooms.obj[18] = new GameElement()
-                .id('bureau101')
+                .id('bureau121')
                 .width(70)
                 .height(84)
                 .texture(gameTexture[4])
                 .translateTo(-325, -1242, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
+                    ige.client.obj[7].currentHeading = 12;
+                    nodeSSRooms.changePosition(-325);
                 })
                 .mount(nodeSSRooms);
 

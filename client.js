@@ -95,7 +95,7 @@ var Client = IgeClass.extend({
 
                     // Create couch scene
                     ige.client.obj[8] = new GameElement()
-                        .id('tv')
+                        .id('couch')
                         .depth(1)
                         .width(300)
                         .height(150)
@@ -190,7 +190,7 @@ var Client = IgeClass.extend({
                         case 6:
                             ige.client.obj[7].elevatorHeading = ige.client.obj[7].currentHeading;
                             ige.client.obj[7].startHeading = 1;
-
+                            // set the count for the next animation
                             ige.client.obj[7].count = 450;
                             ige.client.obj[7].changeFloor++;
                             break;

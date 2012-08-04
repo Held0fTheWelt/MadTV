@@ -589,7 +589,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp21
             nodeSS.obj[36] = new GameElement()
-                .id('lamp21')
+                .id('lamp31')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -599,7 +599,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp22
             nodeSS.obj[37] = new GameElement()
-                .id('lamp22')
+                .id('lamp32')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -609,7 +609,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp31
             nodeSS.obj[38] = new GameElement()
-                .id('lamp31')
+                .id('lamp41')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -619,7 +619,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp32
             nodeSS.obj[39] = new GameElement()
-                .id('lamp32')
+                .id('lamp42')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -629,7 +629,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp41
             nodeSS.obj[40] = new GameElement()
-                .id('lamp41')
+                .id('lamp51')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -639,7 +639,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp42
             nodeSS.obj[41] = new GameElement()
-                .id('lamp42')
+                .id('lamp52')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -649,7 +649,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp51
             nodeSS.obj[42] = new GameElement()
-                .id('lamp51')
+                .id('lamp61')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -659,7 +659,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp52
             nodeSS.obj[43] = new GameElement()
-                .id('lamp52')
+                .id('lamp62')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -669,7 +669,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp61
             nodeSS.obj[44] = new GameElement()
-                .id('lamp61')
+                .id('lamp71')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -679,7 +679,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp62
             nodeSS.obj[45] = new GameElement()
-                .id('lamp62')
+                .id('lamp72')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -689,7 +689,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp71
             nodeSS.obj[46] = new GameElement()
-                .id('lamp71')
+                .id('lamp81')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -699,7 +699,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp72
             nodeSS.obj[47] = new GameElement()
-                .id('lamp72')
+                .id('lamp82')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -709,7 +709,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp81
             nodeSS.obj[48] = new GameElement()
-                .id('lamp81')
+                .id('lamp91')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -719,7 +719,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp82
             nodeSS.obj[49] = new GameElement()
-                .id('lamp82')
+                .id('lamp92')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -729,7 +729,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp91
             nodeSS.obj[50] = new GameElement()
-                .id('lamp91')
+                .id('lamp101')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -739,7 +739,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp92
             nodeSS.obj[51] = new GameElement()
-                .id('lamp92')
+                .id('lamp102')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -749,7 +749,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp101
             nodeSS.obj[52] = new GameElement()
-                .id('lamp101')
+                .id('lamp111')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -759,7 +759,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp1102
             nodeSS.obj[53] = new GameElement()
-                .id('lamp102')
+                .id('lamp112')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -769,7 +769,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp111
             nodeSS.obj[54] = new GameElement()
-                .id('lamp111')
+                .id('lamp121')
                 .depth(2)
                 .width(65)
                 .height(25)
@@ -779,7 +779,7 @@ var Skyscraper = IgeEntity.extend({
 
             // Create lamp112
             nodeSS.obj[55] = new GameElement()
-                .id('lamp112')
+                .id('lamp122')
                 .depth(2)
                 .width(65)
                 .height(25)
