@@ -128,7 +128,10 @@ var Client = IgeClass.extend({
                         .texture(gameTexture[3])
                         .translateTo(0, -140, 0)
                         .mouseUp(function (event) {
-                            console.log(event.button);
+                          //  console.log(event.button);
+                            ige.$('statemachine').targetDoor = "none";
+                            ige.$('roomscene').unMount();
+                            ige.$('skyscraperscene').mount(ige.$('gamescene'));
                         })
                         .mount(ige.$('roomscene'));
 
