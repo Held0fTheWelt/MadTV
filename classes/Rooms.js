@@ -43,7 +43,7 @@ var Rooms = IgeEntity.extend({
                     this.texture(gameTexture[9])
                         .height(90)
                         .translateTo(-300, -43, 0);
-                    ige.client.obj[10].changePosition(-285,0,this.id());
+                    ige.$('statemachine').changePosition(-285,0,this.id());
                 })
 
                 .mount(nodeSSRooms);
@@ -65,7 +65,7 @@ var Rooms = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .translateTo(300, -55, 0)
                 .mouseUp(function () {
-                    ige.client.obj[10].changePosition(300,0,this.id());
+                    ige.$('statemachine').changePosition(300,0,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -79,7 +79,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(-325,1,this.id());
+                    ige.$('statemachine').changePosition(-325,1,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -102,7 +102,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(325,1,this.id());
+                    ige.$('statemachine').changePosition(325,1,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -116,7 +116,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(-225,2,this.id());
+                    ige.$('statemachine').changePosition(-225,2,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -139,7 +139,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(225,2,this.id());
+                    ige.$('statemachine').changePosition(225,2,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -153,7 +153,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(325,2,this.id());
+                    ige.$('statemachine').changePosition(325,2,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -167,7 +167,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
-                    ige.client.obj[10].changePosition(-325,3,this.id());
+                    ige.$('statemachine').changePosition(-325,3,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -181,7 +181,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
-                    ige.client.obj[10].changePosition(-225,3,this.id());
+                    ige.$('statemachine').changePosition(-225,3,this.id());
                 })
 
                 .mount(nodeSSRooms);
@@ -205,7 +205,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                     .height(90);
-                    ige.client.obj[10].changePosition(325,3,this.id());
+                    ige.$('statemachine').changePosition(325,3,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -218,7 +218,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-325, -442, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(-325,4,this.id());
+                    ige.$('statemachine').changePosition(-325,4,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -231,7 +231,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-225, -442, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(-225,4,this.id());
+                    ige.$('statemachine').changePosition(-225,4,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -253,7 +253,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(225, -442, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(225,4,this.id());
+                    ige.$('statemachine').changePosition(225,4,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -266,7 +266,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(325, -442, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(325,4,this.id());
+                    ige.$('statemachine').changePosition(325,4,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -280,7 +280,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
-                    ige.client.obj[10].changePosition(-225,5,this.id());
+                    ige.$('statemachine').changePosition(-225,5,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -303,7 +303,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
-                    ige.client.obj[10].changePosition(225,5,this.id());
+                    ige.$('statemachine').changePosition(225,5,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -317,7 +317,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(-325,6,this.id());
+                    ige.$('statemachine').changePosition(-325,6,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -340,7 +340,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(325,6,this.id());
+                    ige.$('statemachine').changePosition(325,6,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -353,7 +353,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-325, -742, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(-325,7,this.id());
+                    ige.$('statemachine').changePosition(-325,7,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -366,7 +366,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-225, -742, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(-225,7,this.id());
+                    ige.$('statemachine').changePosition(-225,7,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -388,7 +388,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(225, -742, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(225,7,this.id());
+                    ige.$('statemachine').changePosition(225,7,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -401,7 +401,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(325, -742, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(325,7,this.id());
+                    ige.$('statemachine').changePosition(325,7,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -415,7 +415,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(225,8,this.id());
+                    ige.$('statemachine').changePosition(225,8,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -438,7 +438,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(225,8,this.id());
+                    ige.$('statemachine').changePosition(225,8,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -452,7 +452,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
-                    ige.client.obj[10].changePosition(-325,9,this.id());
+                    ige.$('statemachine').changePosition(-325,9,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -475,7 +475,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
-                    ige.client.obj[10].changePosition(225,9,this.id());
+                    ige.$('statemachine').changePosition(225,9,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -489,7 +489,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[7])
                         .height(90);
-                    ige.client.obj[10].changePosition(325,9,this.id());
+                    ige.$('statemachine').changePosition(325,9,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -502,7 +502,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-325, -1042, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(-325,10,this.id());
+                    ige.$('statemachine').changePosition(-325,10,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -515,7 +515,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-225, -1042, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(-225,10,this.id());
+                    ige.$('statemachine').changePosition(-225,10,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -537,7 +537,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(225, -1042, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(225,10,this.id());
+                    ige.$('statemachine').changePosition(225,10,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -550,7 +550,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(325, -1042, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(325,10,this.id());
+                    ige.$('statemachine').changePosition(325,10,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -564,7 +564,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(-225,11,this.id());
+                    ige.$('statemachine').changePosition(-225,11,this.id());
                 })
                 .mount(nodeSSRooms);
 
@@ -587,7 +587,7 @@ var Rooms = IgeEntity.extend({
                 .mouseUp(function () {
                     this.texture(gameTexture[6])
                         .height(90);
-                    ige.client.obj[10].changePosition(225,11);
+                    ige.$('statemachine').changePosition(225,11);
                 })
                 .mount(nodeSSRooms);
 
@@ -600,7 +600,7 @@ var Rooms = IgeEntity.extend({
                 .translateTo(-325, -1242, 0)
                 .mouseUp(function () {
                     this.texture(gameTexture[8]);
-                    ige.client.obj[10].changePosition(-325,12,this.id());
+                    ige.$('statemachine').changePosition(-325,12,this.id());
                 })
                 .mount(nodeSSRooms);
 
