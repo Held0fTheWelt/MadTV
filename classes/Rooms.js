@@ -108,7 +108,7 @@ var Rooms = IgeEntity.extend({
 
             // Create Bureau on Slot 2.2
             nodeSSRooms.obj[4] = new GameElement()
-                .id('bureau22')
+                .id('casino')
                 .width(43)
                 .height(80)
                 .texture(gameTexture[2])
@@ -224,7 +224,7 @@ var Rooms = IgeEntity.extend({
 
             // Create Bureau on Slot 4.2
             nodeSSRooms.obj[11] = new GameElement()
-                .id('bureau42')
+                .id('news1')
                 .width(70)
                 .height(84)
                 .texture(gameTexture[4])
@@ -359,7 +359,7 @@ var Rooms = IgeEntity.extend({
 
             // Create Bureau on Slot 7.2
             nodeSSRooms.obj[19] = new GameElement()
-                .id('bureau72')
+                .id('news2')
                 .width(70)
                 .height(84)
                 .texture(gameTexture[4])
@@ -508,7 +508,7 @@ var Rooms = IgeEntity.extend({
 
             // Create Bureau on Slot 10.2
             nodeSSRooms.obj[19] = new GameElement()
-                .id('bureau102')
+                .id('news3')
                 .width(70)
                 .height(84)
                 .texture(gameTexture[4])

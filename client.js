@@ -41,6 +41,9 @@ var Client = IgeClass.extend({
         gameTexture[1] = new IgeTexture('assets/textures/bottoms/bottomLeft.jpg');
         gameTexture[2] = new IgeTexture('assets/textures/bottoms/bottomRight.jpg');
         gameTexture[3] = new IgeTexture('assets/textures/underconstruction.png');
+        gameTexture[4] = new IgeTexture('assets/textures/rooms/lobby.jpg');
+        gameTexture[5] = new IgeTexture('assets/textures/rooms/casino.jpg');
+        gameTexture[6] = new IgeTexture('assets/textures/rooms/information_center.jpg');
 
 		// Wait for our textures to load before continuing
 		ige.on('texturesLoaded', function () {
@@ -121,7 +124,7 @@ var Client = IgeClass.extend({
 
                     // under construction element
                     ige.client.obj[12] = new GameElement()
-                        .id('underconst')
+                        .id('room')
                         .depth(0)
                         .width(1280)
                         .height(1024)
@@ -314,14 +317,36 @@ var Client = IgeClass.extend({
                         && translate.y()-49 == ige.$('lobby').translate().y()){
                         ige.$('statemachine').targetDoor = "none";
                         ige.$('skyscraperscene').unMount();
+                        ige.$('room').texture(gameTexture[4]);
                         ige.$('roomscene').mount(ige.$('gamescene'));
                     }
                 }else if(ige.$('statemachine').targetDoor == "signboard") {
                     translate = ige.$('character').translate();
                     if(translate.x() == ige.$(ige.$('statemachine').targetDoor).translate().x()
-                    && translate.y()-61 == ige.$(ige.$('statemachine').targetDoor).translate().y()){
+                        && translate.y()-61 == ige.$(ige.$('statemachine').targetDoor).translate().y()){
                         ige.$('statemachine').targetDoor = "none";
                         ige.$('skyscraperscene').unMount();
+                        ige.$('room').texture(gameTexture[3]);
+                        ige.$('roomscene').mount(ige.$('gamescene'));
+                    }
+                }else if(ige.$('statemachine').targetDoor == "news1"
+                    || ige.$('statemachine').targetDoor == "news2"
+                    || ige.$('statemachine').targetDoor == "news3"){
+                    translate = ige.$('character').translate();
+                    if(translate.x() == ige.$(ige.$('statemachine').targetDoor).translate().x()
+                        && translate.y()-48 == ige.$(ige.$('statemachine').targetDoor).translate().y()){
+                        ige.$('statemachine').targetDoor = "none";
+                        ige.$('skyscraperscene').unMount();
+                        ige.$('room').texture(gameTexture[6]);
+                        ige.$('roomscene').mount(ige.$('gamescene'));
+                    }
+                }else if(ige.$('statemachine').targetDoor == "casino") {
+                    translate = ige.$('character').translate();
+                    if(translate.x() == ige.$(ige.$('statemachine').targetDoor).translate().x()
+                        && translate.y()-48 == ige.$(ige.$('statemachine').targetDoor).translate().y()){
+                        ige.$('statemachine').targetDoor = "none";
+                        ige.$('skyscraperscene').unMount();
+                        ige.$('room').texture(gameTexture[5]);
                         ige.$('roomscene').mount(ige.$('gamescene'));
                     }
                 }else {
@@ -331,6 +356,7 @@ var Client = IgeClass.extend({
                         ){
                         ige.$('statemachine').targetDoor = "none";
                         ige.$('skyscraperscene').unMount();
+                        ige.$('room').texture(gameTexture[3]);
                         ige.$('roomscene').mount(ige.$('gamescene'));
                     }
                 }
