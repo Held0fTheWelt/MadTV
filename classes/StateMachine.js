@@ -109,13 +109,13 @@ var StateMachine = IgeEntity.extend({
         stateMachine.targetDoor = door;
         console.log("")
         if(stateMachine.currentHeading == stateMachine.currentFloor){
-            ige.client.obj[5].obj[4].walkTo(
+            ige.$('character').walkTo(
                 stateMachine.targetX,
                 stateMachine.getCurrentHeight()+6
             );
         } else {
             //ige.client.obj[7].changeFloor=1;
-            ige.client.obj[5].obj[4].walkTo(
+            ige.$('character').walkTo(
                 0,
                 stateMachine.getCurrentHeight()+6
             );
@@ -213,10 +213,6 @@ var StateMachine = IgeEntity.extend({
                 break;
             case 12: return -65;
                 break;
-/*            case 11: return -57.5;
-                break;
-            case 12: return -50;
-                break;*/
         }
     }
     ,
@@ -249,10 +245,6 @@ var StateMachine = IgeEntity.extend({
                 break;
             case 12: return 1060;
                 break;
-/*            case 11: return 1135;
-                break;
-            case 12: return 1210;
-                break;*/
         }
     }
 });

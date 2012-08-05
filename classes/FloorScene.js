@@ -43,7 +43,7 @@ var FloorScene = IgeEntity.extend({
                 .texture(gameTexture[0])
                 .width(75)
                 .height(89)
-                .mount(floorscene.obj[0]);
+                .mount(ige.$('cart'));
 
 
             // @Todo use Character instead of CharacterMonk
