@@ -32,7 +32,8 @@ var FloorScene = IgeEntity.extend({
                 .texture(gameTexture[1])
                 .mount(floorscene);
             // create the elevators doors
-            floorscene.obj[1] = new GameElement();
+            floorscene.obj[1] = new GameElement()
+                .id('elevator');
             // Setup the entity
             floorscene.obj[1].addComponent(IgeAnimationComponent)
                 .animation.define('open', [1, 2, 3, 4], 8, -1)
@@ -55,7 +56,8 @@ var FloorScene = IgeEntity.extend({
 
 
             // Our Character Monk
-            floorscene.obj[4] =  new CharacterMonk();
+            floorscene.obj[4] =  new CharacterMonk()
+                .id("character");
 
             floorscene.obj[4].addComponent(IgeAnimationComponent)
                 .addComponent(IgeVelocityComponent)
