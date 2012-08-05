@@ -82,6 +82,8 @@ var StateMachine = IgeEntity.extend({
         });
         // Just some standards
         /** This is the floor we are currently in*/
+        stateMachine.targetDoor = "none";
+        /** This is the floor we are currently in*/
         stateMachine.currentFloor = 0;
         /** This is the Floor the Elevator currently is*/
         stateMachine.elevatorsFloor = 0;
@@ -100,22 +102,24 @@ var StateMachine = IgeEntity.extend({
         /** The State which handles changing the floor correctly*/
         stateMachine.changeFloor = 0;
     },
-    changePosition: function (target, heading) {
-        ige.client.obj[7].targetX = target;
-        ige.client.obj[7].currentHeading = heading;
-
-        if(ige.client.obj[7].currentHeading == ige.client.obj[7].currentFloor){
-            ige.client.obj[3].obj[4].walkTo(
-                ige.client.obj[7].targetX,
-                ige.client.obj[7].getCurrentHeight()+6
+    changePosition: function (target, heading, door) {
+        var stateMachine = this;
+        stateMachine.targetX = target;
+        stateMachine.currentHeading = heading;
+        stateMachine.targetDoor = door;
+        console.log("")
+        if(stateMachine.currentHeading == stateMachine.currentFloor){
+            ige.client.obj[5].obj[4].walkTo(
+                stateMachine.targetX,
+                stateMachine.getCurrentHeight()+6
             );
         } else {
             //ige.client.obj[7].changeFloor=1;
-            ige.client.obj[3].obj[4].walkTo(
+            ige.client.obj[5].obj[4].walkTo(
                 0,
-                ige.client.obj[7].getCurrentHeight()+6
+                stateMachine.getCurrentHeight()+6
             );
-            ige.client.obj[7].changeFloor = 1;
+            stateMachine.changeFloor = 1;
         }
     },
     getCurrentHeight: function(){
